@@ -1,5 +1,5 @@
 {
-  "name": "plantjs",
+  "name": "skeidjs",
   "version": "1.0.0",
   "description": "A lightweight rest service framework",
   "main": "target/index.js",
@@ -21,14 +21,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nilsroesel/plantjs"
+    "url": "https://github.com/nilsroesel/skeidjs"
   },
   "author": "Nils Rösel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nilsroesel/plantjs/issues"
+    "url": "https://github.com/nilsroesel/skeidjs/issues"
   },
-  "homepage": "https://github.com/nilsroesel/plantjs/wiki",
+  "homepage": "https://github.com/nilsroesel/skeidjs/wiki",
   "devDependencies": {
     "@types/node": "^10.1.2",
     "gulp": "^3.9.1",
