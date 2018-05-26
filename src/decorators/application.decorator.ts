@@ -8,9 +8,9 @@ export function Application(config: ApplicationConfig) {
         const router: Router = new Router();
         config.components.forEach(Component => {
             const component = new Component();
-            if (component['plantjs']) {
-                (component['plantjs'] as Array<SubComponent>).forEach(subComponent => {
-                    router.set((component['plantJsComponentRoute'] as string || '').concat(subComponent.route).replace(/\/\//g, '/'),
+            if (component['skeidjs']) {
+                (component['skeidjs'] as Array<SubComponent>).forEach(subComponent => {
+                    router.set((component['skeidjsComponentRoute'] as string || '').concat(subComponent.route).replace(/\/\//g, '/'),
                         (subComponent.function as HandlerFn));
                 });
             }
