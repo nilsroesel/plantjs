@@ -1,5 +1,5 @@
 {
-  "name": "plants",
+  "name": "plantjs",
   "version": "1.0.0",
   "description": "A lightweight rest service framework",
   "main": "target/index.js",
@@ -21,14 +21,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nilsroesel/plants"
+    "url": "https://github.com/nilsroesel/plantjs"
   },
   "author": "Nils Rösel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nilsroesel/plants/issues"
+    "url": "https://github.com/nilsroesel/plantjs/issues"
   },
-  "homepage": "https://github.com/nilsroesel/plants/wiki",
+  "homepage": "https://github.com/nilsroesel/plantjs/wiki",
   "devDependencies": {
     "@types/node": "^10.1.2",
     "gulp": "^3.9.1",

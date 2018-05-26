@@ -1,4 +1,4 @@
-# plants
+# plantjs
 
 ## About
 planTs is a lightweight typescript based framework for creating restful apis.  
