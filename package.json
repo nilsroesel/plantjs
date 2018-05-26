@@ -1,0 +1,40 @@
+{
+  "name": "plants",
+  "version": "1.0.0",
+  "description": "A lightweight rest service framework",
+  "main": "target/index.js",
+  "types": "target/index.d.ts",
+  "scripts": {
+    "test": "test",
+    "build": "gulp",
+    "playground": "nodemon target/playground.js"
+  },
+  "keywords": [
+    "rest",
+    "node",
+    "http",
+    "restful",
+    "declarative",
+    "javascript",
+    "typescript",
+    "decorators"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nilsroesel/plants"
+  },
+  "author": "Nils Rösel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nilsroesel/plants/issues"
+  },
+  "homepage": "https://github.com/nilsroesel/plants/wiki",
+  "devDependencies": {
+    "@types/node": "^10.1.2",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^4.0.2",
+    "nodemon": "^1.17.3",
+    "typedoc": "^0.11.1",
+    "typescript": "^2.8.3"
+  }
+}
