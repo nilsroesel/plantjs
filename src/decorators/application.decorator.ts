@@ -1,17 +1,22 @@
 import * as http from 'http';
 import { IncomingMessage, ServerResponse } from 'http';
-import { ApplicationConfig, HandlerFn, Request, Response, Router, Route } from '../index';
-import { SubComponent } from './endpoint.decorator';
+import { ApplicationConfig, HandlerFn, Injector, Request, Response, Router, Route, EndpointHandler } from '../index';
 
 export function Application(config: ApplicationConfig) {
     return <T extends { new(...args: any[]): {} }>(constructor: T) => {
         const router: Router = new Router();
         config.components.forEach(Component => {
-            const component = new Component();
+            // Instantiate via singletone -> dependency injector
+            const component = Injector.resolve(Component);
             if (component['skeidjs']) {
-                (component['skeidjs'] as Array<SubComponent>).forEach(subComponent => {
-                    router.set((component['skeidjsComponentRoute'] as string || '').concat(subComponent.route).replace(/\/\//g, '/'),
-                        (subComponent.function as HandlerFn));
+                (component['skeidjs'] as Array<EndpointHandler>).forEach(subComponent => {
+                    const endpointWithInjectedDependencies: EndpointHandler = {
+                        functionInstance: component,
+                        functionKey: subComponent.functionKey,
+                        route: subComponent.route
+                    };
+                    const route = (component['skeidjsComponentRoute'] as string || '').concat(subComponent.route).replace(/\/\//g, '/');
+                    router.set(route, endpointWithInjectedDependencies);
                 });
             }
         });
@@ -20,7 +25,7 @@ export function Application(config: ApplicationConfig) {
             route.then(route => {
                 response.setHeader('Content-Type', config.contentType);
                 Request.readRequestBody(request).then(body => {
-                    route.handlerFn(new Request(request, body, route.params), new Response(response));
+                    route.call(new Request(request, body, route.params), new Response(response));
                     if (!response.finished) response.end();
                 }).catch(e => {});
             }).catch(reason => {

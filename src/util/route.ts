@@ -1,9 +1,15 @@
+import { Request, Response } from '../index';
+
 export class Route {
-    readonly handlerFn: Function;
+    readonly functionInstance: Object;
+    readonly functionKey: string;
     readonly params: Object;
 
-    constructor(handlerFn: Function, params: Object) {
-        this.handlerFn = handlerFn;
+    constructor(functionInstance: Object, functionKey: string, params: Object) {
+        this.functionInstance = functionInstance;
+        this.functionKey = functionKey;
         this.params = params;
     }
+
+    call(request: Request, response: Response): void { this.functionInstance[this.functionKey](request, response); }
 }
