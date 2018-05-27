@@ -24,6 +24,16 @@ class TestComponent {
     constructor(public foo: TestInjectable) { }
 
     @Endpoint('/foo/:id')
+    test1(request: Request, response: Response) {
+        this.foo.doStuff('foo');
+        //console.log(this);
+        response
+            .status(200)
+            .json({foo: 'bar'})
+            .send();
+    }
+
+    @Endpoint('/foo/:id')
     test2(request: Request, response: Response) {
         this.foo.doStuff('foo');
         //console.log(this);
@@ -32,6 +42,26 @@ class TestComponent {
             .json({foo: 'bar'})
             .send();
     }
+
+    @Endpoint('/foo2/:id')
+    test3(request: Request, response: Response) {
+        this.foo.doStuff('foo');
+        //console.log(this);
+        response
+            .status(200)
+            .json({foo: 'bar'})
+            .send();
+    }
+
+    /*@Endpoint('/foo/:id')
+    test4(request: Request, response: string) {
+        this.foo.doStuff('foo');
+        //console.log(this);
+        response
+            .status(200)
+            .json({foo: 'bar'})
+            .send();
+    }*/
 }
 
 @Application({
