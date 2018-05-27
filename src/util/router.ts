@@ -1,4 +1,3 @@
-import { HandlerFn } from '../interfaces/types';
 import { Route } from './route'
 import { EndpointHandler } from '../decorators';
 
@@ -42,13 +41,15 @@ export class Router {
                     .replace(/\/$/, '') // Solves '/foo/bar' !== '/foo/bar/'
                     .concat('\/*$');
                 if (new RegExp(regExString).test(url)) resolve(new Route(val.functionInstance, val.functionKey, Router.readParamsFromUrl(url, key, regExString)));
-                else reject(Router.NO_SUCH_ROUTE);
             });
+            reject(Router.NO_SUCH_ROUTE);
         });
     }
 
     set(key: string, value: EndpointHandler): void { this.routeMap.set(key, value); }
 
     get(key: string): EndpointHandler { return this.routeMap.get(key); }
+
+    has(key: string): boolean { return this.routeMap.has(key); }
 
 }
