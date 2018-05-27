@@ -1,11 +1,11 @@
-import { HandlerFn } from '../interfaces/handler-functions';
 import { Route } from './route'
+import { EndpointHandler } from '../decorators';
 
 export class Router {
 
     static readonly NO_SUCH_ROUTE = 'NO_SUCH_ROUTE';
 
-    private routeMap: Map<string, HandlerFn>;
+    private routeMap: Map<string, EndpointHandler>;
 
     constructor() { this.routeMap = new Map(); }
 
@@ -25,7 +25,7 @@ export class Router {
 
     getRouteFromUrl(url: string): Promise<Route> {
         return new Promise<Route>((resolve, reject) => {
-            this.routeMap.forEach((val: HandlerFn, key: string) => {
+            this.routeMap.forEach((val: EndpointHandler, key: string) => {
                 // Transform route into a regex to match url
                 const regExString = key
                 // Escape all common regex tokens
@@ -40,14 +40,16 @@ export class Router {
                     .replace(/:[^\/]*/g, '([^\/]+)') // Params are any value
                     .replace(/\/$/, '') // Solves '/foo/bar' !== '/foo/bar/'
                     .concat('\/*$');
-                if (new RegExp(regExString).test(url)) resolve(new Route(val, Router.readParamsFromUrl(url, key, regExString)));
-                else reject(Router.NO_SUCH_ROUTE);
+                if (new RegExp(regExString).test(url)) resolve(new Route(val.functionInstance, val.functionKey, Router.readParamsFromUrl(url, key, regExString)));
             });
+            reject(Router.NO_SUCH_ROUTE);
         });
     }
 
-    set(key: string, value: HandlerFn): void { this.routeMap.set(key, value); }
+    set(key: string, value: EndpointHandler): void { this.routeMap.set(key, value); }
 
-    get(key: string): HandlerFn { return this.routeMap.get(key); }
+    get(key: string): EndpointHandler { return this.routeMap.get(key); }
+
+    has(key: string): boolean { return this.routeMap.has(key); }
 
 }
