@@ -3,17 +3,30 @@ import { Endpoint } from './decorators/endpoint.decorator';
 import { Component } from './decorators/component.decorator';
 import { Response } from './util/wrapper/response.wrapper';
 import { Request } from './util/wrapper/request.wrapper';
+import { Injectable } from './decorators/injectable.decorator';
+import { Injector } from './util';
+
+@Injectable()
+class TestInjectable {
+    private bar;
+
+    constructor() {
+        this.bar = 'bar'
+    }
+
+    doStuff(logger?: string) { console.log(logger || 'I am from an injectable')}
+}
 
 @Component({
     route: '/api'
 })
 class TestComponent {
-    constructor() { }
+    constructor(public foo: TestInjectable) { }
 
     @Endpoint('/foo/:id')
     test2(request: Request, response: Response) {
-        console.log('body:', request.body);
-        console.log('params:', request.params);
+        this.foo.doStuff('foo');
+        //console.log(this);
         response
             .status(200)
             .json({foo: 'bar'})
@@ -34,6 +47,7 @@ class TestComponent {
 class Test {
 
 }
+
 
 
 

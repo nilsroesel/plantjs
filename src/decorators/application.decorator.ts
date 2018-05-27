@@ -1,6 +1,6 @@
 import * as http from 'http';
 import { IncomingMessage, ServerResponse } from 'http';
-import { ApplicationConfig, HandlerFn, Injector, Request, Response, Router, Route, EndpointHandler } from '../index';
+import { ApplicationConfig, Injector, Request, Response, Router, Route, EndpointHandler } from '../index';
 
 export function Application(config: ApplicationConfig) {
     return <T extends { new(...args: any[]): {} }>(constructor: T) => {
@@ -16,6 +16,7 @@ export function Application(config: ApplicationConfig) {
                         route: subComponent.route
                     };
                     const route = (component['skeidjsComponentRoute'] as string || '').concat(subComponent.route).replace(/\/\//g, '/');
+                    if (router.has(route)) console.warn(`Found duplicated route '${route}'. Route was overridden`);
                     router.set(route, endpointWithInjectedDependencies);
                 });
             }
