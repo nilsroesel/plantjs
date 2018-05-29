@@ -1,6 +1,6 @@
-import { HandlerFn } from '../index';
+import { Middleware } from './index';
 
 export interface ComponentConfig {
     route?: string;
-    middleware?: Array<HandlerFn>;
+    middleware?: Middleware;
 }
