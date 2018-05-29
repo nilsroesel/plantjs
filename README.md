@@ -13,6 +13,7 @@ decorators it could also work with plain js)
 
 
 ## Functionality notes
+[See full doc at](https://nilsroesel.github.io/skeidjs/)
 
 ### Middleware evaluation
 The evaluation of middleware function goes as it follows:
