@@ -1,6 +1,35 @@
 import 'reflect-metadata';
 import { EndpointConfig, Middleware, Request, Response } from '../index';
 
+/**
+ * Property Decorator Function
+ *
+ * Creates an endpoint of a function
+ * The decorated function need the following index signature otherwise it will throw an error
+ * (request: Request, response: Response, next?: Function) (also an indexsignature fore middlewares)
+ * If you pass the next-function and call it, it will get the next function from the route middlewares
+ * and abort the current execution
+ * @returns
+ *
+ * @example
+ * ```typescript
+ *
+ *   @Component({route: '/api'})
+ *   class Test {
+ *
+ *      @Endpoint({
+ *          route: '/foo'
+ *          middleware: [(request: request) => request.params['foo'] = foo; ]
+ *      )
+ *      foo(request: Request, response: Response) {
+ *          response
+ *           .status(200)
+ *           .json(request.params.foo)
+ *           .send();
+ *      }
+ *   }
+ * ```
+ * **/
 export function Endpoint(config: EndpointConfig) {
     const middleware = config.middleware || [];
     return (target: Object, key: string) => {

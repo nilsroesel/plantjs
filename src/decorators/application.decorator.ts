@@ -2,6 +2,29 @@ import * as http from 'http';
 import { IncomingMessage, ServerResponse } from 'http';
 import { ApplicationConfig, Injector, Middleware, Request, Response, Router, Route, EndpointHandler } from '../index';
 
+/**
+ * Class Decorator Function
+ *
+ * Creates a runner upon a class. No need to create an object and to serve manually
+ * @returns
+ *
+ * @example
+ * ```typescript
+ *
+ *   @Application({
+ *      contentType: 'application/json',
+ *      server: {
+ *          port: 3000,
+ *          maxConnections: 10,
+ *          timeout: 500,
+ *          keepAliveTimeout: 500
+ *      },
+ *      components: [TestComponent],
+ *      middleware: [(request: Request, response: Response) => { }]
+ *   })
+ *   class Test {}
+ * ```
+ * **/
 export function Application(config: ApplicationConfig) {
     const applicationMiddleWare: Middleware = config.middleware || [];
     return <T extends { new(...args: any[]): {} }>(constructor: T) => {
