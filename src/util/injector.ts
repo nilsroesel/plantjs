@@ -1,6 +1,9 @@
 import 'reflect-metadata'
 import { Instantiable } from '../index';
 
+/**
+ * @hidden
+ */
 export const Injector = new class {
 
     resolve<T>(instance: Instantiable<T>): T {

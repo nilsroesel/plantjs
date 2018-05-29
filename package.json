@@ -7,6 +7,7 @@
   "scripts": {
     "test": "test",
     "build": "gulp",
+    "typedoc": "typedoc --out ./docs/ ./src/ --ignoreCompilerErrors --name skeiðjs --hideGenerator --exclude **/playground.ts",
     "playground": "nodemon target/playground.js"
   },
   "keywords": [

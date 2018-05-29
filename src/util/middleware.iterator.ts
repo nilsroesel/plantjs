@@ -1,5 +1,8 @@
 import { ContextHandlerFn, Middleware, Request, Response } from '../index';
 
+/**
+ * @hidden
+ */
 export class MiddlewareIterator {
 
     static exec(middleware: Middleware, request: Request, response: Response) {

@@ -1,5 +1,8 @@
 import { EndpointHandler, Middleware, Route } from '../index'
 
+/**
+ * @hidden
+ */
 export class Router {
 
     static readonly NO_SUCH_ROUTE = 'NO_SUCH_ROUTE';

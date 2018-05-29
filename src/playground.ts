@@ -55,14 +55,13 @@ class TestComponent {
     }
 
     @Endpoint({
-        route: '/foo2/:id'
+        route: '/foo2/:id',
+        middleware: [(request: Request) => {request.params['test'] = {msg: 'I come from a middle..where?'}}]
     })
     test3(request: Request, response: Response) {
-        this.foo.doStuff('foo');
-        //console.log(this);
         response
             .status(200)
-            .json({foo: 'bar'})
+            .json(Object.assign({}, this.foo, (request.params as any).test))
             .send();
     }
 

@@ -1,5 +1,8 @@
 import { Request, Response, Middleware, MiddlewareIterator } from '../index';
 
+/**
+ * @hidden
+ */
 export class Route {
     readonly functionChain: Middleware;
     readonly params: Object;
