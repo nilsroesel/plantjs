@@ -1,3 +1,5 @@
+import { Middleware } from './index';
+
 export interface ApplicationConfig {
     contentType: string;
     server: {
@@ -6,6 +8,6 @@ export interface ApplicationConfig {
         timeout: number;
         keepAliveTimeout: number;
     }
-    providers?: Array<any>;
+    middleware?: Middleware;
     components?: Array<Function extends { new(...args: any[]): {} }>;
 }

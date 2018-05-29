@@ -18,32 +18,45 @@ class TestInjectable {
 }
 
 @Component({
-    route: '/api'
+    route: '/api',
+    middleware: [
+        (request: Request, response: Response) => { console.log('Iam a Component Scope Middleware')}
+    ]
 })
 class TestComponent {
     constructor(public foo: TestInjectable) { }
 
-    @Endpoint('/foo/:id')
+    @Endpoint({
+        route: '/foo/:id'
+    })
     test1(request: Request, response: Response) {
-        this.foo.doStuff('foo');
-        //console.log(this);
         response
             .status(200)
             .json({foo: 'bar'})
             .send();
     }
 
-    @Endpoint('/foo/:id')
+    @Endpoint({
+        route: '/foo/:id',
+        middleware: [
+            (request: Request, response: Response, next: Function) => {
+                console.log(request.params);
+                next();
+                console.log('should be hidden');
+            },
+            (request: Request, response: Response) => { console.log('i should be displayed after the logged params')}
+        ]
+    })
     test2(request: Request, response: Response) {
-        this.foo.doStuff('foo');
-        //console.log(this);
         response
             .status(200)
             .json({foo: 'bar'})
             .send();
     }
 
-    @Endpoint('/foo2/:id')
+    @Endpoint({
+        route: '/foo2/:id'
+    })
     test3(request: Request, response: Response) {
         this.foo.doStuff('foo');
         //console.log(this);
@@ -72,15 +85,33 @@ class TestComponent {
         timeout: 500,
         keepAliveTimeout: 500
     },
-    components: [TestComponent]
+    components: [TestComponent],
+    middleware: [
+        (request: Request, response: Response) => { console.log('Iam a application Scope Middleware')}
+    ]
 })
 class Test {
 
 }
 
+/*/ Fn List workaround
+const fnArray: Array<Function> = [() => console.log(1), (req, res, next) =>{ console.log(2); next(); console.log(3)}, () => console.log(4)];
+const overriden: Array<Function> = fnArray
+    .map(fn => new Function('req', 'res', 'next',`(${fn.toString().replace(/next\w*\(\w*\)/,'return next()')})(req, res, next)`));
 
+const itr = overriden[Symbol.iterator]();
+let done = false;
+let updateItr = true;
 
+while(!done) {
+    const itrStep = nextIterator(itr);
+    //if(itrStep.value) itrStep.value('req', 'res', () => { nextIterator(itr)});
+    done = itrStep.done
+}
 
-
-
-
+function nextIterator(iterator: Iterator<Function>): IteratorResult<Function>{
+    const itrStep = itr.next();
+    if(itrStep.value) itrStep.value('req', 'res', () => { nextIterator(itr)});
+    return itrStep;
+}
+*/

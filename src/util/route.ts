@@ -1,15 +1,13 @@
-import { Request, Response } from '../index';
+import { Request, Response, Middleware, MiddlewareIterator } from '../index';
 
 export class Route {
-    readonly functionInstance: Object;
-    readonly functionKey: string;
+    readonly functionChain: Middleware;
     readonly params: Object;
 
-    constructor(functionInstance: Object, functionKey: string, params: Object) {
-        this.functionInstance = functionInstance;
-        this.functionKey = functionKey;
+    constructor(functionChain: Middleware, params: Object) {
+        this.functionChain = functionChain;
         this.params = params;
     }
 
-    call(request: Request, response: Response): void { this.functionInstance[this.functionKey](request, response); }
+    call(request: Request, response: Response): void { MiddlewareIterator.exec(this.functionChain, request, response); }
 }

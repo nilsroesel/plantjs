@@ -1,6 +1,6 @@
 import { Middleware } from './index';
 
-export interface ComponentConfig {
-    route?: string;
+export interface EndpointConfig {
+    route: string;
     middleware?: Middleware;
 }
