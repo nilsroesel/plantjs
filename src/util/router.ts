@@ -1,5 +1,4 @@
-import { Route } from './route'
-import { EndpointHandler } from '../decorators';
+import { EndpointHandler, Middleware, Route } from '../index'
 
 export class Router {
 
@@ -40,7 +39,11 @@ export class Router {
                     .replace(/:[^\/]*/g, '([^\/]+)') // Params are any value
                     .replace(/\/$/, '') // Solves '/foo/bar' !== '/foo/bar/'
                     .concat('\/*$');
-                if (new RegExp(regExString).test(url)) resolve(new Route(val.functionInstance, val.functionKey, Router.readParamsFromUrl(url, key, regExString)));
+                const functionChain: Middleware = val.middleware.concat({
+                    functionContextInstance: val.functionContextInstance,
+                    functionKey: val.functionKey
+                });
+                if (new RegExp(regExString).test(url)) resolve(new Route(functionChain, Router.readParamsFromUrl(url, key, regExString)));
             });
             reject(Router.NO_SUCH_ROUTE);
         });
