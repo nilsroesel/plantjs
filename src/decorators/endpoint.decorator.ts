@@ -1,36 +1,47 @@
 import 'reflect-metadata';
-import { Request, Response } from '../index';
+import { EndpointConfig, Middleware, Request, Response } from '../index';
 
-export function Endpoint(route?: string) {
-    function checkEndpointIndexSignature(target: Object, key: string) {
-        const types = Reflect.getMetadata('design:paramtypes', target, key) || [null, null];
-        if (types[0] !== Request || types[1] !== Response || types.length !== 2) {
-            const errorMessage = `Index signature of ${key}(${types.map(a => a.name).join()}) does not fit (req Request, res Response) => void`;
-            throw new Error(errorMessage);
-        }
-    }
+export function Endpoint(config: EndpointConfig) {
+    const middleware = config.middleware || [];
     return (target: Object, key: string) => {
-        checkEndpointIndexSignature(target, key);
+        checkHandlerFunctionIndexSignature(target, key);
         if (target['skeidjs'] && target['skeidjs'] instanceof Array) {
             (target['skeidjs'] as Array<EndpointHandler>).push({
-                functionInstance: target,
+                functionContextInstance: target,
                 functionKey: key,
-                route: route || ''
+                route: config.route || '',
+                middleware: middleware
             });
         }
         else {
             target['skeidjs'] = new Array<EndpointHandler>();
             (target['skeidjs'] as Array<EndpointHandler>).push({
-                functionInstance: target,
+                functionContextInstance: target,
                 functionKey: key,
-                route: route || ''
+                route: config.route || '',
+                middleware: middleware
             });
         }
     };
 }
 
 export interface EndpointHandler {
-    functionInstance: Object;
+    functionContextInstance: Object;
     functionKey: string;
     route: string;
+    middleware?: Middleware;
+}
+
+export function checkHandlerFunctionIndexSignature(target: Object, key: string) {
+    const types = Reflect.getMetadata('design:paramtypes', target, key) || [null, null];
+    if (types[0] !== Request || types[1] !== Response || types.length !== 2) {
+        const errorMessage = `Index signature of ${key}(${types.map(a => a.name).join()}) does not fit (req Request, res Response) => void`;
+        throw new Error(errorMessage);
+    }
+    if (types.length >= 3) {
+        if (types[0] === Function) {
+            const errorMessage = `Index signature of ${key}(${types.map(a => a.name).join()}) does not fit (req Request, res Response, next Function) => void`;
+            throw new Error(errorMessage);
+        }
+    }
 }
