@@ -1,10 +1,12 @@
-import { Application } from './decorators/application.decorator';
-import { Endpoint } from './decorators/endpoint.decorator';
-import { Component } from './decorators/component.decorator';
-import { Response } from './util/wrapper/response.wrapper';
-import { Request } from './util/wrapper/request.wrapper';
-import { Injectable } from './decorators/injectable.decorator';
-import { Injector } from './util';
+import {
+    Application,
+    Endpoint,
+    Component,
+    Response,
+    Request,
+    Injectable,
+
+} from './index'; // 'skeidjs'
 
 @Injectable()
 class TestInjectable {

@@ -1,4 +1,5 @@
-import { Request, Response, Middleware, MiddlewareIterator } from '../index';
+import { Request, Response, Middleware } from '../index';
+import { MiddlewareIterator } from '../internal.index';
 
 /**
  * @hidden

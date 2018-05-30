@@ -1,4 +1,5 @@
-import { EndpointHandler, Middleware, Route } from '../index'
+import { Middleware } from '../index';
+import { EndpointHandler, Route } from '../internal.index';
 
 /**
  * @hidden

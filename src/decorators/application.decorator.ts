@@ -1,6 +1,7 @@
 import * as http from 'http';
 import { IncomingMessage, ServerResponse } from 'http';
-import { ApplicationConfig, Injector, Middleware, Request, Response, Router, Route, EndpointHandler } from '../index';
+import { ApplicationConfig, Middleware, Request, Response } from '../index';
+import { Injector, Router, Route, EndpointHandler } from '../internal.index';
 
 /**
  * Class Decorator Function

@@ -1,3 +1,4 @@
-export * from './application.decorator';
-export * from './component.decorator';
-export * from './endpoint.decorator';
+export { Application } from './application.decorator';
+export { Component } from './component.decorator';
+export { Endpoint } from './endpoint.decorator';
+export { Injectable } from './injectable.decorator';
