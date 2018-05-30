@@ -1,5 +1,5 @@
 import 'reflect-metadata'
-import { Instantiable } from '../index';
+import { Instantiable } from '../internal.index';
 
 /**
  * @hidden

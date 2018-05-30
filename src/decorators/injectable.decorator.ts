@@ -1,4 +1,4 @@
-import { Instantiable, GenericClassDecorator } from '../index';
+import { Instantiable, GenericClassDecorator } from '../internal.index';
 
 /**
  * Class Decorator Function
