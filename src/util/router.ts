@@ -45,7 +45,7 @@ export class Router {
                     .concat('\/*$');
                 const functionChain: Middleware = val.middleware.concat({
                     functionContextInstance: val.functionContextInstance,
-                    functionKey: val.functionKey
+                    fn: val.fn
                 });
                 if (new RegExp(regExString).test(url)) resolve(new Route(functionChain, Router.readParamsFromUrl(url, key, regExString)));
             });

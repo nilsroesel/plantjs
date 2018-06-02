@@ -40,7 +40,7 @@ export function Application(config: ApplicationConfig) {
                         .concat(endpoint.middleware);
                     const endpointWithInjectedDependencies: EndpointHandler = {
                         functionContextInstance: component,
-                        functionKey: endpoint.functionKey,
+                        fn: endpoint.fn,
                         route: endpoint.route,
                         middleware: middleware
                     };

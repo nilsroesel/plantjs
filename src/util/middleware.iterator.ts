@@ -9,7 +9,11 @@ export class MiddlewareIterator {
 
         function nextIterator(iterator: Iterator<ContextHandlerFn>): IteratorResult<ContextHandlerFn> {
             const itrStep = iterator.next();
-            if (itrStep.value) itrStep.value.functionContextInstance[itrStep.value.functionKey](request, response, () => { nextIterator(iterator); });
+            if (itrStep.value) {
+                itrStep
+                    .value
+                    .fn(request, response, () => { nextIterator(iterator); });
+            }
             return itrStep;
         }
 
@@ -18,17 +22,19 @@ export class MiddlewareIterator {
                 if (typeof fn === 'function') {
                     return {
                         functionContextInstance: {caller: fn},
-                        functionKey: 'caller'
+                        fn
                     } as ContextHandlerFn;
                 }
                 else return fn as ContextHandlerFn;
-            }).map((fn: ContextHandlerFn) => {
-                const oldFunction = fn.functionContextInstance[fn.functionKey];
+            }).map((contextFn: ContextHandlerFn) => {
+                const oldFunction = contextFn.fn;
                 const newFunction = new Function('req', 'res', 'next',
-                    `(${oldFunction.toString().replace(/next\w*\(\w*\)/, 'return next()')})(req, res, next)`);
-                const newContextInstance = Object.assign({}, fn.functionContextInstance);
-                newContextInstance[fn.functionKey] = newFunction;
-                return {functionContextInstance: newContextInstance, functionKey: fn.functionKey} as ContextHandlerFn;
+                    `(${oldFunction.toString().replace(/next\w*\(\w*\)/, 'return next()')}).call(this, req, res, next)`)
+                    .bind(contextFn.functionContextInstance);
+                return {
+                    functionContextInstance: contextFn.functionContextInstance,
+                    fn: newFunction
+                } as ContextHandlerFn;
             });
 
         const itr = overridden[Symbol.iterator]();

@@ -37,7 +37,7 @@ export function Endpoint(config: EndpointConfig) {
         if (target['skeidjs'] && target['skeidjs'] instanceof Array) {
             (target['skeidjs'] as Array<EndpointHandler>).push({
                 functionContextInstance: target,
-                functionKey: key,
+                fn: target[key] as Function,
                 route: config.route || '',
                 middleware: middleware
             });
@@ -46,7 +46,7 @@ export function Endpoint(config: EndpointConfig) {
             target['skeidjs'] = new Array<EndpointHandler>();
             (target['skeidjs'] as Array<EndpointHandler>).push({
                 functionContextInstance: target,
-                functionKey: key,
+                fn: target[key] as Function,
                 route: config.route || '',
                 middleware: middleware
             });
@@ -56,7 +56,7 @@ export function Endpoint(config: EndpointConfig) {
 
 export interface EndpointHandler {
     functionContextInstance: Object;
-    functionKey: string;
+    fn: Function;
     route: string;
     middleware?: Middleware;
 }
