@@ -1,3 +1,6 @@
+/**
+ * @module Non-exported
+ */
 import { ContextHandlerFn, Middleware, Request, Response } from '../index';
 
 /**

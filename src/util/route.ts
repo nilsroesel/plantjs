@@ -1,3 +1,6 @@
+/**
+ * @module Non-exported
+ */
 import { Request, Response, Middleware } from '../index';
 import { MiddlewareIterator } from '../internal.index';
 

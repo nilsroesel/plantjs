@@ -1,3 +1,6 @@
+/**
+ * @module Http
+ */
 import { IncomingHttpHeaders, IncomingMessage } from 'http';
 
 export class Request {

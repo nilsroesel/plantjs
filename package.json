@@ -7,7 +7,7 @@
   "scripts": {
     "test": "test",
     "build": "gulp",
-    "typedoc": "typedoc --out ./docs/ ./src/ --ignoreCompilerErrors --name skeiðjs --hideGenerator --exclude **/**index.ts --json ./docs/docs.json --mode modules",
+    "typedoc": "typedoc --options typedoc.json ./src/ --plugin typedoc-plugin-external-module-name",
     "playground": "nodemon target/playground.js"
   },
   "keywords": [
@@ -36,6 +36,7 @@
     "gulp-typescript": "^4.0.2",
     "nodemon": "^1.17.3",
     "typedoc": "^0.11.1",
+    "typedoc-plugin-external-module-name": "^1.1.1",
     "typescript": "^2.8.3"
   },
   "dependencies": {

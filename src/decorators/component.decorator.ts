@@ -1,6 +1,10 @@
+/**
+ * @module Decorators
+ */
 import { ComponentConfig, Request, Response } from '../index';
 
 /**
+ *
  * Class Decorator Function
  *
  * A collection of endpoints. Every endpoints in this will apply the given metadata.

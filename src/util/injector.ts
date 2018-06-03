@@ -1,3 +1,6 @@
+/**
+ * @module Non-exported
+ */
 import 'reflect-metadata'
 import { Instantiable } from '../internal.index';
 
