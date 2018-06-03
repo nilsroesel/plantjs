@@ -1,9 +1,13 @@
+/**
+ * @module Decorators
+ */
 import * as http from 'http';
 import { IncomingMessage, ServerResponse } from 'http';
 import { ApplicationConfig, Middleware, Request, Response } from '../index';
 import { Injector, Router, Route, EndpointHandler } from '../internal.index';
 
 /**
+ *
  * Class Decorator Function
  *
  * Creates a runner upon a class. No need to create an object and to serve manually

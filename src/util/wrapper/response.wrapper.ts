@@ -1,3 +1,6 @@
+/**
+ * @module Http
+ */
 import { ServerResponse } from 'http';
 
 export class Response {

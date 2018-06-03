@@ -1,3 +1,6 @@
+/**
+ * @module Non-exported
+ */
 import {
     Application,
     Endpoint,

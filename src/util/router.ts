@@ -1,3 +1,6 @@
+/**
+ * @module Non-exported
+ */
 import { Middleware } from '../index';
 import { EndpointHandler, Route } from '../internal.index';
 

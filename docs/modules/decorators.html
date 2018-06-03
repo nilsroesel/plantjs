@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>&quot;decorators/endpoint.decorator&quot; | skeiðjs</title>
+    <title>Decorators | skeiðjs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -38,10 +38,6 @@
                             </div>
                             <input type="checkbox" id="tsd-filter-inherited" checked/>
                             <label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-                            <input type="checkbox" id="tsd-filter-externals" checked/>
-                            <label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-                            <input type="checkbox" id="tsd-filter-only-exported"/>
-                            <label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
                         </div>
                     </div>
                     <a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -56,10 +52,10 @@
                     <a href="../globals.html">Globals</a>
                 </li>
                 <li>
-                    <a href="_decorators_endpoint_decorator_.html">&quot;decorators/endpoint.decorator&quot;</a>
+                    <a href="decorators.html">Decorators</a>
                 </li>
             </ul>
-            <h1>External module &quot;decorators/endpoint.decorator&quot;</h1>
+            <h1>External module Decorators</h1>
         </div>
     </div>
 </header>
@@ -71,32 +67,16 @@
                 <section class="tsd-panel tsd-index-panel">
                     <div class="tsd-index-content">
                         <section class="tsd-index-section ">
-                            <h3>Interfaces</h3>
-                            <ul class="tsd-index-list">
-                                <li class="tsd-kind-interface tsd-parent-kind-external-module"><a
-                                        href="../interfaces/_decorators_endpoint_decorator_.endpointhandler.html"
-                                        class="tsd-kind-icon">Endpoint
-                                    <wbr>
-                                    Handler</a></li>
-                            </ul>
-                        </section>
-                        <section class="tsd-index-section ">
                             <h3>Functions</h3>
                             <ul class="tsd-index-list">
                                 <li class="tsd-kind-function tsd-parent-kind-external-module"><a
-                                        href="_decorators_endpoint_decorator_.html#endpoint" class="tsd-kind-icon">Endpoint</a>
-                                </li>
+                                        href="decorators.html#application" class="tsd-kind-icon">Application</a></li>
                                 <li class="tsd-kind-function tsd-parent-kind-external-module"><a
-                                        href="_decorators_endpoint_decorator_.html#checkhandlerfunctionindexsignature"
-                                        class="tsd-kind-icon">check
-                                    <wbr>
-                                    Handler
-                                    <wbr>
-                                    Function
-                                    <wbr>
-                                    Index
-                                    <wbr>
-                                    Signature</a></li>
+                                        href="decorators.html#component" class="tsd-kind-icon">Component</a></li>
+                                <li class="tsd-kind-function tsd-parent-kind-external-module"><a
+                                        href="decorators.html#endpoint" class="tsd-kind-icon">Endpoint</a></li>
+                                <li class="tsd-kind-function tsd-parent-kind-external-module"><a
+                                        href="decorators.html#injectable" class="tsd-kind-icon">Injectable</a></li>
                             </ul>
                         </section>
                     </div>
@@ -105,22 +85,128 @@
             <section class="tsd-panel-group tsd-member-group ">
                 <h2>Functions</h2>
                 <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-                    <a name="endpoint" class="tsd-anchor"></a>
-                    <h3>Endpoint</h3>
+                    <a name="application" class="tsd-anchor"></a>
+                    <h3>Application</h3>
                     <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-                        <li class="tsd-signature tsd-kind-icon">Endpoint<span class="tsd-signature-symbol">(</span>config<span
+                        <li class="tsd-signature tsd-kind-icon">Application<span class="tsd-signature-symbol">(</span>config<span
                                 class="tsd-signature-symbol">: </span><a
-                                href="../interfaces/_interfaces_endpoint_interface_.endpointconfig.html"
-                                class="tsd-signature-type">EndpointConfig</a><span class="tsd-signature-symbol">)</span><span
-                                class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span>
-                        </li>
+                                href="../interfaces/decorator_configs.applicationconfig.html"
+                                class="tsd-signature-type">ApplicationConfig</a><span
+                                class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span
+                                class="tsd-signature-type">(Anonymous function)</span></li>
                     </ul>
                     <ul class="tsd-descriptions">
                         <li class="tsd-description">
                             <aside class="tsd-sources">
                                 <ul>
                                     <li>Defined in <a
-                                            href="https://github.com/nilsroesel/plants/blob/523ba99/src/decorators/endpoint.decorator.ts#L33">decorators/endpoint.decorator.ts:33</a>
+                                            href="https://github.com/nilsroesel/plants/blob/2fa3827/src/decorators/application.decorator.ts#L33">decorators/application.decorator.ts:33</a>
+                                    </li>
+                                </ul>
+                            </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Class Decorator Function</p>
+                                </div>
+                                <p>Creates a runner upon a class. No need to create an object and to serve manually</p>
+                                <dl class="tsd-comment-tags">
+                                    <dt>example</dt>
+                                    <dd><pre><code class="lang-typescript">
+  <span class="hljs-meta">@Application</span>({
+     contentType: <span class="hljs-string">'application/json'</span>,
+     server: {
+         port: <span class="hljs-number">3000</span>,
+         maxConnections: <span class="hljs-number">10</span>,
+         timeout: <span class="hljs-number">500</span>,
+         keepAliveTimeout: <span class="hljs-number">500</span>
+     },
+     components: [TestComponent],
+     middleware: [<span class="hljs-function">(<span class="hljs-params">request: Request, response: Response</span>) =&gt;</span> { }]
+  })
+  <span class="hljs-keyword">class</span> Test {}
+</code></pre>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <h4 class="tsd-parameters-title">Parameters</h4>
+                            <ul class="tsd-parameters">
+                                <li>
+                                    <h5>config: <a href="../interfaces/decorator_configs.applicationconfig.html"
+                                                   class="tsd-signature-type">ApplicationConfig</a></h5>
+                                </li>
+                            </ul>
+                            <h4 class="tsd-returns-title">Returns <span
+                                    class="tsd-signature-type">(Anonymous function)</span></h4>
+                        </li>
+                    </ul>
+                </section>
+                <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+                    <a name="component" class="tsd-anchor"></a>
+                    <h3>Component</h3>
+                    <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+                        <li class="tsd-signature tsd-kind-icon">Component<span class="tsd-signature-symbol">(</span>conf<span
+                                class="tsd-signature-symbol">: </span><a
+                                href="../interfaces/decorator_configs.componentconfig.html" class="tsd-signature-type">ComponentConfig</a><span
+                                class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span
+                                class="tsd-signature-type">(Anonymous function)</span></li>
+                    </ul>
+                    <ul class="tsd-descriptions">
+                        <li class="tsd-description">
+                            <aside class="tsd-sources">
+                                <ul>
+                                    <li>Defined in <a
+                                            href="https://github.com/nilsroesel/plants/blob/2fa3827/src/decorators/component.decorator.ts#L25">decorators/component.decorator.ts:25</a>
+                                    </li>
+                                </ul>
+                            </aside>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Class Decorator Function</p>
+                                </div>
+                                <p>A collection of endpoints. Every endpoints in this will apply the given metadata.
+                                    Add the class Symbols to the application components array (similar to angular
+                                    module)
+                                    to apply them to an application</p>
+                                <dl class="tsd-comment-tags">
+                                    <dt>example</dt>
+                                    <dd><pre><code class="lang-typescript">
+  <span class="hljs-meta">@Component</span>({
+     route: <span class="hljs-string">'/api'</span>,
+     middleware: [<span class="hljs-function">(<span class="hljs-params">request: Request, response: Response</span>) =&gt;</span> { }]
+  })
+  <span class="hljs-keyword">class</span> Test {}
+</code></pre>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <h4 class="tsd-parameters-title">Parameters</h4>
+                            <ul class="tsd-parameters">
+                                <li>
+                                    <h5>conf: <a href="../interfaces/decorator_configs.componentconfig.html"
+                                                 class="tsd-signature-type">ComponentConfig</a></h5>
+                                </li>
+                            </ul>
+                            <h4 class="tsd-returns-title">Returns <span
+                                    class="tsd-signature-type">(Anonymous function)</span></h4>
+                        </li>
+                    </ul>
+                </section>
+                <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+                    <a name="endpoint" class="tsd-anchor"></a>
+                    <h3>Endpoint</h3>
+                    <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+                        <li class="tsd-signature tsd-kind-icon">Endpoint<span class="tsd-signature-symbol">(</span>config<span
+                                class="tsd-signature-symbol">: </span><a
+                                href="../interfaces/decorator_configs.endpointconfig.html" class="tsd-signature-type">EndpointConfig</a><span
+                                class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span
+                                class="tsd-signature-type">(Anonymous function)</span></li>
+                    </ul>
+                    <ul class="tsd-descriptions">
+                        <li class="tsd-description">
+                            <aside class="tsd-sources">
+                                <ul>
+                                    <li>Defined in <a
+                                            href="https://github.com/nilsroesel/plants/blob/2fa3827/src/decorators/endpoint.decorator.ts#L37">decorators/endpoint.decorator.ts:37</a>
                                     </li>
                                 </ul>
                             </aside>
@@ -161,9 +247,8 @@
                             <h4 class="tsd-parameters-title">Parameters</h4>
                             <ul class="tsd-parameters">
                                 <li>
-                                    <h5>config: <a
-                                            href="../interfaces/_interfaces_endpoint_interface_.endpointconfig.html"
-                                            class="tsd-signature-type">EndpointConfig</a></h5>
+                                    <h5>config: <a href="../interfaces/decorator_configs.endpointconfig.html"
+                                                   class="tsd-signature-type">EndpointConfig</a></h5>
                                 </li>
                             </ul>
                             <h4 class="tsd-returns-title">Returns <span
@@ -172,32 +257,16 @@
                     </ul>
                 </section>
                 <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-                    <a name="checkhandlerfunctionindexsignature" class="tsd-anchor"></a>
-                    <h3>check
-                        <wbr>
-                        Handler
-                        <wbr>
-                        Function
-                        <wbr>
-                        Index
-                        <wbr>
-                        Signature
-                    </h3>
+                    <a name="injectable" class="tsd-anchor"></a>
+                    <h3>Injectable</h3>
                     <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-                        <li class="tsd-signature tsd-kind-icon">check
-                            <wbr>
-                            Handler
-                            <wbr>
-                            Function
-                            <wbr>
-                            Index
-                            <wbr>
-                            Signature<span class="tsd-signature-symbol">(</span>target<span
-                                    class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>,
-                            key<span class="tsd-signature-symbol">: </span><span
-                                    class="tsd-signature-type">string</span><span
-                                    class="tsd-signature-symbol">)</span><span
-                                    class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span>
+                        <li class="tsd-signature tsd-kind-icon">Injectable<span
+                                class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span
+                                class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GenericClassDecorator</span><span
+                                class="tsd-signature-symbol">&lt;</span><span
+                                class="tsd-signature-type">Instantiable</span><span
+                                class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span
+                                class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>
                         </li>
                     </ul>
                     <ul class="tsd-descriptions">
@@ -205,20 +274,40 @@
                             <aside class="tsd-sources">
                                 <ul>
                                     <li>Defined in <a
-                                            href="https://github.com/nilsroesel/plants/blob/523ba99/src/decorators/endpoint.decorator.ts#L64">decorators/endpoint.decorator.ts:64</a>
+                                            href="https://github.com/nilsroesel/plants/blob/2fa3827/src/decorators/injectable.decorator.ts#L28">decorators/injectable.decorator.ts:28</a>
                                     </li>
                                 </ul>
                             </aside>
-                            <h4 class="tsd-parameters-title">Parameters</h4>
-                            <ul class="tsd-parameters">
-                                <li>
-                                    <h5>target: <span class="tsd-signature-type">Object</span></h5>
-                                </li>
-                                <li>
-                                    <h5>key: <span class="tsd-signature-type">string</span></h5>
-                                </li>
-                            </ul>
-                            <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+                            <div class="tsd-comment tsd-typography">
+                                <div class="lead">
+                                    <p>Class Decorator Function</p>
+                                </div>
+                                <p>Allows to inject dependencies into objects</p>
+                                <dl class="tsd-comment-tags">
+                                    <dt>example</dt>
+                                    <dd><pre><code class="lang-typescript">
+  <span class="hljs-meta">@Injectable</span>()
+  <span class="hljs-keyword">class</span> InjectedDependency {
+     <span class="hljs-keyword">public</span> foo = <span class="hljs-string">'foo'</span>
+  }
+
+  <span class="hljs-keyword">class</span> Target {
+     <span class="hljs-keyword">constructor</span> (<span class="hljs-params"><span class="hljs-keyword">private</span> foo: InjectedDependency</span>);
+
+     getFoosFoo(<span class="hljs-params"></span>) { <span class="hljs-keyword">return</span> <span
+                                            class="hljs-keyword">this</span>.foo.foo }
+  }
+</code></pre>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <h4 class="tsd-returns-title">Returns <span
+                                    class="tsd-signature-type">GenericClassDecorator</span><span
+                                    class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Instantiable</span><span
+                                    class="tsd-signature-symbol">&lt;</span><span
+                                    class="tsd-signature-type">any</span><span
+                                    class="tsd-signature-symbol">&gt;</span><span
+                                    class="tsd-signature-symbol">&gt;</span></h4>
                         </li>
                     </ul>
                 </section>
@@ -230,33 +319,41 @@
                     <li class="globals  ">
                         <a href="../globals.html"><em>Globals</em></a>
                     </li>
+                    <li class=" tsd-kind-external-module">
+                        <a href="decorator_configs.html">Decorator-
+                            <wbr>
+                            <wbr>
+                            Configs</a>
+                    </li>
                     <li class="current tsd-kind-external-module">
-                        <a href="_decorators_endpoint_decorator_.html">"decorators/endpoint.decorator"</a>
+                        <a href="decorators.html">Decorators</a>
+                    </li>
+                    <li class=" tsd-kind-external-module">
+                        <a href="http.html">Http</a>
+                    </li>
+                    <li class=" tsd-kind-external-module">
+                        <a href="non_exported.html">Non-
+                            <wbr>
+                            exported</a>
+                    </li>
+                    <li class=" tsd-kind-external-module">
+                        <a href="types.html">Types</a>
                     </li>
                 </ul>
             </nav>
             <nav class="tsd-navigation secondary menu-sticky">
                 <ul class="before-current">
-                    <li class=" tsd-kind-interface tsd-parent-kind-external-module">
-                        <a href="../interfaces/_decorators_endpoint_decorator_.endpointhandler.html"
-                           class="tsd-kind-icon">Endpoint
-                            <wbr>
-                            Handler</a>
+                    <li class=" tsd-kind-function tsd-parent-kind-external-module">
+                        <a href="decorators.html#application" class="tsd-kind-icon">Application</a>
                     </li>
                     <li class=" tsd-kind-function tsd-parent-kind-external-module">
-                        <a href="_decorators_endpoint_decorator_.html#endpoint" class="tsd-kind-icon">Endpoint</a>
+                        <a href="decorators.html#component" class="tsd-kind-icon">Component</a>
                     </li>
                     <li class=" tsd-kind-function tsd-parent-kind-external-module">
-                        <a href="_decorators_endpoint_decorator_.html#checkhandlerfunctionindexsignature"
-                           class="tsd-kind-icon">check
-                            <wbr>
-                            Handler
-                            <wbr>
-                            Function
-                            <wbr>
-                            Index
-                            <wbr>
-                            Signature</a>
+                        <a href="decorators.html#endpoint" class="tsd-kind-icon">Endpoint</a>
+                    </li>
+                    <li class=" tsd-kind-function tsd-parent-kind-external-module">
+                        <a href="decorators.html#injectable" class="tsd-kind-icon">Injectable</a>
                     </li>
                 </ul>
             </nav>

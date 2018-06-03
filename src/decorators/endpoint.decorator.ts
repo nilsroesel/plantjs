@@ -1,7 +1,11 @@
+/**
+ * @module Decorators
+ */
 import 'reflect-metadata';
 import { EndpointConfig, Middleware, Request, Response } from '../index';
 
 /**
+ *
  * Property Decorator Function
  *
  * Creates an endpoint of a function
@@ -54,6 +58,9 @@ export function Endpoint(config: EndpointConfig) {
     };
 }
 
+/**
+ * @hidden
+ */
 export interface EndpointHandler {
     functionContextInstance: Object;
     fn: Function;
@@ -61,6 +68,9 @@ export interface EndpointHandler {
     middleware?: Middleware;
 }
 
+/**
+ * @hidden
+ */
 export function checkHandlerFunctionIndexSignature(target: Object, key: string) {
     const types = Reflect.getMetadata('design:paramtypes', target, key) || [null, null];
     if (types[0] !== Request || types[1] !== Response || types.length !== 2) {

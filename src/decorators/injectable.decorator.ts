@@ -1,6 +1,10 @@
+/**
+ * @module Decorators
+ */
 import { Instantiable, GenericClassDecorator } from '../internal.index';
 
 /**
+ *
  * Class Decorator Function
  *
  * Allows to inject dependencies into objects
