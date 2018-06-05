@@ -61,17 +61,6 @@ class TestComponent {
             .send();
     }
 
-    @Endpoint({
-        route: '/foo2/:id',
-        middleware: [(request: Request) => {request.params['test'] = {msg: 'I come from a middle..where?'}}]
-    })
-    test3(request: Request, response: Response) {
-        response
-            .status(200)
-            .json(Object.assign({}, this.foo, (request.params as any).test))
-            .send();
-    }
-
 }
 
 @Application({
@@ -88,5 +77,16 @@ class TestComponent {
     ]
 })
 class Test {
+
+    @Endpoint({
+        route: '/foo2/:id',
+        middleware: [(request: Request) => {request.params['test'] = {msg: 'I come from a middle..where?'}}]
+    })
+    test(request: Request, response: Response) {
+        response
+            .status(200)
+            .json({msg: 'iam an application endpoint'})
+            .send();
+    }
 
 }
