@@ -70,15 +70,6 @@ class TestComponent {
             .send();
     }
 
-    /*@Endpoint('/foo/:id')
-    test4(request: Request, response: string) {
-        this.foo.doStuff('foo');
-        //console.log(this);
-        response
-            .status(200)
-            .json({foo: 'bar'})
-            .send();
-    }*/
 }
 
 @Application({
@@ -97,25 +88,3 @@ class TestComponent {
 class Test {
 
 }
-
-/*/ Fn List workaround
-const fnArray: Array<Function> = [() => console.log(1), (req, res, next) =>{ console.log(2); next(); console.log(3)}, () => console.log(4)];
-const overriden: Array<Function> = fnArray
-    .map(fn => new Function('req', 'res', 'next',`(${fn.toString().replace(/next\w*\(\w*\)/,'return next()')})(req, res, next)`));
-
-const itr = overriden[Symbol.iterator]();
-let done = false;
-let updateItr = true;
-
-while(!done) {
-    const itrStep = nextIterator(itr);
-    //if(itrStep.value) itrStep.value('req', 'res', () => { nextIterator(itr)});
-    done = itrStep.done
-}
-
-function nextIterator(iterator: Iterator<Function>): IteratorResult<Function>{
-    const itrStep = itr.next();
-    if(itrStep.value) itrStep.value('req', 'res', () => { nextIterator(itr)});
-    return itrStep;
-}
-*/
