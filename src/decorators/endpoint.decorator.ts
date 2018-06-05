@@ -77,14 +77,22 @@ export interface EndpointHandler {
  * @hidden
  */
 export function checkHandlerFunctionIndexSignature(target: Object, key: string) {
-    const types = Reflect.getMetadata('design:paramtypes', target, key) || [null, null];
-    if (types[0] !== Request || types[1] !== Response || types.length !== 2) {
-        const errorMessage = `Index signature of ${key}(${types.map(a => a.name).join()}) does not fit (req Request, res Response) => void`;
-        throw new Error(errorMessage);
+    const types = Reflect.getMetadata('design:paramtypes', target, key) || [];
+    if(types.length === 1){
+        if(types[0] !== Request) {
+            const errorMessage = `Index signature of ${key}(${types.map(a => a.name).join()}) does not fit (Request) => void`;
+            throw new Error(errorMessage);
+        }
+    }
+    if(types.length === 2){
+        if (types[0] !== Request || types[1] !== Response || types.length !== 2) {
+            const errorMessage = `Index signature of ${key}(${types.map(a => a.name).join()}) does not fit (Request, Response) => void`;
+            throw new Error(errorMessage);
+        }
     }
     if (types.length >= 3) {
         if (types[0] === Function) {
-            const errorMessage = `Index signature of ${key}(${types.map(a => a.name).join()}) does not fit (req Request, res Response, next Function) => void`;
+            const errorMessage = `Index signature of ${key}(${types.map(a => a.name).join()}) does not fit (Request, Response, Function) => void`;
             throw new Error(errorMessage);
         }
     }
