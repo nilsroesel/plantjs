@@ -4,7 +4,15 @@
 import * as http from 'http';
 import { IncomingMessage, ServerResponse } from 'http';
 import { ApplicationConfig, Middleware, Request, Response } from '../index';
-import { Injector, Router, Route, EndpointHandler, componentStore, componentClassMap } from '../internal.index';
+import {
+    Injector,
+    Router,
+    Route,
+    EndpointHandler,
+    componentStore,
+    componentClassMap,
+    ComponentStore
+} from '../internal.index';
 
 /**
  *
@@ -33,8 +41,18 @@ import { Injector, Router, Route, EndpointHandler, componentStore, componentClas
 export function Application(config: ApplicationConfig) {
     const applicationMiddleWare: Middleware = config.middleware || [];
     return <T extends { new(...args: any[]): {} }>(constructor: T) => {
+        // Add application class as main component to the store
+        if (componentStore.has(constructor.name)) {
+            const store: ComponentStore = componentStore.get(constructor.name);
+            store.componentRoute = '';
+            store.componentMiddleware = [];
+            componentStore.set(constructor.name, store);
+            componentClassMap.set(constructor.name, constructor.name);
+
+        }
+
         const router: Router = new Router();
-        config.components.forEach(Component => {
+        config.components.concat(constructor).forEach(Component => {
             const componentName: string = (Component as Function).name;
             if(componentStore.has(componentClassMap.get(componentName))) {
                 const store = componentStore.get(componentClassMap.get(componentName));
