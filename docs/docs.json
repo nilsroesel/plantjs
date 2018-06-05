@@ -5,7 +5,7 @@
   "flags": {},
   "children": [
     {
-      "id": 87,
+      "id": 81,
       "name": "Decorator-Configs",
       "kind": 1,
       "kindString": "External module",
@@ -15,7 +15,7 @@
       "originalName": "C:/PROGRAMMIERUNG/skeidjs/src/interfaces/application.interface.ts",
       "children": [
         {
-          "id": 88,
+          "id": 82,
           "name": "ApplicationConfig",
           "kind": 256,
           "kindString": "Interface",
@@ -24,7 +24,7 @@
           },
           "children": [
             {
-              "id": 93,
+              "id": 87,
               "name": "components",
               "kind": 1024,
               "kindString": "Property",
@@ -51,7 +51,7 @@
               }
             },
             {
-              "id": 89,
+              "id": 83,
               "name": "contentType",
               "kind": 1024,
               "kindString": "Property",
@@ -71,7 +71,7 @@
               }
             },
             {
-              "id": 92,
+              "id": 86,
               "name": "middleware",
               "kind": 1024,
               "kindString": "Property",
@@ -89,11 +89,11 @@
               "type": {
                 "type": "reference",
                 "name": "Middleware",
-                "id": 38
+                "id": 35
               }
             },
             {
-              "id": 90,
+              "id": 84,
               "name": "server",
               "kind": 1024,
               "kindString": "Property",
@@ -110,7 +110,7 @@
               "type": {
                 "type": "reflection",
                 "declaration": {
-                  "id": 91,
+                  "id": 85,
                   "name": "__type",
                   "kind": 65536,
                   "kindString": "Type literal",
@@ -131,10 +131,10 @@
               "title": "Properties",
               "kind": 1024,
               "children": [
-                93,
-                89,
-                92,
-                90
+                87,
+                83,
+                86,
+                84
               ]
             }
           ],
@@ -147,7 +147,7 @@
           ]
         },
         {
-          "id": 95,
+          "id": 89,
           "name": "ComponentConfig",
           "kind": 256,
           "kindString": "Interface",
@@ -156,7 +156,7 @@
           },
           "children": [
             {
-              "id": 97,
+              "id": 91,
               "name": "middleware",
               "kind": 1024,
               "kindString": "Property",
@@ -174,11 +174,11 @@
               "type": {
                 "type": "reference",
                 "name": "Middleware",
-                "id": 38
+                "id": 35
               }
             },
             {
-              "id": 96,
+              "id": 90,
               "name": "route",
               "kind": 1024,
               "kindString": "Property",
@@ -204,8 +204,8 @@
               "title": "Properties",
               "kind": 1024,
               "children": [
-                97,
-                96
+                91,
+                90
               ]
             }
           ],
@@ -218,7 +218,7 @@
           ]
         },
         {
-          "id": 99,
+          "id": 93,
           "name": "EndpointConfig",
           "kind": 256,
           "kindString": "Interface",
@@ -227,7 +227,7 @@
           },
           "children": [
             {
-              "id": 101,
+              "id": 95,
               "name": "middleware",
               "kind": 1024,
               "kindString": "Property",
@@ -245,11 +245,11 @@
               "type": {
                 "type": "reference",
                 "name": "Middleware",
-                "id": 38
+                "id": 35
               }
             },
             {
-              "id": 100,
+              "id": 94,
               "name": "route",
               "kind": 1024,
               "kindString": "Property",
@@ -274,8 +274,8 @@
               "title": "Properties",
               "kind": 1024,
               "children": [
-                101,
-                100
+                95,
+                94
               ]
             }
           ],
@@ -293,9 +293,9 @@
           "title": "Interfaces",
           "kind": 256,
           "children": [
-            88,
-            95,
-            99
+            82,
+            89,
+            93
           ]
         }
       ],
@@ -315,10 +315,70 @@
       "flags": {
         "isExported": true
       },
-      "originalName": "C:/PROGRAMMIERUNG/skeidjs/src/decorators/component.decorator.ts",
+      "originalName": "C:/PROGRAMMIERUNG/skeidjs/src/decorators/endpoint.decorator.ts",
       "children": [
         {
-          "id": 143,
+          "id": 110,
+          "name": "InjectionModes",
+          "kind": 4,
+          "kindString": "Enumeration",
+          "flags": {
+            "isExported": true
+          },
+          "children": [
+            {
+              "id": 112,
+              "name": "MULTI_INSTANCE",
+              "kind": 16,
+              "kindString": "Enumeration member",
+              "flags": {
+                "isExported": true
+              },
+              "sources": [
+                {
+                  "fileName": "decorators/injectable.decorator.ts",
+                  "line": 37,
+                  "character": 18
+                }
+              ]
+            },
+            {
+              "id": 111,
+              "name": "SINGLE_INSTANCE",
+              "kind": 16,
+              "kindString": "Enumeration member",
+              "flags": {
+                "isExported": true
+              },
+              "sources": [
+                {
+                  "fileName": "decorators/injectable.decorator.ts",
+                  "line": 36,
+                  "character": 19
+                }
+              ]
+            }
+          ],
+          "groups": [
+            {
+              "title": "Enumeration members",
+              "kind": 16,
+              "children": [
+                112,
+                111
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "decorators/injectable.decorator.ts",
+              "line": 35,
+              "character": 26
+            }
+          ]
+        },
+        {
+          "id": 157,
           "name": "Application",
           "kind": 64,
           "kindString": "Function",
@@ -327,7 +387,7 @@
           },
           "signatures": [
             {
-              "id": 144,
+              "id": 158,
               "name": "Application",
               "kind": 4096,
               "kindString": "Call signature",
@@ -345,7 +405,7 @@
               },
               "parameters": [
                 {
-                  "id": 145,
+                  "id": 159,
                   "name": "config",
                   "kind": 32768,
                   "kindString": "Parameter",
@@ -353,7 +413,7 @@
                   "type": {
                     "type": "reference",
                     "name": "ApplicationConfig",
-                    "id": 88
+                    "id": 82
                   }
                 }
               ],
@@ -366,13 +426,13 @@
           "sources": [
             {
               "fileName": "decorators/application.decorator.ts",
-              "line": 33,
+              "line": 41,
               "character": 27
             }
           ]
         },
         {
-          "id": 2,
+          "id": 106,
           "name": "Component",
           "kind": 64,
           "kindString": "Function",
@@ -381,7 +441,7 @@
           },
           "signatures": [
             {
-              "id": 3,
+              "id": 107,
               "name": "Component",
               "kind": 4096,
               "kindString": "Call signature",
@@ -399,7 +459,7 @@
               },
               "parameters": [
                 {
-                  "id": 4,
+                  "id": 108,
                   "name": "conf",
                   "kind": 32768,
                   "kindString": "Parameter",
@@ -407,7 +467,7 @@
                   "type": {
                     "type": "reference",
                     "name": "ComponentConfig",
-                    "id": 95
+                    "id": 89
                   }
                 }
               ],
@@ -420,13 +480,13 @@
           "sources": [
             {
               "fileName": "decorators/component.decorator.ts",
-              "line": 25,
+              "line": 26,
               "character": 25
             }
           ]
         },
         {
-          "id": 11,
+          "id": 7,
           "name": "Endpoint",
           "kind": 64,
           "kindString": "Function",
@@ -435,7 +495,7 @@
           },
           "signatures": [
             {
-              "id": 12,
+              "id": 8,
               "name": "Endpoint",
               "kind": 4096,
               "kindString": "Call signature",
@@ -453,7 +513,7 @@
               },
               "parameters": [
                 {
-                  "id": 13,
+                  "id": 9,
                   "name": "config",
                   "kind": 32768,
                   "kindString": "Parameter",
@@ -461,7 +521,7 @@
                   "type": {
                     "type": "reference",
                     "name": "EndpointConfig",
-                    "id": 99
+                    "id": 93
                   }
                 }
               ],
@@ -474,13 +534,13 @@
           "sources": [
             {
               "fileName": "decorators/endpoint.decorator.ts",
-              "line": 37,
+              "line": 38,
               "character": 24
             }
           ]
         },
         {
-          "id": 85,
+          "id": 113,
           "name": "Injectable",
           "kind": 64,
           "kindString": "Function",
@@ -489,7 +549,7 @@
           },
           "signatures": [
             {
-              "id": 86,
+              "id": 114,
               "name": "Injectable",
               "kind": 4096,
               "kindString": "Call signature",
@@ -505,6 +565,22 @@
                   }
                 ]
               },
+              "parameters": [
+                {
+                  "id": 115,
+                  "name": "mode",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "type": {
+                    "type": "reference",
+                    "name": "InjectionModes",
+                    "id": 110
+                  }
+                }
+              ],
               "type": {
                 "type": "reference",
                 "name": "GenericClassDecorator",
@@ -534,26 +610,33 @@
       ],
       "groups": [
         {
+          "title": "Enumerations",
+          "kind": 4,
+          "children": [
+            110
+          ]
+        },
+        {
           "title": "Functions",
           "kind": 64,
           "children": [
-            143,
-            2,
-            11,
-            85
+            157,
+            106,
+            7,
+            113
           ]
         }
       ],
       "sources": [
         {
-          "fileName": "decorators/component.decorator.ts",
+          "fileName": "decorators/endpoint.decorator.ts",
           "line": 1,
           "character": 0
         }
       ]
     },
     {
-      "id": 102,
+      "id": 116,
       "name": "Http",
       "kind": 1,
       "kindString": "External module",
@@ -563,7 +646,7 @@
       "originalName": "C:/PROGRAMMIERUNG/skeidjs/src/util/wrapper/request.wrapper.ts",
       "children": [
         {
-          "id": 103,
+          "id": 117,
           "name": "Request",
           "kind": 128,
           "kindString": "Class",
@@ -572,7 +655,7 @@
           },
           "children": [
             {
-              "id": 112,
+              "id": 126,
               "name": "constructor",
               "kind": 512,
               "kindString": "Constructor",
@@ -581,14 +664,14 @@
               },
               "signatures": [
                 {
-                  "id": 113,
+                  "id": 127,
                   "name": "new Request",
                   "kind": 16384,
                   "kindString": "Constructor signature",
                   "flags": {},
                   "parameters": [
                     {
-                      "id": 114,
+                      "id": 128,
                       "name": "request",
                       "kind": 32768,
                       "kindString": "Parameter",
@@ -599,7 +682,7 @@
                       }
                     },
                     {
-                      "id": 115,
+                      "id": 129,
                       "name": "body",
                       "kind": 32768,
                       "kindString": "Parameter",
@@ -610,7 +693,7 @@
                       }
                     },
                     {
-                      "id": 116,
+                      "id": 130,
                       "name": "params",
                       "kind": 32768,
                       "kindString": "Parameter",
@@ -624,7 +707,7 @@
                   "type": {
                     "type": "reference",
                     "name": "Request",
-                    "id": 103
+                    "id": 117
                   }
                 }
               ],
@@ -637,7 +720,7 @@
               ]
             },
             {
-              "id": 111,
+              "id": 125,
               "name": "body",
               "kind": 1024,
               "kindString": "Property",
@@ -657,7 +740,7 @@
               }
             },
             {
-              "id": 109,
+              "id": 123,
               "name": "headers",
               "kind": 1024,
               "kindString": "Property",
@@ -677,7 +760,7 @@
               }
             },
             {
-              "id": 110,
+              "id": 124,
               "name": "method",
               "kind": 1024,
               "kindString": "Property",
@@ -697,7 +780,7 @@
               }
             },
             {
-              "id": 108,
+              "id": 122,
               "name": "params",
               "kind": 1024,
               "kindString": "Property",
@@ -717,7 +800,7 @@
               }
             },
             {
-              "id": 107,
+              "id": 121,
               "name": "url",
               "kind": 1024,
               "kindString": "Property",
@@ -737,7 +820,7 @@
               }
             },
             {
-              "id": 117,
+              "id": 131,
               "name": "json",
               "kind": 2048,
               "kindString": "Method",
@@ -746,7 +829,7 @@
               },
               "signatures": [
                 {
-                  "id": 118,
+                  "id": 132,
                   "name": "json",
                   "kind": 4096,
                   "kindString": "Call signature",
@@ -766,7 +849,7 @@
               ]
             },
             {
-              "id": 104,
+              "id": 118,
               "name": "readRequestBody",
               "kind": 2048,
               "kindString": "Method",
@@ -776,14 +859,14 @@
               },
               "signatures": [
                 {
-                  "id": 105,
+                  "id": 119,
                   "name": "readRequestBody",
                   "kind": 4096,
                   "kindString": "Call signature",
                   "flags": {},
                   "parameters": [
                     {
-                      "id": 106,
+                      "id": 120,
                       "name": "request",
                       "kind": 32768,
                       "kindString": "Parameter",
@@ -820,26 +903,26 @@
               "title": "Constructors",
               "kind": 512,
               "children": [
-                112
+                126
               ]
             },
             {
               "title": "Properties",
               "kind": 1024,
               "children": [
-                111,
-                109,
-                110,
-                108,
-                107
+                125,
+                123,
+                124,
+                122,
+                121
               ]
             },
             {
               "title": "Methods",
               "kind": 2048,
               "children": [
-                117,
-                104
+                131,
+                118
               ]
             }
           ],
@@ -852,7 +935,7 @@
           ]
         },
         {
-          "id": 120,
+          "id": 134,
           "name": "Response",
           "kind": 128,
           "kindString": "Class",
@@ -861,7 +944,7 @@
           },
           "children": [
             {
-              "id": 123,
+              "id": 137,
               "name": "constructor",
               "kind": 512,
               "kindString": "Constructor",
@@ -870,14 +953,14 @@
               },
               "signatures": [
                 {
-                  "id": 124,
+                  "id": 138,
                   "name": "new Response",
                   "kind": 16384,
                   "kindString": "Constructor signature",
                   "flags": {},
                   "parameters": [
                     {
-                      "id": 125,
+                      "id": 139,
                       "name": "response",
                       "kind": 32768,
                       "kindString": "Parameter",
@@ -891,7 +974,7 @@
                   "type": {
                     "type": "reference",
                     "name": "Response",
-                    "id": 120
+                    "id": 134
                   }
                 }
               ],
@@ -904,7 +987,7 @@
               ]
             },
             {
-              "id": 121,
+              "id": 135,
               "name": "response",
               "kind": 1024,
               "kindString": "Property",
@@ -925,7 +1008,7 @@
               }
             },
             {
-              "id": 122,
+              "id": 136,
               "name": "statusCode",
               "kind": 1024,
               "kindString": "Property",
@@ -946,7 +1029,7 @@
               }
             },
             {
-              "id": 137,
+              "id": 151,
               "name": "json",
               "kind": 2048,
               "kindString": "Method",
@@ -955,14 +1038,14 @@
               },
               "signatures": [
                 {
-                  "id": 138,
+                  "id": 152,
                   "name": "json",
                   "kind": 4096,
                   "kindString": "Call signature",
                   "flags": {},
                   "parameters": [
                     {
-                      "id": 139,
+                      "id": 153,
                       "name": "payload",
                       "kind": 32768,
                       "kindString": "Parameter",
@@ -976,7 +1059,7 @@
                   "type": {
                     "type": "reference",
                     "name": "Response",
-                    "id": 120
+                    "id": 134
                   }
                 }
               ],
@@ -989,7 +1072,7 @@
               ]
             },
             {
-              "id": 140,
+              "id": 154,
               "name": "send",
               "kind": 2048,
               "kindString": "Method",
@@ -998,7 +1081,7 @@
               },
               "signatures": [
                 {
-                  "id": 141,
+                  "id": 155,
                   "name": "send",
                   "kind": 4096,
                   "kindString": "Call signature",
@@ -1018,7 +1101,7 @@
               ]
             },
             {
-              "id": 126,
+              "id": 140,
               "name": "setHeader",
               "kind": 2048,
               "kindString": "Method",
@@ -1027,14 +1110,14 @@
               },
               "signatures": [
                 {
-                  "id": 127,
+                  "id": 141,
                   "name": "setHeader",
                   "kind": 4096,
                   "kindString": "Call signature",
                   "flags": {},
                   "parameters": [
                     {
-                      "id": 128,
+                      "id": 142,
                       "name": "name",
                       "kind": 32768,
                       "kindString": "Parameter",
@@ -1045,7 +1128,7 @@
                       }
                     },
                     {
-                      "id": 129,
+                      "id": 143,
                       "name": "value",
                       "kind": 32768,
                       "kindString": "Parameter",
@@ -1075,7 +1158,7 @@
                   "type": {
                     "type": "reference",
                     "name": "Response",
-                    "id": 120
+                    "id": 134
                   }
                 }
               ],
@@ -1088,7 +1171,7 @@
               ]
             },
             {
-              "id": 130,
+              "id": 144,
               "name": "status",
               "kind": 2048,
               "kindString": "Method",
@@ -1097,14 +1180,14 @@
               },
               "signatures": [
                 {
-                  "id": 131,
+                  "id": 145,
                   "name": "status",
                   "kind": 4096,
                   "kindString": "Call signature",
                   "flags": {},
                   "parameters": [
                     {
-                      "id": 132,
+                      "id": 146,
                       "name": "status",
                       "kind": 32768,
                       "kindString": "Parameter",
@@ -1115,7 +1198,7 @@
                       }
                     },
                     {
-                      "id": 133,
+                      "id": 147,
                       "name": "message",
                       "kind": 32768,
                       "kindString": "Parameter",
@@ -1131,7 +1214,7 @@
                   "type": {
                     "type": "reference",
                     "name": "Response",
-                    "id": 120
+                    "id": 134
                   }
                 }
               ],
@@ -1144,7 +1227,7 @@
               ]
             },
             {
-              "id": 134,
+              "id": 148,
               "name": "text",
               "kind": 2048,
               "kindString": "Method",
@@ -1153,14 +1236,14 @@
               },
               "signatures": [
                 {
-                  "id": 135,
+                  "id": 149,
                   "name": "text",
                   "kind": 4096,
                   "kindString": "Call signature",
                   "flags": {},
                   "parameters": [
                     {
-                      "id": 136,
+                      "id": 150,
                       "name": "payload",
                       "kind": 32768,
                       "kindString": "Parameter",
@@ -1174,7 +1257,7 @@
                   "type": {
                     "type": "reference",
                     "name": "Response",
-                    "id": 120
+                    "id": 134
                   }
                 }
               ],
@@ -1192,26 +1275,26 @@
               "title": "Constructors",
               "kind": 512,
               "children": [
-                123
+                137
               ]
             },
             {
               "title": "Properties",
               "kind": 1024,
               "children": [
-                121,
-                122
+                135,
+                136
               ]
             },
             {
               "title": "Methods",
               "kind": 2048,
               "children": [
-                137,
+                151,
+                154,
                 140,
-                126,
-                130,
-                134
+                144,
+                148
               ]
             }
           ],
@@ -1229,8 +1312,8 @@
           "title": "Classes",
           "kind": 128,
           "children": [
-            103,
-            120
+            117,
+            134
           ]
         }
       ],
@@ -1243,7 +1326,7 @@
       ]
     },
     {
-      "id": 39,
+      "id": 36,
       "name": "Non-exported",
       "kind": 1,
       "kindString": "External module",
@@ -1251,6 +1334,55 @@
         "isExported": true
       },
       "originalName": "C:/PROGRAMMIERUNG/skeidjs/src/util/route.ts",
+      "children": [
+        {
+          "id": 104,
+          "name": "injectorStore",
+          "kind": 32,
+          "kindString": "Variable",
+          "flags": {
+            "isExported": true,
+            "isConst": true
+          },
+          "sources": [
+            {
+              "fileName": "store/injector.store.ts",
+              "line": 7,
+              "character": 26
+            }
+          ],
+          "type": {
+            "type": "reference",
+            "name": "Map",
+            "typeArguments": [
+              {
+                "type": "reference",
+                "name": "Instantiable",
+                "typeArguments": [
+                  {
+                    "type": "intrinsic",
+                    "name": "any"
+                  }
+                ]
+              },
+              {
+                "type": "reference",
+                "name": "Object"
+              }
+            ]
+          },
+          "defaultValue": " new Map()"
+        }
+      ],
+      "groups": [
+        {
+          "title": "Variables",
+          "kind": 32,
+          "children": [
+            104
+          ]
+        }
+      ],
       "sources": [
         {
           "fileName": "util/route.ts",
@@ -1260,7 +1392,7 @@
       ]
     },
     {
-      "id": 18,
+      "id": 14,
       "name": "Types",
       "kind": 1,
       "kindString": "External module",
@@ -1270,40 +1402,75 @@
       "originalName": "C:/PROGRAMMIERUNG/skeidjs/src/interfaces/types.ts",
       "children": [
         {
-          "id": 30,
+          "id": 15,
           "name": "ContextHandlerFn",
-          "kind": 4194304,
-          "kindString": "Type alias",
+          "kind": 256,
+          "kindString": "Interface",
           "flags": {
             "isExported": true
           },
+          "children": [
+            {
+              "id": 17,
+              "name": "fn",
+              "kind": 1024,
+              "kindString": "Property",
+              "flags": {
+                "isExported": true
+              },
+              "sources": [
+                {
+                  "fileName": "interfaces/types.ts",
+                  "line": 10,
+                  "character": 6
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "Function"
+              }
+            },
+            {
+              "id": 16,
+              "name": "functionContextInstance",
+              "kind": 1024,
+              "kindString": "Property",
+              "flags": {
+                "isExported": true
+              },
+              "sources": [
+                {
+                  "fileName": "interfaces/types.ts",
+                  "line": 9,
+                  "character": 27
+                }
+              ],
+              "type": {
+                "type": "reference",
+                "name": "Object"
+              }
+            }
+          ],
+          "groups": [
+            {
+              "title": "Properties",
+              "kind": 1024,
+              "children": [
+                17,
+                16
+              ]
+            }
+          ],
           "sources": [
             {
               "fileName": "interfaces/types.ts",
               "line": 8,
-              "character": 28
+              "character": 33
             }
-          ],
-          "type": {
-            "type": "reflection",
-            "declaration": {
-              "id": 31,
-              "name": "__type",
-              "kind": 65536,
-              "kindString": "Type literal",
-              "flags": {},
-              "sources": [
-                {
-                  "fileName": "interfaces/types.ts",
-                  "line": 8,
-                  "character": 30
-                }
-              ]
-            }
-          }
+          ]
         },
         {
-          "id": 24,
+          "id": 23,
           "name": "HandlerFn",
           "kind": 4194304,
           "kindString": "Type alias",
@@ -1320,45 +1487,49 @@
           "type": {
             "type": "reflection",
             "declaration": {
-              "id": 25,
+              "id": 24,
               "name": "__type",
               "kind": 65536,
               "kindString": "Type literal",
               "flags": {},
               "signatures": [
                 {
-                  "id": 26,
+                  "id": 25,
                   "name": "__call",
                   "kind": 4096,
                   "kindString": "Call signature",
                   "flags": {},
                   "parameters": [
                     {
-                      "id": 27,
+                      "id": 26,
                       "name": "request",
                       "kind": 32768,
                       "kindString": "Parameter",
-                      "flags": {},
+                      "flags": {
+                        "isOptional": true
+                      },
                       "type": {
                         "type": "reference",
                         "name": "Request",
-                        "id": 103
+                        "id": 117
+                      }
+                    },
+                    {
+                      "id": 27,
+                      "name": "response",
+                      "kind": 32768,
+                      "kindString": "Parameter",
+                      "flags": {
+                        "isOptional": true
+                      },
+                      "type": {
+                        "type": "reference",
+                        "name": "Response",
+                        "id": 134
                       }
                     },
                     {
                       "id": 28,
-                      "name": "response",
-                      "kind": 32768,
-                      "kindString": "Parameter",
-                      "flags": {},
-                      "type": {
-                        "type": "reference",
-                        "name": "Response",
-                        "id": 120
-                      }
-                    },
-                    {
-                      "id": 29,
                       "name": "next",
                       "kind": 32768,
                       "kindString": "Parameter",
@@ -1388,7 +1559,7 @@
           }
         },
         {
-          "id": 38,
+          "id": 35,
           "name": "Middleware",
           "kind": 4194304,
           "kindString": "Type alias",
@@ -1398,7 +1569,7 @@
           "sources": [
             {
               "fileName": "interfaces/types.ts",
-              "line": 17,
+              "line": 20,
               "character": 22
             }
           ],
@@ -1409,13 +1580,13 @@
               {
                 "type": "reference",
                 "name": "MiddlewareFunction",
-                "id": 37
+                "id": 34
               }
             ]
           }
         },
         {
-          "id": 37,
+          "id": 34,
           "name": "MiddlewareFunction",
           "kind": 4194304,
           "kindString": "Type alias",
@@ -1425,7 +1596,7 @@
           "sources": [
             {
               "fileName": "interfaces/types.ts",
-              "line": 15,
+              "line": 18,
               "character": 30
             }
           ],
@@ -1435,12 +1606,12 @@
               {
                 "type": "reference",
                 "name": "HandlerFn",
-                "id": 24
+                "id": 23
               },
               {
                 "type": "reference",
                 "name": "ContextHandlerFn",
-                "id": 30
+                "id": 15
               }
             ]
           }
@@ -1448,13 +1619,19 @@
       ],
       "groups": [
         {
+          "title": "Interfaces",
+          "kind": 256,
+          "children": [
+            15
+          ]
+        },
+        {
           "title": "Type aliases",
           "kind": 4194304,
           "children": [
-            30,
-            24,
-            38,
-            37
+            23,
+            35,
+            34
           ]
         }
       ],
@@ -1472,11 +1649,11 @@
       "title": "External modules",
       "kind": 1,
       "children": [
-        87,
+        81,
         1,
-        102,
-        39,
-        18
+        116,
+        36,
+        14
       ]
     }
   ]
