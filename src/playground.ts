@@ -8,12 +8,13 @@ import {
     Response,
     Request,
     Injectable,
+    InjectionModes
 
 } from './index'; // 'skeidjs'
 
-@Injectable()
+@Injectable(InjectionModes.SINGLE_INSTANCE)
 class TestInjectable {
-    private bar;
+    public bar;
 
     constructor() {
         this.bar = 'bar'
@@ -29,7 +30,7 @@ class TestInjectable {
     ]
 })
 class TestComponent {
-    constructor(public foo: TestInjectable) { }
+    constructor(public foo: TestInjectable, public bar: TestInjectable) { }
 
     @Endpoint({
         route: '/foo/:id'
@@ -53,9 +54,10 @@ class TestComponent {
         ]
     })
     test2(request: Request, response: Response) {
+        this.foo.bar = 'foobar';
         response
             .status(200)
-            .json({foo: 'bar'})
+            .json({foo: this.foo, bar: this.bar})
             .send();
     }
 
