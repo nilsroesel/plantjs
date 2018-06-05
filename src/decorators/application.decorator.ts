@@ -4,7 +4,7 @@
 import * as http from 'http';
 import { IncomingMessage, ServerResponse } from 'http';
 import { ApplicationConfig, Middleware, Request, Response } from '../index';
-import { Injector, Router, Route, EndpointHandler } from '../internal.index';
+import { Injector, Router, Route, EndpointHandler, componentStore, componentClassMap } from '../internal.index';
 
 /**
  *
@@ -35,24 +35,28 @@ export function Application(config: ApplicationConfig) {
     return <T extends { new(...args: any[]): {} }>(constructor: T) => {
         const router: Router = new Router();
         config.components.forEach(Component => {
-            // Instantiate via singletone -> dependency injector
-            const component = Injector.resolve(Component);
-            if (component['skeidjs']) {
-                (component['skeidjs'] as Array<EndpointHandler>).forEach(endpoint => {
-                    const middleware: Middleware = applicationMiddleWare
-                        .concat(component['skeidjsComponentMiddleware'] as Middleware)
-                        .concat(endpoint.middleware);
-                    const endpointWithInjectedDependencies: EndpointHandler = {
-                        functionContextInstance: component,
-                        fn: endpoint.fn,
-                        route: endpoint.route,
-                        middleware: middleware
-                    };
-                    const route = (component['skeidjsComponentRoute'] as string || '').concat(endpoint.route).replace(/\/\//g, '/');
-                    if (router.has(route)) console.warn(`Found duplicated route '${route}'. Route was overridden`);
-                    router.set(route, endpointWithInjectedDependencies);
-                });
-            }
+            const componentName: string = (Component as Function).name;
+            if(componentStore.has(componentClassMap.get(componentName))) {
+                const store = componentStore.get(componentClassMap.get(componentName));
+                // Instantiate via singletone -> dependency injector
+                const component = Injector.resolve(Component);
+                if (store.endpoints) {
+                    store.endpoints.forEach(endpoint => {
+                        const middleware: Middleware = applicationMiddleWare
+                            .concat(store.componentMiddleware)
+                            .concat(endpoint.middleware);
+                        const endpointWithInjectedDependencies: EndpointHandler = {
+                            functionContextInstance: component,
+                            fn: endpoint.fn,
+                            route: endpoint.route,
+                            middleware: middleware
+                        };
+                        const route = (store.componentRoute || '').concat(endpoint.route).replace(/\/\//g, '/');
+                        if (router.has(route)) console.warn(`Found duplicated route '${route}'. Route was overridden`);
+                        router.set(route, endpointWithInjectedDependencies);
+                    });
+                }
+            }  else { throw new Error(`Component ${Component} has no mapped class`); }
         });
         http.createServer((request: IncomingMessage, response: ServerResponse) => {
             const route: Promise<Route> = router.getRouteFromUrl(request.url);

@@ -3,6 +3,7 @@
  */
 import 'reflect-metadata';
 import { EndpointConfig, Middleware, Request, Response } from '../index';
+import { componentStore, ComponentStore } from '../internal.index';
 
 /**
  *
@@ -38,21 +39,25 @@ export function Endpoint(config: EndpointConfig) {
     const middleware = config.middleware || [];
     return (target: Object, key: string) => {
         checkHandlerFunctionIndexSignature(target, key);
-        if (target['skeidjs'] && target['skeidjs'] instanceof Array) {
-            (target['skeidjs'] as Array<EndpointHandler>).push({
+        if (componentStore.has(target.constructor.name)) {
+            const store: ComponentStore = componentStore.get(target.constructor.name);
+            store.endpoints.push({
                 functionContextInstance: target,
                 fn: target[key] as Function,
                 route: config.route || '',
                 middleware: middleware
             });
-        }
-        else {
-            target['skeidjs'] = new Array<EndpointHandler>();
-            (target['skeidjs'] as Array<EndpointHandler>).push({
-                functionContextInstance: target,
-                fn: target[key] as Function,
-                route: config.route || '',
-                middleware: middleware
+            componentStore.set(target.constructor.name, store);
+        } else {
+            componentStore.set(target.constructor.name, {
+                componentMiddleware: [] as Middleware,
+                componentRoute: null,
+                endpoints: new Array<EndpointHandler>({
+                    functionContextInstance: target,
+                    fn: target[key] as Function,
+                    route: config.route || '',
+                    middleware: middleware
+                })
             });
         }
     };
