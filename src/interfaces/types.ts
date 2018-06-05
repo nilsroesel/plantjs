@@ -3,7 +3,7 @@
  */
 import { Request, Response } from '../index';
 
-export type HandlerFn = (request: Request, response: Response, next?: Function) => void;
+export type HandlerFn = (request?: Request, response?: Response, next?: Function) => void;
 
 export type ContextHandlerFn = { functionContextInstance: Object, fn: Function };
 
