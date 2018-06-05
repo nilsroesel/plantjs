@@ -3,6 +3,7 @@
  */
 import 'reflect-metadata'
 import { Instantiable } from '../internal.index';
+import { injectorStore } from '../../target/store/injector.store';
 
 /**
  * @hidden
@@ -10,9 +11,22 @@ import { Instantiable } from '../internal.index';
 export const Injector = new class {
 
     resolve<T>(instance: Instantiable<T>): T {
+
         // Tokens are required dependencies, while injections are resolved tokens from the Injector
         let tokens = Reflect.getMetadata('design:paramtypes', instance) || [],
-            injections = tokens.map(token => Injector.resolve<any>(token));
+            injections = tokens.map(token => {
+                if (injectorStore.has(token)) {
+                    let storeVal = injectorStore.get(token);
+                    if (storeVal === null) {
+                        storeVal = Injector.resolve<any>(token);
+                        injectorStore.set(token, storeVal)
+                    }
+                    return storeVal;
+                }
+                else {
+                    return Injector.resolve<any>(token);
+                }
+            });
         return new instance(...injections);
     }
 

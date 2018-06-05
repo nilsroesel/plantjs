@@ -1,7 +1,7 @@
 /**
  * @module Decorators
  */
-import { Instantiable, GenericClassDecorator } from '../internal.index';
+import { Instantiable, GenericClassDecorator, injectorStore } from '../internal.index';
 
 /**
  *
@@ -25,8 +25,14 @@ import { Instantiable, GenericClassDecorator } from '../internal.index';
  *   }
  * ```
  * **/
-export function Injectable(): GenericClassDecorator<Instantiable<object>> {
+export function Injectable(mode?: InjectionModes): GenericClassDecorator<Instantiable<object>> {
     return (target: Instantiable<object>) => {
         // do something with `target`, e.g. some kind of validation or passing it to the Injector and store them
+        if (mode === InjectionModes.SINGLE_INSTANCE && !injectorStore.has(target)) injectorStore.set(target, null);
     };
+}
+
+export enum InjectionModes {
+    SINGLE_INSTANCE,
+    MULTI_INSTANCE
 }
