@@ -67,14 +67,19 @@
                 <section class="tsd-panel tsd-index-panel">
                     <div class="tsd-index-content">
                         <section class="tsd-index-section ">
-                            <h3>Type aliases</h3>
+                            <h3>Interfaces</h3>
                             <ul class="tsd-index-list">
-                                <li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a
-                                        href="types.html#contexthandlerfn" class="tsd-kind-icon">Context
+                                <li class="tsd-kind-interface tsd-parent-kind-external-module"><a
+                                        href="../interfaces/types.contexthandlerfn.html" class="tsd-kind-icon">Context
                                     <wbr>
                                     Handler
                                     <wbr>
                                     Fn</a></li>
+                            </ul>
+                        </section>
+                        <section class="tsd-index-section ">
+                            <h3>Type aliases</h3>
+                            <ul class="tsd-index-list">
                                 <li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a
                                         href="types.html#handlerfn" class="tsd-kind-icon">Handler
                                     <wbr>
@@ -93,33 +98,6 @@
             <section class="tsd-panel-group tsd-member-group ">
                 <h2>Type aliases</h2>
                 <section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
-                    <a name="contexthandlerfn" class="tsd-anchor"></a>
-                    <h3>Context
-                        <wbr>
-                        Handler
-                        <wbr>
-                        Fn
-                    </h3>
-                    <div class="tsd-signature tsd-kind-icon">Context
-                        <wbr>
-                        Handler
-                        <wbr>
-                        Fn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span>
-                    </div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a
-                                    href="https://github.com/nilsroesel/plants/blob/2fa3827/src/interfaces/types.ts#L8">interfaces/types.ts:8</a>
-                            </li>
-                        </ul>
-                    </aside>
-                    <div class="tsd-type-declaration">
-                        <h4>Type declaration</h4>
-                        <ul class="tsd-parameters">
-                        </ul>
-                    </div>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
                     <a name="handlerfn" class="tsd-anchor"></a>
                     <h3>Handler
                         <wbr>
@@ -132,7 +110,7 @@
                     <aside class="tsd-sources">
                         <ul>
                             <li>Defined in <a
-                                    href="https://github.com/nilsroesel/plants/blob/2fa3827/src/interfaces/types.ts#L6">interfaces/types.ts:6</a>
+                                    href="https://github.com/nilsroesel/plants/blob/2410585/src/interfaces/types.ts#L6">interfaces/types.ts:6</a>
                             </li>
                         </ul>
                     </aside>
@@ -142,9 +120,9 @@
                             <li class="tsd-parameter-siganture">
                                 <ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
                                     <li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>request<span
-                                            class="tsd-signature-symbol">: </span><a href="../classes/http.request.html"
-                                                                                     class="tsd-signature-type">Request</a>,
-                                        response<span class="tsd-signature-symbol">: </span><a
+                                            class="tsd-signature-symbol">?: </span><a
+                                            href="../classes/http.request.html" class="tsd-signature-type">Request</a>,
+                                        response<span class="tsd-signature-symbol">?: </span><a
                                                 href="../classes/http.response.html"
                                                 class="tsd-signature-type">Response</a>, next<span
                                                 class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Function</span><span
@@ -156,12 +134,14 @@
                                         <h4 class="tsd-parameters-title">Parameters</h4>
                                         <ul class="tsd-parameters">
                                             <li>
-                                                <h5>request: <a href="../classes/http.request.html"
-                                                                class="tsd-signature-type">Request</a></h5>
+                                                <h5><span class="tsd-flag ts-flagOptional">Optional</span> request: <a
+                                                        href="../classes/http.request.html" class="tsd-signature-type">Request</a>
+                                                </h5>
                                             </li>
                                             <li>
-                                                <h5>response: <a href="../classes/http.response.html"
-                                                                 class="tsd-signature-type">Response</a></h5>
+                                                <h5><span class="tsd-flag ts-flagOptional">Optional</span> response: <a
+                                                        href="../classes/http.response.html" class="tsd-signature-type">Response</a>
+                                                </h5>
                                             </li>
                                             <li>
                                                 <h5><span class="tsd-flag ts-flagOptional">Optional</span> next: <span
@@ -186,7 +166,7 @@
                     <aside class="tsd-sources">
                         <ul>
                             <li>Defined in <a
-                                    href="https://github.com/nilsroesel/plants/blob/2fa3827/src/interfaces/types.ts#L17">interfaces/types.ts:17</a>
+                                    href="https://github.com/nilsroesel/plants/blob/2410585/src/interfaces/types.ts#L20">interfaces/types.ts:20</a>
                             </li>
                         </ul>
                     </aside>
@@ -201,13 +181,13 @@
                         <wbr>
                         Function<span class="tsd-signature-symbol">:</span> <a href="types.html#handlerfn"
                                                                                class="tsd-signature-type">HandlerFn</a><span
-                                class="tsd-signature-symbol"> | </span><a href="types.html#contexthandlerfn"
-                                                                          class="tsd-signature-type">ContextHandlerFn</a>
+                                class="tsd-signature-symbol"> | </span><a
+                                href="../interfaces/types.contexthandlerfn.html" class="tsd-signature-type">ContextHandlerFn</a>
                     </div>
                     <aside class="tsd-sources">
                         <ul>
                             <li>Defined in <a
-                                    href="https://github.com/nilsroesel/plants/blob/2fa3827/src/interfaces/types.ts#L15">interfaces/types.ts:15</a>
+                                    href="https://github.com/nilsroesel/plants/blob/2410585/src/interfaces/types.ts#L18">interfaces/types.ts:18</a>
                             </li>
                         </ul>
                     </aside>
@@ -244,8 +224,8 @@
             </nav>
             <nav class="tsd-navigation secondary menu-sticky">
                 <ul class="before-current">
-                    <li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-                        <a href="types.html#contexthandlerfn" class="tsd-kind-icon">Context
+                    <li class=" tsd-kind-interface tsd-parent-kind-external-module">
+                        <a href="../interfaces/types.contexthandlerfn.html" class="tsd-kind-icon">Context
                             <wbr>
                             Handler
                             <wbr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ApplicationConfig | skeiðjs</title>
+    <title>ContextHandlerFn | skeiðjs</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -52,13 +52,13 @@
                     <a href="../globals.html">Globals</a>
                 </li>
                 <li>
-                    <a href="../modules/decorator_configs.html">Decorator-Configs</a>
+                    <a href="../modules/types.html">Types</a>
                 </li>
                 <li>
-                    <a href="decorator_configs.applicationconfig.html">ApplicationConfig</a>
+                    <a href="types.contexthandlerfn.html">ContextHandlerFn</a>
                 </li>
             </ul>
-            <h1>Interface ApplicationConfig</h1>
+            <h1>Interface ContextHandlerFn</h1>
         </div>
     </div>
 </header>
@@ -69,7 +69,7 @@
                 <h3>Hierarchy</h3>
                 <ul class="tsd-hierarchy">
                     <li>
-                        <span class="target">ApplicationConfig</span>
+                        <span class="target">ContextHandlerFn</span>
                     </li>
                 </ul>
             </section>
@@ -81,19 +81,14 @@
                             <h3>Properties</h3>
                             <ul class="tsd-index-list">
                                 <li class="tsd-kind-property tsd-parent-kind-interface"><a
-                                        href="decorator_configs.applicationconfig.html#components"
-                                        class="tsd-kind-icon">components</a></li>
+                                        href="types.contexthandlerfn.html#fn" class="tsd-kind-icon">fn</a></li>
                                 <li class="tsd-kind-property tsd-parent-kind-interface"><a
-                                        href="decorator_configs.applicationconfig.html#contenttype"
-                                        class="tsd-kind-icon">content
+                                        href="types.contexthandlerfn.html#functioncontextinstance"
+                                        class="tsd-kind-icon">function
                                     <wbr>
-                                    Type</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-interface"><a
-                                        href="decorator_configs.applicationconfig.html#middleware"
-                                        class="tsd-kind-icon">middleware</a></li>
-                                <li class="tsd-kind-property tsd-parent-kind-interface"><a
-                                        href="decorator_configs.applicationconfig.html#server" class="tsd-kind-icon">server</a>
-                                </li>
+                                    Context
+                                    <wbr>
+                                    Instance</a></li>
                             </ul>
                         </section>
                     </div>
@@ -102,68 +97,39 @@
             <section class="tsd-panel-group tsd-member-group ">
                 <h2>Properties</h2>
                 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-                    <a name="components" class="tsd-anchor"></a>
-                    <h3><span class="tsd-flag ts-flagOptional">Optional</span> components</h3>
-                    <div class="tsd-signature tsd-kind-icon">components<span class="tsd-signature-symbol">:</span> <span
-                            class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span
-                            class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">&gt;</span>
-                    </div>
+                    <a name="fn" class="tsd-anchor"></a>
+                    <h3>fn</h3>
+                    <div class="tsd-signature tsd-kind-icon">fn<span class="tsd-signature-symbol">:</span> <span
+                            class="tsd-signature-type">Function</span></div>
                     <aside class="tsd-sources">
                         <ul>
                             <li>Defined in <a
-                                    href="https://github.com/nilsroesel/plants/blob/2410585/src/interfaces/application.interface.ts#L15">interfaces/application.interface.ts:15</a>
+                                    href="https://github.com/nilsroesel/plants/blob/2410585/src/interfaces/types.ts#L10">interfaces/types.ts:10</a>
                             </li>
                         </ul>
                     </aside>
                 </section>
                 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-                    <a name="contenttype" class="tsd-anchor"></a>
-                    <h3>content
+                    <a name="functioncontextinstance" class="tsd-anchor"></a>
+                    <h3>function
                         <wbr>
-                        Type
+                        Context
+                        <wbr>
+                        Instance
                     </h3>
-                    <div class="tsd-signature tsd-kind-icon">content
+                    <div class="tsd-signature tsd-kind-icon">function
                         <wbr>
-                        Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span>
-                    </div>
+                        Context
+                        <wbr>
+                        Instance<span class="tsd-signature-symbol">:</span> <span
+                                class="tsd-signature-type">Object</span></div>
                     <aside class="tsd-sources">
                         <ul>
                             <li>Defined in <a
-                                    href="https://github.com/nilsroesel/plants/blob/2410585/src/interfaces/application.interface.ts#L7">interfaces/application.interface.ts:7</a>
+                                    href="https://github.com/nilsroesel/plants/blob/2410585/src/interfaces/types.ts#L9">interfaces/types.ts:9</a>
                             </li>
                         </ul>
                     </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-                    <a name="middleware" class="tsd-anchor"></a>
-                    <h3><span class="tsd-flag ts-flagOptional">Optional</span> middleware</h3>
-                    <div class="tsd-signature tsd-kind-icon">middleware<span class="tsd-signature-symbol">:</span> <a
-                            href="../modules/types.html#middleware" class="tsd-signature-type">Middleware</a></div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a
-                                    href="https://github.com/nilsroesel/plants/blob/2410585/src/interfaces/application.interface.ts#L14">interfaces/application.interface.ts:14</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-                <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-                    <a name="server" class="tsd-anchor"></a>
-                    <h3>server</h3>
-                    <div class="tsd-signature tsd-kind-icon">server<span class="tsd-signature-symbol">:</span> <span
-                            class="tsd-signature-type">object</span></div>
-                    <aside class="tsd-sources">
-                        <ul>
-                            <li>Defined in <a
-                                    href="https://github.com/nilsroesel/plants/blob/2410585/src/interfaces/application.interface.ts#L8">interfaces/application.interface.ts:8</a>
-                            </li>
-                        </ul>
-                    </aside>
-                    <div class="tsd-type-declaration">
-                        <h4>Type declaration</h4>
-                        <ul class="tsd-parameters">
-                        </ul>
-                    </div>
                 </section>
             </section>
         </div>
@@ -173,7 +139,7 @@
                     <li class="globals  ">
                         <a href="../globals.html"><em>Globals</em></a>
                     </li>
-                    <li class="current tsd-kind-external-module">
+                    <li class=" tsd-kind-external-module">
                         <a href="../modules/decorator_configs.html">Decorator-
                             <wbr>
                             <wbr>
@@ -190,7 +156,7 @@
                             <wbr>
                             exported</a>
                     </li>
-                    <li class=" tsd-kind-external-module">
+                    <li class="current tsd-kind-external-module">
                         <a href="../modules/types.html">Types</a>
                     </li>
                 </ul>
@@ -200,38 +166,38 @@
                 </ul>
                 <ul class="current">
                     <li class="current tsd-kind-interface tsd-parent-kind-external-module">
-                        <a href="decorator_configs.applicationconfig.html" class="tsd-kind-icon">Application
+                        <a href="types.contexthandlerfn.html" class="tsd-kind-icon">Context
                             <wbr>
-                            Config</a>
+                            Handler
+                            <wbr>
+                            Fn</a>
                         <ul>
                             <li class=" tsd-kind-property tsd-parent-kind-interface">
-                                <a href="decorator_configs.applicationconfig.html#components" class="tsd-kind-icon">components</a>
+                                <a href="types.contexthandlerfn.html#fn" class="tsd-kind-icon">fn</a>
                             </li>
                             <li class=" tsd-kind-property tsd-parent-kind-interface">
-                                <a href="decorator_configs.applicationconfig.html#contenttype" class="tsd-kind-icon">content
+                                <a href="types.contexthandlerfn.html#functioncontextinstance" class="tsd-kind-icon">function
                                     <wbr>
-                                    Type</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-interface">
-                                <a href="decorator_configs.applicationconfig.html#middleware" class="tsd-kind-icon">middleware</a>
-                            </li>
-                            <li class=" tsd-kind-property tsd-parent-kind-interface">
-                                <a href="decorator_configs.applicationconfig.html#server"
-                                   class="tsd-kind-icon">server</a>
+                                    Context
+                                    <wbr>
+                                    Instance</a>
                             </li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="after-current">
-                    <li class=" tsd-kind-interface tsd-parent-kind-external-module">
-                        <a href="decorator_configs.componentconfig.html" class="tsd-kind-icon">Component
+                    <li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+                        <a href="../modules/types.html#handlerfn" class="tsd-kind-icon">Handler
                             <wbr>
-                            Config</a>
+                            Fn</a>
                     </li>
-                    <li class=" tsd-kind-interface tsd-parent-kind-external-module">
-                        <a href="decorator_configs.endpointconfig.html" class="tsd-kind-icon">Endpoint
+                    <li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+                        <a href="../modules/types.html#middleware" class="tsd-kind-icon">Middleware</a>
+                    </li>
+                    <li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+                        <a href="../modules/types.html#middlewarefunction" class="tsd-kind-icon">Middleware
                             <wbr>
-                            Config</a>
+                            Function</a>
                     </li>
                 </ul>
             </nav>
