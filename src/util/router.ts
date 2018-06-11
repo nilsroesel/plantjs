@@ -30,22 +30,26 @@ export class Router {
     }
 
     getRouteFromUrl(url: string): Promise<Route> {
+        const transformedUrl = url.charAt(url.length) === '/'? url : url.concat('/');
         return new Promise<Route>((resolve, reject) => {
             this.routeMap.forEach((val: EndpointHandler, key: string) => {
-                // Transform route into a regex to match url
-                const regExString = key
-                // Escape all common regex tokens
-                    .replace(/\//g, '\\/')
-                    .replace(/\(/g, '\\(')
-                    .replace(/\)/g, '\\)')
-                    .replace(/\[/g, '\\[')
-                    .replace(/\]/g, '\\]')
-                    .replace(/\$/g, '\\$')
-                    // Convert params to regex
-                    .replace(/:[^\\/\[]*\[number\]/g, '(\\d+)') // Number typed param
-                    .replace(/:[^\/]*/g, '([^\/]+)') // Params are any value
-                    .replace(/\/$/, '') // Solves '/foo/bar' !== '/foo/bar/'
-                    .concat('\/*$');
+                // Transform route into a regex to match url ->^route-with-params-$
+                const regExString =
+                    '^'.concat(
+                        key
+                        // Escape all common regex tokens
+                            .replace(/\//g, '\\/')
+                            .replace(/\(/g, '\\(')
+                            .replace(/\)/g, '\\)')
+                            .replace(/\[/g, '\\[')
+                            .replace(/\]/g, '\\]')
+                            .replace(/\$/g, '\\$')
+                            // Convert params to regex
+                            .replace(/:[^\\/\[]*\[number\]/g, '(\\d+)') // Number typed param
+                            .replace(/:[^\/]*/g, '([^\/]+)') // Params are any value
+                            .replace(/\/$/, '') // Solves '/foo/bar' !== '/foo/bar/'
+                            .concat('\/*$')
+                    );
                 const functionChain: Middleware = val.middleware.concat({
                     functionContextInstance: val.functionContextInstance,
                     fn: val.fn
