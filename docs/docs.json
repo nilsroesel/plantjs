@@ -1,0 +1,1660 @@
+{
+	"id": 0,
+	"name": "skeiðjs",
+	"kind": 0,
+	"flags": {},
+	"children": [
+		{
+			"id": 9,
+			"name": "Decorator-Configs",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/dev/workspaces/skeidjs/src/interfaces/application.interface.ts",
+			"children": [
+				{
+					"id": 10,
+					"name": "ApplicationConfig",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 15,
+							"name": "components",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/application.interface.ts",
+									"line": 15,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Array",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"name": "Function"
+									}
+								]
+							}
+						},
+						{
+							"id": 11,
+							"name": "contentType",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/application.interface.ts",
+									"line": 7,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 14,
+							"name": "middleware",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/application.interface.ts",
+									"line": 14,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Middleware",
+								"id": 45
+							}
+						},
+						{
+							"id": 12,
+							"name": "server",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/application.interface.ts",
+									"line": 8,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 13,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "interfaces/application.interface.ts",
+											"line": 8,
+											"character": 11
+										}
+									]
+								}
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								15,
+								11,
+								14,
+								12
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "interfaces/application.interface.ts",
+							"line": 6,
+							"character": 34
+						}
+					]
+				},
+				{
+					"id": 17,
+					"name": "ComponentConfig",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 19,
+							"name": "middleware",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/component.interface.ts",
+									"line": 8,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Middleware",
+								"id": 45
+							}
+						},
+						{
+							"id": 18,
+							"name": "route",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/component.interface.ts",
+									"line": 7,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								19,
+								18
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "interfaces/component.interface.ts",
+							"line": 6,
+							"character": 32
+						}
+					]
+				},
+				{
+					"id": 21,
+					"name": "EndpointConfig",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 23,
+							"name": "middleware",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/endpoint.interface.ts",
+									"line": 8,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Middleware",
+								"id": 45
+							}
+						},
+						{
+							"id": 22,
+							"name": "route",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/endpoint.interface.ts",
+									"line": 7,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								23,
+								22
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "interfaces/endpoint.interface.ts",
+							"line": 6,
+							"character": 31
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						10,
+						17,
+						21
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "interfaces/application.interface.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "Decorators",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/dev/workspaces/skeidjs/src/decorators/application.decorator.ts",
+			"children": [
+				{
+					"id": 154,
+					"name": "InjectionModes",
+					"kind": 4,
+					"kindString": "Enumeration",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 156,
+							"name": "MULTI_INSTANCE",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "decorators/injectable.decorator.ts",
+									"line": 37,
+									"character": 18
+								}
+							]
+						},
+						{
+							"id": 155,
+							"name": "SINGLE_INSTANCE",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "decorators/injectable.decorator.ts",
+									"line": 36,
+									"character": 19
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Enumeration members",
+							"kind": 16,
+							"children": [
+								156,
+								155
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "decorators/injectable.decorator.ts",
+							"line": 35,
+							"character": 26
+						}
+					]
+				},
+				{
+					"id": 2,
+					"name": "Application",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 3,
+							"name": "Application",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Class Decorator Function",
+								"text": "Creates a runner upon a class. No need to create an object and to serve manually",
+								"returns": "\n",
+								"tags": [
+									{
+										"tag": "example",
+										"text": "\n```typescript\n\n  @Application({\n     contentType: 'application/json',\n     server: {\n         port: 3000,\n         maxConnections: 10,\n         timeout: 500,\n         keepAliveTimeout: 500\n     },\n     components: [TestComponent],\n     middleware: [(request: Request, response: Response) => { }]\n  })\n  class Test {}\n```\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 4,
+									"name": "config",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "ApplicationConfig",
+										"id": 10
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "(Anonymous function)"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "decorators/application.decorator.ts",
+							"line": 41,
+							"character": 27
+						}
+					]
+				},
+				{
+					"id": 6,
+					"name": "Component",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 7,
+							"name": "Component",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Class Decorator Function",
+								"text": "A collection of endpoints. Every endpoints in this will apply the given metadata.\nAdd the class Symbols to the application components array (similar to angular module)\nto apply them to an application",
+								"returns": "\n",
+								"tags": [
+									{
+										"tag": "example",
+										"text": "\n```typescript\n\n  @Component({\n     route: '/api',\n     middleware: [(request: Request, response: Response) => { }]\n  })\n  class Test {}\n```\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 8,
+									"name": "conf",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "ComponentConfig",
+										"id": 17
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "(Anonymous function)"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "decorators/component.decorator.ts",
+							"line": 26,
+							"character": 25
+						}
+					]
+				},
+				{
+					"id": 92,
+					"name": "Endpoint",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 93,
+							"name": "Endpoint",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Property Decorator Function",
+								"text": "Creates an endpoint of a function\nThe decorated function need the following index signature otherwise it will throw an error\n(request: Request, response: Response, next?: Function) (also an indexsignature fore middlewares)\nIf you pass the next-function and call it, it will get the next function from the route middlewares\nand abort the current execution",
+								"returns": "\n",
+								"tags": [
+									{
+										"tag": "example",
+										"text": "\n```typescript\n\n  @Component({route: '/api'})\n  class Test {\n\n     @Endpoint({\n         route: '/foo'\n         middleware: [(request: request) => request.params['foo'] = foo; ]\n     )\n     foo(request: Request, response: Response) {\n         response\n          .status(200)\n          .json(request.params.foo)\n          .send();\n     }\n  }\n```\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 94,
+									"name": "config",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "EndpointConfig",
+										"id": 21
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "(Anonymous function)"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "decorators/endpoint.decorator.ts",
+							"line": 38,
+							"character": 24
+						}
+					]
+				},
+				{
+					"id": 157,
+					"name": "Injectable",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 158,
+							"name": "Injectable",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Class Decorator Function",
+								"text": "Allows to inject dependencies into objects",
+								"returns": "\n",
+								"tags": [
+									{
+										"tag": "example",
+										"text": "\n```typescript\n\n  @Injectable()\n  class InjectedDependency {\n     public foo = 'foo'\n  }\n\n  class Target {\n     constructor (private foo: InjectedDependency);\n\n     getFoosFoo() { return this.foo.foo }\n  }\n```\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 159,
+									"name": "mode",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "reference",
+										"name": "InjectionModes",
+										"id": 154
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "GenericClassDecorator",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"name": "Instantiable",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "any"
+											}
+										]
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "decorators/injectable.decorator.ts",
+							"line": 28,
+							"character": 26
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Enumerations",
+					"kind": 4,
+					"children": [
+						154
+					]
+				},
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						2,
+						6,
+						92,
+						157
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "decorators/application.decorator.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 46,
+			"name": "Http",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/dev/workspaces/skeidjs/src/util/wrapper/request.wrapper.ts",
+			"children": [
+				{
+					"id": 47,
+					"name": "Request",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 56,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 57,
+									"name": "new Request",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 58,
+											"name": "request",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "IncomingMessage"
+											}
+										},
+										{
+											"id": 59,
+											"name": "body",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 60,
+											"name": "params",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Object"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Request",
+										"id": 47
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "util/wrapper/request.wrapper.ts",
+									"line": 25,
+									"character": 26
+								}
+							]
+						},
+						{
+							"id": 55,
+							"name": "body",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "util/wrapper/request.wrapper.ts",
+									"line": 25,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 53,
+							"name": "headers",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "util/wrapper/request.wrapper.ts",
+									"line": 23,
+									"character": 20
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IncomingHttpHeaders"
+							}
+						},
+						{
+							"id": 54,
+							"name": "method",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "util/wrapper/request.wrapper.ts",
+									"line": 24,
+									"character": 19
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 52,
+							"name": "params",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "util/wrapper/request.wrapper.ts",
+									"line": 22,
+									"character": 19
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Object"
+							}
+						},
+						{
+							"id": 51,
+							"name": "url",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "util/wrapper/request.wrapper.ts",
+									"line": 21,
+									"character": 16
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 61,
+							"name": "json",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 62,
+									"name": "json",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Object"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "util/wrapper/request.wrapper.ts",
+									"line": 35,
+									"character": 8
+								}
+							]
+						},
+						{
+							"id": 48,
+							"name": "readRequestBody",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isStatic": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 49,
+									"name": "readRequestBody",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 50,
+											"name": "request",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "IncomingMessage"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Promise",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											}
+										]
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "util/wrapper/request.wrapper.ts",
+									"line": 7,
+									"character": 26
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								56
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								55,
+								53,
+								54,
+								52,
+								51
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								61,
+								48
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "util/wrapper/request.wrapper.ts",
+							"line": 6,
+							"character": 20
+						}
+					]
+				},
+				{
+					"id": 64,
+					"name": "Response",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 67,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 68,
+									"name": "new Response",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 69,
+											"name": "response",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "ServerResponse"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Response",
+										"id": 64
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "util/wrapper/response.wrapper.ts",
+									"line": 8,
+									"character": 31
+								}
+							]
+						},
+						{
+							"id": 65,
+							"name": "response",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "util/wrapper/response.wrapper.ts",
+									"line": 7,
+									"character": 20
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "ServerResponse"
+							}
+						},
+						{
+							"id": 66,
+							"name": "statusCode",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "util/wrapper/response.wrapper.ts",
+									"line": 8,
+									"character": 22
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 81,
+							"name": "json",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 82,
+									"name": "json",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 83,
+											"name": "payload",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Object"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Response",
+										"id": 64
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "util/wrapper/response.wrapper.ts",
+									"line": 30,
+									"character": 8
+								}
+							]
+						},
+						{
+							"id": 84,
+							"name": "send",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 85,
+									"name": "send",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "util/wrapper/response.wrapper.ts",
+									"line": 35,
+									"character": 8
+								}
+							]
+						},
+						{
+							"id": 70,
+							"name": "setHeader",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 71,
+									"name": "setHeader",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 72,
+											"name": "name",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 73,
+											"name": "value",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "array",
+														"elementType": {
+															"type": "intrinsic",
+															"name": "string"
+														}
+													},
+													{
+														"type": "intrinsic",
+														"name": "number"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Response",
+										"id": 64
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "util/wrapper/response.wrapper.ts",
+									"line": 14,
+									"character": 13
+								}
+							]
+						},
+						{
+							"id": 74,
+							"name": "status",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 75,
+									"name": "status",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 76,
+											"name": "status",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										},
+										{
+											"id": 77,
+											"name": "message",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isOptional": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Response",
+										"id": 64
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "util/wrapper/response.wrapper.ts",
+									"line": 19,
+									"character": 10
+								}
+							]
+						},
+						{
+							"id": 78,
+							"name": "text",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 79,
+									"name": "text",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 80,
+											"name": "payload",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Response",
+										"id": 64
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "util/wrapper/response.wrapper.ts",
+									"line": 25,
+									"character": 8
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								67
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								65,
+								66
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								81,
+								84,
+								70,
+								74,
+								78
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "util/wrapper/response.wrapper.ts",
+							"line": 6,
+							"character": 21
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						47,
+						64
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "util/wrapper/request.wrapper.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 99,
+			"name": "Non-exported",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/dev/workspaces/skeidjs/src/util/route.ts",
+			"children": [
+				{
+					"id": 152,
+					"name": "injectorStore",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true,
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "store/injector.store.ts",
+							"line": 7,
+							"character": 26
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Map",
+						"typeArguments": [
+							{
+								"type": "reference",
+								"name": "Instantiable",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								]
+							},
+							{
+								"type": "reference",
+								"name": "Object"
+							}
+						]
+					},
+					"defaultValue": " new Map()"
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						152
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "util/route.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 24,
+			"name": "Types",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/dev/workspaces/skeidjs/src/interfaces/types.ts",
+			"children": [
+				{
+					"id": 25,
+					"name": "ContextHandlerFn",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 27,
+							"name": "fn",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/types.ts",
+									"line": 10,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Function"
+							}
+						},
+						{
+							"id": 26,
+							"name": "functionContextInstance",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/types.ts",
+									"line": 9,
+									"character": 27
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Object"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								27,
+								26
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "interfaces/types.ts",
+							"line": 8,
+							"character": 33
+						}
+					]
+				},
+				{
+					"id": 33,
+					"name": "HandlerFn",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "interfaces/types.ts",
+							"line": 6,
+							"character": 21
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 34,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 35,
+									"name": "__call",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 36,
+											"name": "request",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isOptional": true
+											},
+											"type": {
+												"type": "reference",
+												"name": "Request",
+												"id": 47
+											}
+										},
+										{
+											"id": 37,
+											"name": "response",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isOptional": true
+											},
+											"type": {
+												"type": "reference",
+												"name": "Response",
+												"id": 64
+											}
+										},
+										{
+											"id": 38,
+											"name": "next",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isOptional": true
+											},
+											"type": {
+												"type": "reference",
+												"name": "Function"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "interfaces/types.ts",
+									"line": 6,
+									"character": 23
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 45,
+					"name": "Middleware",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "interfaces/types.ts",
+							"line": 20,
+							"character": 22
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Array",
+						"typeArguments": [
+							{
+								"type": "reference",
+								"name": "MiddlewareFunction",
+								"id": 44
+							}
+						]
+					}
+				},
+				{
+					"id": 44,
+					"name": "MiddlewareFunction",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "interfaces/types.ts",
+							"line": 18,
+							"character": 30
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "reference",
+								"name": "HandlerFn",
+								"id": 33
+							},
+							{
+								"type": "reference",
+								"name": "ContextHandlerFn",
+								"id": 25
+							}
+						]
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						25
+					]
+				},
+				{
+					"title": "Type aliases",
+					"kind": 4194304,
+					"children": [
+						33,
+						45,
+						44
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "interfaces/types.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "External modules",
+			"kind": 1,
+			"children": [
+				9,
+				1,
+				46,
+				99,
+				24
+			]
+		}
+	]
+}
