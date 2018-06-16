@@ -25,6 +25,22 @@ The evaluation of middleware function goes as it follows:
 - An endpoint/middleware function has three parameters (request, response, next?);
 - The next() function will break the current execution of the current function and start the next one
 
+### Routes
+- The basic route scheme is:
+/$applicationRoute/$componentRoute/$endpointRoute
+- you can define a param in a route like `/:foo`  
+and access it via `request.params.foo`
+#### Route Typing
+you can directly define a typed route param 
+`/:id[number]` an non digit route would return a 404. 
+The available types are:
+- number  
+Planned dor 1.3
+- hex
+- alpha (=> [a-zA-Z])
+- A custom RegExp
+- length validation
+
 ### Decorator driven
 Everything is decorator driven. The framework is not supposed to run an application like
 the "express.use().listen(x)". You decorate the main component with @Application and execute
