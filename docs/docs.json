@@ -5,17 +5,17 @@
 	"flags": {},
 	"children": [
 		{
-			"id": 9,
+			"id": 81,
 			"name": "Decorator-Configs",
 			"kind": 1,
 			"kindString": "External module",
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/dev/workspaces/skeidjs/src/interfaces/application.interface.ts",
+			"originalName": "C:/PROGRAMMIERUNG/skeidjs/src/interfaces/application.interface.ts",
 			"children": [
 				{
-					"id": 10,
+					"id": 82,
 					"name": "ApplicationConfig",
 					"kind": 256,
 					"kindString": "Interface",
@@ -24,7 +24,7 @@
 					},
 					"children": [
 						{
-							"id": 15,
+							"id": 87,
 							"name": "components",
 							"kind": 1024,
 							"kindString": "Property",
@@ -51,7 +51,7 @@
 							}
 						},
 						{
-							"id": 11,
+							"id": 83,
 							"name": "contentType",
 							"kind": 1024,
 							"kindString": "Property",
@@ -71,7 +71,7 @@
 							}
 						},
 						{
-							"id": 14,
+							"id": 86,
 							"name": "middleware",
 							"kind": 1024,
 							"kindString": "Property",
@@ -89,11 +89,11 @@
 							"type": {
 								"type": "reference",
 								"name": "Middleware",
-								"id": 45
+								"id": 35
 							}
 						},
 						{
-							"id": 12,
+							"id": 84,
 							"name": "server",
 							"kind": 1024,
 							"kindString": "Property",
@@ -110,7 +110,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 13,
+									"id": 85,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -131,10 +131,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								15,
-								11,
-								14,
-								12
+								87,
+								83,
+								86,
+								84
 							]
 						}
 					],
@@ -147,7 +147,7 @@
 					]
 				},
 				{
-					"id": 17,
+					"id": 89,
 					"name": "ComponentConfig",
 					"kind": 256,
 					"kindString": "Interface",
@@ -156,7 +156,7 @@
 					},
 					"children": [
 						{
-							"id": 19,
+							"id": 91,
 							"name": "middleware",
 							"kind": 1024,
 							"kindString": "Property",
@@ -174,11 +174,11 @@
 							"type": {
 								"type": "reference",
 								"name": "Middleware",
-								"id": 45
+								"id": 35
 							}
 						},
 						{
-							"id": 18,
+							"id": 90,
 							"name": "route",
 							"kind": 1024,
 							"kindString": "Property",
@@ -204,8 +204,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								19,
-								18
+								91,
+								90
 							]
 						}
 					],
@@ -218,7 +218,7 @@
 					]
 				},
 				{
-					"id": 21,
+					"id": 93,
 					"name": "EndpointConfig",
 					"kind": 256,
 					"kindString": "Interface",
@@ -227,7 +227,7 @@
 					},
 					"children": [
 						{
-							"id": 23,
+							"id": 95,
 							"name": "middleware",
 							"kind": 1024,
 							"kindString": "Property",
@@ -245,11 +245,11 @@
 							"type": {
 								"type": "reference",
 								"name": "Middleware",
-								"id": 45
+								"id": 35
 							}
 						},
 						{
-							"id": 22,
+							"id": 94,
 							"name": "route",
 							"kind": 1024,
 							"kindString": "Property",
@@ -274,8 +274,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								23,
-								22
+								95,
+								94
 							]
 						}
 					],
@@ -293,9 +293,9 @@
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						10,
-						17,
-						21
+						82,
+						89,
+						93
 					]
 				}
 			],
@@ -315,10 +315,10 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/dev/workspaces/skeidjs/src/decorators/application.decorator.ts",
+			"originalName": "C:/PROGRAMMIERUNG/skeidjs/src/decorators/endpoint.decorator.ts",
 			"children": [
 				{
-					"id": 154,
+					"id": 110,
 					"name": "InjectionModes",
 					"kind": 4,
 					"kindString": "Enumeration",
@@ -327,7 +327,7 @@
 					},
 					"children": [
 						{
-							"id": 156,
+							"id": 112,
 							"name": "MULTI_INSTANCE",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -343,7 +343,7 @@
 							]
 						},
 						{
-							"id": 155,
+							"id": 111,
 							"name": "SINGLE_INSTANCE",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -364,8 +364,8 @@
 							"title": "Enumeration members",
 							"kind": 16,
 							"children": [
-								156,
-								155
+								112,
+								111
 							]
 						}
 					],
@@ -378,7 +378,7 @@
 					]
 				},
 				{
-					"id": 2,
+					"id": 157,
 					"name": "Application",
 					"kind": 64,
 					"kindString": "Function",
@@ -387,7 +387,7 @@
 					},
 					"signatures": [
 						{
-							"id": 3,
+							"id": 158,
 							"name": "Application",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -405,7 +405,7 @@
 							},
 							"parameters": [
 								{
-									"id": 4,
+									"id": 159,
 									"name": "config",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -413,7 +413,7 @@
 									"type": {
 										"type": "reference",
 										"name": "ApplicationConfig",
-										"id": 10
+										"id": 82
 									}
 								}
 							],
@@ -432,7 +432,7 @@
 					]
 				},
 				{
-					"id": 6,
+					"id": 106,
 					"name": "Component",
 					"kind": 64,
 					"kindString": "Function",
@@ -441,7 +441,7 @@
 					},
 					"signatures": [
 						{
-							"id": 7,
+							"id": 107,
 							"name": "Component",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -459,7 +459,7 @@
 							},
 							"parameters": [
 								{
-									"id": 8,
+									"id": 108,
 									"name": "conf",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -467,7 +467,7 @@
 									"type": {
 										"type": "reference",
 										"name": "ComponentConfig",
-										"id": 17
+										"id": 89
 									}
 								}
 							],
@@ -486,7 +486,7 @@
 					]
 				},
 				{
-					"id": 92,
+					"id": 7,
 					"name": "Endpoint",
 					"kind": 64,
 					"kindString": "Function",
@@ -495,7 +495,7 @@
 					},
 					"signatures": [
 						{
-							"id": 93,
+							"id": 8,
 							"name": "Endpoint",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -513,7 +513,7 @@
 							},
 							"parameters": [
 								{
-									"id": 94,
+									"id": 9,
 									"name": "config",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -521,7 +521,7 @@
 									"type": {
 										"type": "reference",
 										"name": "EndpointConfig",
-										"id": 21
+										"id": 93
 									}
 								}
 							],
@@ -540,7 +540,7 @@
 					]
 				},
 				{
-					"id": 157,
+					"id": 113,
 					"name": "Injectable",
 					"kind": 64,
 					"kindString": "Function",
@@ -549,7 +549,7 @@
 					},
 					"signatures": [
 						{
-							"id": 158,
+							"id": 114,
 							"name": "Injectable",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -567,7 +567,7 @@
 							},
 							"parameters": [
 								{
-									"id": 159,
+									"id": 115,
 									"name": "mode",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -577,7 +577,7 @@
 									"type": {
 										"type": "reference",
 										"name": "InjectionModes",
-										"id": 154
+										"id": 110
 									}
 								}
 							],
@@ -613,40 +613,40 @@
 					"title": "Enumerations",
 					"kind": 4,
 					"children": [
-						154
+						110
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						2,
-						6,
-						92,
-						157
+						157,
+						106,
+						7,
+						113
 					]
 				}
 			],
 			"sources": [
 				{
-					"fileName": "decorators/application.decorator.ts",
+					"fileName": "decorators/endpoint.decorator.ts",
 					"line": 1,
 					"character": 0
 				}
 			]
 		},
 		{
-			"id": 46,
+			"id": 116,
 			"name": "Http",
 			"kind": 1,
 			"kindString": "External module",
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/dev/workspaces/skeidjs/src/util/wrapper/request.wrapper.ts",
+			"originalName": "C:/PROGRAMMIERUNG/skeidjs/src/util/wrapper/request.wrapper.ts",
 			"children": [
 				{
-					"id": 47,
+					"id": 117,
 					"name": "Request",
 					"kind": 128,
 					"kindString": "Class",
@@ -655,7 +655,7 @@
 					},
 					"children": [
 						{
-							"id": 56,
+							"id": 126,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -664,14 +664,14 @@
 							},
 							"signatures": [
 								{
-									"id": 57,
+									"id": 127,
 									"name": "new Request",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 58,
+											"id": 128,
 											"name": "request",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -682,7 +682,7 @@
 											}
 										},
 										{
-											"id": 59,
+											"id": 129,
 											"name": "body",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -693,7 +693,7 @@
 											}
 										},
 										{
-											"id": 60,
+											"id": 130,
 											"name": "params",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -707,7 +707,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Request",
-										"id": 47
+										"id": 117
 									}
 								}
 							],
@@ -720,7 +720,7 @@
 							]
 						},
 						{
-							"id": 55,
+							"id": 125,
 							"name": "body",
 							"kind": 1024,
 							"kindString": "Property",
@@ -740,7 +740,7 @@
 							}
 						},
 						{
-							"id": 53,
+							"id": 123,
 							"name": "headers",
 							"kind": 1024,
 							"kindString": "Property",
@@ -760,7 +760,7 @@
 							}
 						},
 						{
-							"id": 54,
+							"id": 124,
 							"name": "method",
 							"kind": 1024,
 							"kindString": "Property",
@@ -780,7 +780,7 @@
 							}
 						},
 						{
-							"id": 52,
+							"id": 122,
 							"name": "params",
 							"kind": 1024,
 							"kindString": "Property",
@@ -800,7 +800,7 @@
 							}
 						},
 						{
-							"id": 51,
+							"id": 121,
 							"name": "url",
 							"kind": 1024,
 							"kindString": "Property",
@@ -820,7 +820,7 @@
 							}
 						},
 						{
-							"id": 61,
+							"id": 131,
 							"name": "json",
 							"kind": 2048,
 							"kindString": "Method",
@@ -829,7 +829,7 @@
 							},
 							"signatures": [
 								{
-									"id": 62,
+									"id": 132,
 									"name": "json",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -849,7 +849,7 @@
 							]
 						},
 						{
-							"id": 48,
+							"id": 118,
 							"name": "readRequestBody",
 							"kind": 2048,
 							"kindString": "Method",
@@ -859,14 +859,14 @@
 							},
 							"signatures": [
 								{
-									"id": 49,
+									"id": 119,
 									"name": "readRequestBody",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 50,
+											"id": 120,
 											"name": "request",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -903,26 +903,26 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								56
+								126
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								55,
-								53,
-								54,
-								52,
-								51
+								125,
+								123,
+								124,
+								122,
+								121
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								61,
-								48
+								131,
+								118
 							]
 						}
 					],
@@ -935,7 +935,7 @@
 					]
 				},
 				{
-					"id": 64,
+					"id": 134,
 					"name": "Response",
 					"kind": 128,
 					"kindString": "Class",
@@ -944,7 +944,7 @@
 					},
 					"children": [
 						{
-							"id": 67,
+							"id": 137,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -953,14 +953,14 @@
 							},
 							"signatures": [
 								{
-									"id": 68,
+									"id": 138,
 									"name": "new Response",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 69,
+											"id": 139,
 											"name": "response",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -974,7 +974,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 64
+										"id": 134
 									}
 								}
 							],
@@ -987,7 +987,7 @@
 							]
 						},
 						{
-							"id": 65,
+							"id": 135,
 							"name": "response",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1008,7 +1008,7 @@
 							}
 						},
 						{
-							"id": 66,
+							"id": 136,
 							"name": "statusCode",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1029,7 +1029,7 @@
 							}
 						},
 						{
-							"id": 81,
+							"id": 151,
 							"name": "json",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1038,14 +1038,14 @@
 							},
 							"signatures": [
 								{
-									"id": 82,
+									"id": 152,
 									"name": "json",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 83,
+											"id": 153,
 											"name": "payload",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1059,7 +1059,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 64
+										"id": 134
 									}
 								}
 							],
@@ -1072,7 +1072,7 @@
 							]
 						},
 						{
-							"id": 84,
+							"id": 154,
 							"name": "send",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1081,7 +1081,7 @@
 							},
 							"signatures": [
 								{
-									"id": 85,
+									"id": 155,
 									"name": "send",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1101,7 +1101,7 @@
 							]
 						},
 						{
-							"id": 70,
+							"id": 140,
 							"name": "setHeader",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1110,14 +1110,14 @@
 							},
 							"signatures": [
 								{
-									"id": 71,
+									"id": 141,
 									"name": "setHeader",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 72,
+											"id": 142,
 											"name": "name",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1128,7 +1128,7 @@
 											}
 										},
 										{
-											"id": 73,
+											"id": 143,
 											"name": "value",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1158,7 +1158,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 64
+										"id": 134
 									}
 								}
 							],
@@ -1171,7 +1171,7 @@
 							]
 						},
 						{
-							"id": 74,
+							"id": 144,
 							"name": "status",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1180,14 +1180,14 @@
 							},
 							"signatures": [
 								{
-									"id": 75,
+									"id": 145,
 									"name": "status",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 76,
+											"id": 146,
 											"name": "status",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1198,7 +1198,7 @@
 											}
 										},
 										{
-											"id": 77,
+											"id": 147,
 											"name": "message",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1214,7 +1214,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 64
+										"id": 134
 									}
 								}
 							],
@@ -1227,7 +1227,7 @@
 							]
 						},
 						{
-							"id": 78,
+							"id": 148,
 							"name": "text",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1236,14 +1236,14 @@
 							},
 							"signatures": [
 								{
-									"id": 79,
+									"id": 149,
 									"name": "text",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 80,
+											"id": 150,
 											"name": "payload",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1257,7 +1257,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 64
+										"id": 134
 									}
 								}
 							],
@@ -1275,26 +1275,26 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								67
+								137
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								65,
-								66
+								135,
+								136
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								81,
-								84,
-								70,
-								74,
-								78
+								151,
+								154,
+								140,
+								144,
+								148
 							]
 						}
 					],
@@ -1312,8 +1312,8 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						47,
-						64
+						117,
+						134
 					]
 				}
 			],
@@ -1326,17 +1326,17 @@
 			]
 		},
 		{
-			"id": 99,
+			"id": 36,
 			"name": "Non-exported",
 			"kind": 1,
 			"kindString": "External module",
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/dev/workspaces/skeidjs/src/util/route.ts",
+			"originalName": "C:/PROGRAMMIERUNG/skeidjs/src/util/route.ts",
 			"children": [
 				{
-					"id": 152,
+					"id": 104,
 					"name": "injectorStore",
 					"kind": 32,
 					"kindString": "Variable",
@@ -1379,7 +1379,7 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						152
+						104
 					]
 				}
 			],
@@ -1392,17 +1392,17 @@
 			]
 		},
 		{
-			"id": 24,
+			"id": 14,
 			"name": "Types",
 			"kind": 1,
 			"kindString": "External module",
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/dev/workspaces/skeidjs/src/interfaces/types.ts",
+			"originalName": "C:/PROGRAMMIERUNG/skeidjs/src/interfaces/types.ts",
 			"children": [
 				{
-					"id": 25,
+					"id": 15,
 					"name": "ContextHandlerFn",
 					"kind": 256,
 					"kindString": "Interface",
@@ -1411,7 +1411,7 @@
 					},
 					"children": [
 						{
-							"id": 27,
+							"id": 17,
 							"name": "fn",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1431,7 +1431,7 @@
 							}
 						},
 						{
-							"id": 26,
+							"id": 16,
 							"name": "functionContextInstance",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1456,8 +1456,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								27,
-								26
+								17,
+								16
 							]
 						}
 					],
@@ -1470,7 +1470,7 @@
 					]
 				},
 				{
-					"id": 33,
+					"id": 23,
 					"name": "HandlerFn",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -1487,21 +1487,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 34,
+							"id": 24,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 35,
+									"id": 25,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 36,
+											"id": 26,
 											"name": "request",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1511,11 +1511,11 @@
 											"type": {
 												"type": "reference",
 												"name": "Request",
-												"id": 47
+												"id": 117
 											}
 										},
 										{
-											"id": 37,
+											"id": 27,
 											"name": "response",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1525,11 +1525,11 @@
 											"type": {
 												"type": "reference",
 												"name": "Response",
-												"id": 64
+												"id": 134
 											}
 										},
 										{
-											"id": 38,
+											"id": 28,
 											"name": "next",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1559,7 +1559,7 @@
 					}
 				},
 				{
-					"id": 45,
+					"id": 35,
 					"name": "Middleware",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -1580,13 +1580,13 @@
 							{
 								"type": "reference",
 								"name": "MiddlewareFunction",
-								"id": 44
+								"id": 34
 							}
 						]
 					}
 				},
 				{
-					"id": 44,
+					"id": 34,
 					"name": "MiddlewareFunction",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -1606,12 +1606,12 @@
 							{
 								"type": "reference",
 								"name": "HandlerFn",
-								"id": 33
+								"id": 23
 							},
 							{
 								"type": "reference",
 								"name": "ContextHandlerFn",
-								"id": 25
+								"id": 15
 							}
 						]
 					}
@@ -1622,16 +1622,16 @@
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						25
+						15
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						33,
-						45,
-						44
+						23,
+						35,
+						34
 					]
 				}
 			],
@@ -1649,11 +1649,11 @@
 			"title": "External modules",
 			"kind": 1,
 			"children": [
-				9,
+				81,
 				1,
-				46,
-				99,
-				24
+				116,
+				36,
+				14
 			]
 		}
 	]

@@ -81,6 +81,18 @@
 					<li>An endpoint/middleware function has three parameters (request, response, next?);</li>
 					<li>The next() function will break the current execution of the current function and start the next one</li>
 				</ul>
+				<h3 id="routes">Routes</h3>
+				<ul>
+					<li>The basic route scheme is:
+					/$applicationRoute/$componentRoute/$endpointRoute</li>
+					<li>you can define a param in a route like <code>/:foo</code><br>and access it via <code>request.params.foo</code><h4 id="route-typing">Route Typing</h4>
+						you can directly define a typed route param with the pattern <code>:param#type</code>
+						<code>/:id#number</code> an non digit route would return a 404.
+					The available types are:</li>
+					<li>number  </li>
+					<li>hex</li>
+					<li>alpha (=&gt; [a-zA-Z])</li>
+				</ul>
 				<h3 id="decorator-driven">Decorator driven</h3>
 				<p>Everything is decorator driven. The framework is not supposed to run an application like
 					the &quot;express.use().listen(x)&quot;. You decorate the main component with @Application and execute
@@ -88,10 +100,10 @@
 				with vanilla node-js, as long as ecma script doesnt provide decorators.</p>
 				<h4 id="note-">Note!</h4>
 				<p>Set in your tsconfig.json</p>
-				<pre><code class="lang-json">{   ...
-    &quot;experimentalDecorators&quot;: true,
-    &quot;emitDecoratorMetadata&quot;: true,
-    ...
+				<pre><code class="lang-json">{
+    <span class="hljs-attr">"experimentalDecorators"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"emitDecoratorMetadata"</span>: <span class="hljs-literal">true</span>
+
 }
 </code></pre>
 				<h3 id="visit-the-playground-ts-to-see-a-working-example">Visit the playground.ts to see a working example</h3>
