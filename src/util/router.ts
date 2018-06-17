@@ -21,7 +21,13 @@ export class Router {
         if (plainKeys) {
             const paramValues = new RegExp(transformedRouteRegExp).exec(url);
             plainKeys
-                .map(key => key.replace(':', '').replace('[number]', ''))
+                .map(key => {
+                    return key
+                        .replace(':', '')
+                        .replace('#number', '')
+                        .replace('#hex', '')
+                        .replace('#alpha', '');
+                })
                 .forEach((key, index) => {
                     params[key] = paramValues[index + 1];
                 });
@@ -30,7 +36,6 @@ export class Router {
     }
 
     getRouteFromUrl(url: string): Promise<Route> {
-        const transformedUrl = url.charAt(url.length) === '/'? url : url.concat('/');
         return new Promise<Route>((resolve, reject) => {
             this.routeMap.forEach((val: EndpointHandler, key: string) => {
                 // Transform route into a regex to match url ->^route-with-params-$
@@ -42,12 +47,16 @@ export class Router {
                             .replace(/\(/g, '\\(')
                             .replace(/\)/g, '\\)')
                             .replace(/\[/g, '\\[')
-                            .replace(/\]/g, '\\]')
+                            .replace(/]/g, '\\]')
                             .replace(/\$/g, '\\$')
                             // Convert params to regex
-                            .replace(/:[^\\/\[]*\[number\]/g, '(\\d+)') // Number typed param
-                            .replace(/:[^\/]*/g, '([^\/]+)') // Params are any value
-                            .replace(/\/$/, '') // Solves '/foo/bar' !== '/foo/bar/'
+                            .replace(/:[^/\[]+#number/gi, '(\\d+)') // Number typed param
+                            .replace(/:[^/\[]+#hex/gi, '(\[0-9a-fA-F\]+)') // Number typed param
+                            .replace(/:[^/\[]+#alpha/gi, '(\[a-zA-Z\]+)') // Number typed param
+                            .replace(/:[^\\/\[]+/g, '([^\/]+)') // Params are any value
+
+                            // Solves '/foo/bar' !== '/foo/bar/'
+                            .replace(/\/$/, '')
                             .concat('\/*$')
                     );
                 const functionChain: Middleware = val.middleware.concat({
