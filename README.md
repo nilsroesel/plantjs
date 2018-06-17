@@ -31,15 +31,12 @@ The evaluation of middleware function goes as it follows:
 - you can define a param in a route like `/:foo`  
 and access it via `request.params.foo`
 #### Route Typing
-you can directly define a typed route param 
-`/:id[number]` an non digit route would return a 404. 
+you can directly define a typed route param with the pattern `:param#type`
+`/:id#number` an non digit route would return a 404. 
 The available types are:
 - number  
-Planned dor 1.3
 - hex
 - alpha (=> [a-zA-Z])
-- A custom RegExp
-- length validation
 
 ### Decorator driven
 Everything is decorator driven. The framework is not supposed to run an application like
@@ -50,10 +47,10 @@ with vanilla node-js, as long as ecma script doesnt provide decorators.
 #### Note!
 Set in your tsconfig.json
 ```json
-{   ...
+{  
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    ...
+    "emitDecoratorMetadata": true
+    
 }
 ```
 ### Visit the playground.ts to see a working example
