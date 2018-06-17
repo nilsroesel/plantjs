@@ -1,6 +1,6 @@
 {
   "name": "skeidjs",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "A lightweight rest service framework",
   "main": "target/index.js",
   "types": "target/index.d.ts",
