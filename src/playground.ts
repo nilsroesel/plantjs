@@ -79,7 +79,7 @@ class TestComponent {
 class Test {
 
     @Endpoint({
-        route: '/foo2/:id',
+        route: '/foo/:id#alpha',
         middleware: [(request: Request) => {request.params['test'] = {msg: 'I come from a middle..where?'}}]
     })
     test(request: Request, response: Response) {
@@ -88,5 +88,4 @@ class Test {
             .json({msg: 'iam an application endpoint'})
             .send();
     }
-
 }
