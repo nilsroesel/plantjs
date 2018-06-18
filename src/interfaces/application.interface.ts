@@ -10,7 +10,16 @@ export interface ApplicationConfig {
         maxConnections: number;
         timeout: number;
         keepAliveTimeout: number;
+        https?: HttpsOptions;
     }
     middleware?: Middleware;
     components?: Array<Function extends { new(...args: any[]): {} }>;
+}
+
+export interface HttpsOptions {
+    key: string | Buffer;
+    cert: string | Buffer;
+    ca: string | Buffer;
+    requestCert: boolean;
+    rejectUnauthorized: boolean;
 }

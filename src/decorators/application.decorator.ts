@@ -2,6 +2,7 @@
  * @module Decorators
  */
 import * as http from 'http';
+import * as https from 'https';
 import { IncomingMessage, ServerResponse } from 'http';
 import { ApplicationConfig, Middleware, Request, Response } from '../index';
 import {
@@ -76,24 +77,46 @@ export function Application(config: ApplicationConfig) {
                 }
             }  else { throw new Error(`Component ${Component} has no mapped class`); }
         });
-        http.createServer((request: IncomingMessage, response: ServerResponse) => {
-            const route: Promise<Route> = router.getRouteFromUrl(request.url);
-            route.then(route => {
-                response.setHeader('Content-Type', config.contentType);
-                Request.readRequestBody(request).then(body => {
-                    route.call(new Request(request, body, route.params), new Response(response));
-                    if (!response.finished) response.end();
-                }).catch(e => {});
-            }).catch(reason => {
-                if (reason === Router.NO_SUCH_ROUTE) {
-                    response.writeHead(404, {'Content-Type': config.contentType});
-                    response.end();
-                } else {
-                    response.writeHead(500, {'Content-Type': config.contentType});
-                    response.end();
-                }
-            });
+        if (config.server.https) {
+            https.createServer(config.server.https, (request: IncomingMessage, response: ServerResponse) => {
+                const route: Promise<Route> = router.getRouteFromUrl(request.url);
+                route.then(route => {
+                    response.setHeader('Content-Type', config.contentType);
+                    Request.readRequestBody(request).then(body => {
+                        route.call(new Request(request, body, route.params), new Response(response));
+                        if (!response.finished) response.end();
+                    }).catch(e => {});
+                }).catch(reason => {
+                    if (reason === Router.NO_SUCH_ROUTE) {
+                        response.writeHead(404, {'Content-Type': config.contentType});
+                        response.end();
+                    } else {
+                        response.writeHead(500, {'Content-Type': config.contentType});
+                        response.end();
+                    }
+                });
 
-        }).listen(config.server.port || 3000, () => console.log(`Server is up and listening to port ${config.server.port || 3000}`));
+            }).listen(config.server.port || 3000, () => console.log(`Server is up and listening to port ${config.server.port || 3000}`));
+        } else {
+            http.createServer((request: IncomingMessage, response: ServerResponse) => {
+                const route: Promise<Route> = router.getRouteFromUrl(request.url);
+                route.then(route => {
+                    response.setHeader('Content-Type', config.contentType);
+                    Request.readRequestBody(request).then(body => {
+                        route.call(new Request(request, body, route.params), new Response(response));
+                        if (!response.finished) response.end();
+                    }).catch(e => {});
+                }).catch(reason => {
+                    if (reason === Router.NO_SUCH_ROUTE) {
+                        response.writeHead(404, {'Content-Type': config.contentType});
+                        response.end();
+                    } else {
+                        response.writeHead(500, {'Content-Type': config.contentType});
+                        response.end();
+                    }
+                });
+
+            }).listen(config.server.port || 3000, () => console.log(`Server is up and listening to port ${config.server.port || 3000}`));
+        }
     }
 }
