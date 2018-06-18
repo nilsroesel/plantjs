@@ -11,6 +11,7 @@ import {
     InjectionModes
 
 } from './index'; // 'skeidjs'
+import * as fs from 'fs';
 
 @Injectable(InjectionModes.SINGLE_INSTANCE)
 class TestInjectable {
@@ -69,7 +70,14 @@ class TestComponent {
         port: 3000,
         maxConnections: 10,
         timeout: 500,
-        keepAliveTimeout: 500
+        keepAliveTimeout: 500,
+        https: {
+            ca: fs.readFileSync('./playground-data/ca-crt.pem'),
+            cert: fs.readFileSync('./playground-data/server-crt.pem'),
+            key: fs.readFileSync('./playground-data/server-key.pem'),
+            rejectUnauthorized: false,
+            requestCert: false
+        }
     },
     components: [TestComponent],
     middleware: [
