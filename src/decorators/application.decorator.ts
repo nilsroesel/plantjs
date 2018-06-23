@@ -84,6 +84,13 @@ export function Application(config: ApplicationConfig) {
                     console.log(colors.green(`[SUCCESS]\tApi is up and listening on port ${config.server.port || 443}`));
                     console.log('[INFO]\t\tUsing schema https');
                 });
+            if (config.server.https.allowHttp) {
+                http.createServer(RequestListenerFactory(config, router))
+                    .listen(config.server.port || 80, () => {
+                        console.log(colors.green(`[SUCCESS]\tApi is up and listening on port ${config.server.https.httpPort || 80}`));
+                        console.log('[INFO]\t\tUsing schema http');
+                    });
+            }
         } else {
             http.createServer(RequestListenerFactory(config, router))
                 .listen(config.server.port || 80, () => {

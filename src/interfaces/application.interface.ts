@@ -3,6 +3,9 @@
  */
 import { Middleware } from './index';
 
+/**
+ * httpPort default 80, https default 443
+ */
 export interface ApplicationConfig {
     contentType: string;
     server: {
@@ -17,6 +20,8 @@ export interface ApplicationConfig {
 }
 
 export interface HttpsOptions {
+    allowHttp?: boolean;
+    httpPort?: number;
     key: string | Buffer;
     cert: string | Buffer;
     ca: string | Buffer;

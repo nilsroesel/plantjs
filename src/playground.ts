@@ -71,6 +71,7 @@ class TestComponent {
         timeout: 500,
         keepAliveTimeout: 500,
         https: {
+            allowHttp: true,
             ca: fs.readFileSync('./playground-data/ca-crt.pem'),
             cert: fs.readFileSync('./playground-data/server-crt.pem'),
             key: fs.readFileSync('./playground-data/server-key.pem'),
