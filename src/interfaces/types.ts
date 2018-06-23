@@ -2,8 +2,14 @@
  * @module Types
  */
 import { Request, Response } from '../index';
+import { IncomingMessage, ServerResponse } from 'http';
 
 export type HandlerFn = (request?: Request, response?: Response, next?: Function) => void;
+
+/**
+ * @hidden
+ */
+export type RequestListenerFn = (request: IncomingMessage, response: ServerResponse) => void;
 
 export interface ContextHandlerFn {
     functionContextInstance: Object;

@@ -67,7 +67,6 @@ class TestComponent {
 @Application({
     contentType: 'application/json',
     server: {
-        port: 3000,
         maxConnections: 10,
         timeout: 500,
         keepAliveTimeout: 500,

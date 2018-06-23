@@ -1,1 +1,1 @@
-export { Instantiable, GenericClassDecorator } from './types';
+export { Instantiable, GenericClassDecorator, RequestListenerFn } from './types';
