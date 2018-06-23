@@ -25,7 +25,7 @@ export interface HttpsOptions {
     key: string | Buffer;
     cert: string | Buffer;
     ca: string | Buffer;
-    crl: string | Buffer;
+    crl?: string | Buffer;
     requestCert: boolean;
     rejectUnauthorized: boolean;
 }
