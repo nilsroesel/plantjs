@@ -2,16 +2,17 @@
  * @module Decorators
  */
 import * as http from 'http';
-import { IncomingMessage, ServerResponse } from 'http';
-import { ApplicationConfig, Middleware, Request, Response } from '../index';
+import * as https from 'https';
+import * as colors from 'colors/safe';
+import { ApplicationConfig, Middleware} from '../index';
 import {
-    Injector,
-    Router,
-    Route,
-    EndpointHandler,
-    componentStore,
     componentClassMap,
-    ComponentStore
+    ComponentStore,
+    componentStore,
+    EndpointHandler,
+    Injector,
+    RequestListenerFactory,
+    Router
 } from '../internal.index';
 
 /**
@@ -39,6 +40,7 @@ import {
  * ```
  * **/
 export function Application(config: ApplicationConfig) {
+    console.log();
     const applicationMiddleWare: Middleware = config.middleware || [];
     return <T extends { new(...args: any[]): {} }>(constructor: T) => {
         // Add application class as main component to the store
@@ -70,30 +72,31 @@ export function Application(config: ApplicationConfig) {
                             middleware: middleware
                         };
                         const route = (store.componentRoute || '').concat(endpoint.route).replace(/\/\//g, '/');
-                        if (router.has(route)) console.warn(`Found duplicated route '${route}'. Route was overridden`);
+                        if (router.has(route)) console.warn(colors.yellow(`[WARNING]\tFound duplicated route '${route}'. Route was overridden`));
                         router.set(route, endpointWithInjectedDependencies);
                     });
                 }
             }  else { throw new Error(`Component ${Component} has no mapped class`); }
         });
-        http.createServer((request: IncomingMessage, response: ServerResponse) => {
-            const route: Promise<Route> = router.getRouteFromUrl(request.url);
-            route.then(route => {
-                response.setHeader('Content-Type', config.contentType);
-                Request.readRequestBody(request).then(body => {
-                    route.call(new Request(request, body, route.params), new Response(response));
-                    if (!response.finished) response.end();
-                }).catch(e => {});
-            }).catch(reason => {
-                if (reason === Router.NO_SUCH_ROUTE) {
-                    response.writeHead(404, {'Content-Type': config.contentType});
-                    response.end();
-                } else {
-                    response.writeHead(500, {'Content-Type': config.contentType});
-                    response.end();
-                }
-            });
-
-        }).listen(config.server.port || 3000, () => console.log(`Server is up and listening to port ${config.server.port || 3000}`));
+        if (config.server.https) {
+            https.createServer(config.server.https, RequestListenerFactory(config, router))
+                .listen(config.server.port || 443, () =>{
+                    console.log(colors.green(`[SUCCESS]\tApi is up and listening on port ${config.server.port || 443}`));
+                    console.log('[INFO]\t\tUsing schema https');
+                });
+            if (config.server.https.allowHttp) {
+                http.createServer(RequestListenerFactory(config, router))
+                    .listen(config.server.port || 80, () => {
+                        console.log(colors.green(`[SUCCESS]\tApi is up and listening on port ${config.server.https.httpPort || 80}`));
+                        console.log('[INFO]\t\tUsing schema http');
+                    });
+            }
+        } else {
+            http.createServer(RequestListenerFactory(config, router))
+                .listen(config.server.port || 80, () => {
+                    console.log(colors.green(`[SUCCESS]\tApi is up and listening on port ${config.server.port || 80}`));
+                    console.log('[INFO]\t\tUsing schema http');
+                });
+        }
     }
 }
