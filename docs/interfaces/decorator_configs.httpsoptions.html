@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ApplicationConfig | skeiðjs</title>
+	<title>HttpsOptions | skeiðjs</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -72,28 +72,21 @@
 					<a href="../modules/decorator_configs.html">Decorator-Configs</a>
 				</li>
 				<li>
-					<a href="decorator_configs.applicationconfig.html">ApplicationConfig</a>
+					<a href="decorator_configs.httpsoptions.html">HttpsOptions</a>
 				</li>
 			</ul>
-			<h1>Interface ApplicationConfig</h1>
+			<h1>Interface HttpsOptions</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>httpPort default 80, https default 443</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ApplicationConfig</span>
+						<span class="target">HttpsOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -104,10 +97,14 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="decorator_configs.applicationconfig.html#components" class="tsd-kind-icon">components</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="decorator_configs.applicationconfig.html#contenttype" class="tsd-kind-icon">content<wbr>Type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="decorator_configs.applicationconfig.html#middleware" class="tsd-kind-icon">middleware</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="decorator_configs.applicationconfig.html#server" class="tsd-kind-icon">server</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="decorator_configs.httpsoptions.html#allowhttp" class="tsd-kind-icon">allow<wbr>Http</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="decorator_configs.httpsoptions.html#ca" class="tsd-kind-icon">ca</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="decorator_configs.httpsoptions.html#cert" class="tsd-kind-icon">cert</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="decorator_configs.httpsoptions.html#crl" class="tsd-kind-icon">crl</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="decorator_configs.httpsoptions.html#httpport" class="tsd-kind-icon">http<wbr>Port</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="decorator_configs.httpsoptions.html#key" class="tsd-kind-icon">key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="decorator_configs.httpsoptions.html#rejectunauthorized" class="tsd-kind-icon">reject<wbr>Unauthorized</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="decorator_configs.httpsoptions.html#requestcert" class="tsd-kind-icon">request<wbr>Cert</a></li>
 							</ul>
 						</section>
 					</div>
@@ -116,49 +113,84 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="components" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> components</h3>
-					<div class="tsd-signature tsd-kind-icon">components<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="allowhttp" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> allow<wbr>Http</h3>
+					<div class="tsd-signature tsd-kind-icon">allow<wbr>Http<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/interfaces/application.interface.ts#L19">interfaces/application.interface.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/interfaces/application.interface.ts#L23">interfaces/application.interface.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="contenttype" class="tsd-anchor"></a>
-					<h3>content<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">content<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="ca" class="tsd-anchor"></a>
+					<h3>ca</h3>
+					<div class="tsd-signature tsd-kind-icon">ca<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/interfaces/application.interface.ts#L10">interfaces/application.interface.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/interfaces/application.interface.ts#L27">interfaces/application.interface.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="middleware" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> middleware</h3>
-					<div class="tsd-signature tsd-kind-icon">middleware<span class="tsd-signature-symbol">:</span> <a href="../modules/types.html#middleware" class="tsd-signature-type">Middleware</a></div>
+					<a name="cert" class="tsd-anchor"></a>
+					<h3>cert</h3>
+					<div class="tsd-signature tsd-kind-icon">cert<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/interfaces/application.interface.ts#L18">interfaces/application.interface.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/interfaces/application.interface.ts#L26">interfaces/application.interface.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="server" class="tsd-anchor"></a>
-					<h3>server</h3>
-					<div class="tsd-signature tsd-kind-icon">server<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<a name="crl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> crl</h3>
+					<div class="tsd-signature tsd-kind-icon">crl<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/interfaces/application.interface.ts#L11">interfaces/application.interface.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/interfaces/application.interface.ts#L28">interfaces/application.interface.ts:28</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="httpport" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> http<wbr>Port</h3>
+					<div class="tsd-signature tsd-kind-icon">http<wbr>Port<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/interfaces/application.interface.ts#L24">interfaces/application.interface.ts:24</a></li>
 						</ul>
-					</div>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="key" class="tsd-anchor"></a>
+					<h3>key</h3>
+					<div class="tsd-signature tsd-kind-icon">key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/interfaces/application.interface.ts#L25">interfaces/application.interface.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="rejectunauthorized" class="tsd-anchor"></a>
+					<h3>reject<wbr>Unauthorized</h3>
+					<div class="tsd-signature tsd-kind-icon">reject<wbr>Unauthorized<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/interfaces/application.interface.ts#L30">interfaces/application.interface.ts:30</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="requestcert" class="tsd-anchor"></a>
+					<h3>request<wbr>Cert</h3>
+					<div class="tsd-signature tsd-kind-icon">request<wbr>Cert<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/interfaces/application.interface.ts#L29">interfaces/application.interface.ts:29</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -187,36 +219,48 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="decorator_configs.applicationconfig.html" class="tsd-kind-icon">Application<wbr>Config</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="decorator_configs.applicationconfig.html#components" class="tsd-kind-icon">components</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="decorator_configs.applicationconfig.html#contenttype" class="tsd-kind-icon">content<wbr>Type</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="decorator_configs.applicationconfig.html#middleware" class="tsd-kind-icon">middleware</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="decorator_configs.applicationconfig.html#server" class="tsd-kind-icon">server</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="decorator_configs.componentconfig.html" class="tsd-kind-icon">Component<wbr>Config</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="decorator_configs.endpointconfig.html" class="tsd-kind-icon">Endpoint<wbr>Config</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="decorator_configs.httpsoptions.html" class="tsd-kind-icon">Https<wbr>Options</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="decorator_configs.httpsoptions.html#allowhttp" class="tsd-kind-icon">allow<wbr>Http</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="decorator_configs.httpsoptions.html#ca" class="tsd-kind-icon">ca</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="decorator_configs.httpsoptions.html#cert" class="tsd-kind-icon">cert</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="decorator_configs.httpsoptions.html#crl" class="tsd-kind-icon">crl</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="decorator_configs.httpsoptions.html#httpport" class="tsd-kind-icon">http<wbr>Port</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="decorator_configs.httpsoptions.html#key" class="tsd-kind-icon">key</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="decorator_configs.httpsoptions.html#rejectunauthorized" class="tsd-kind-icon">reject<wbr>Unauthorized</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="decorator_configs.httpsoptions.html#requestcert" class="tsd-kind-icon">request<wbr>Cert</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>

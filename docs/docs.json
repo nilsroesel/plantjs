@@ -5,7 +5,7 @@
 	"flags": {},
 	"children": [
 		{
-			"id": 81,
+			"id": 91,
 			"name": "Decorator-Configs",
 			"kind": 1,
 			"kindString": "External module",
@@ -15,16 +15,19 @@
 			"originalName": "C:/PROGRAMMIERUNG/skeidjs/src/interfaces/application.interface.ts",
 			"children": [
 				{
-					"id": 82,
+					"id": 92,
 					"name": "ApplicationConfig",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {
 						"isExported": true
 					},
+					"comment": {
+						"shortText": "httpPort default 80, https default 443"
+					},
 					"children": [
 						{
-							"id": 87,
+							"id": 97,
 							"name": "components",
 							"kind": 1024,
 							"kindString": "Property",
@@ -35,7 +38,7 @@
 							"sources": [
 								{
 									"fileName": "interfaces/application.interface.ts",
-									"line": 15,
+									"line": 19,
 									"character": 14
 								}
 							],
@@ -51,7 +54,7 @@
 							}
 						},
 						{
-							"id": 83,
+							"id": 93,
 							"name": "contentType",
 							"kind": 1024,
 							"kindString": "Property",
@@ -61,7 +64,7 @@
 							"sources": [
 								{
 									"fileName": "interfaces/application.interface.ts",
-									"line": 7,
+									"line": 10,
 									"character": 15
 								}
 							],
@@ -71,7 +74,7 @@
 							}
 						},
 						{
-							"id": 86,
+							"id": 96,
 							"name": "middleware",
 							"kind": 1024,
 							"kindString": "Property",
@@ -82,18 +85,18 @@
 							"sources": [
 								{
 									"fileName": "interfaces/application.interface.ts",
-									"line": 14,
+									"line": 18,
 									"character": 14
 								}
 							],
 							"type": {
 								"type": "reference",
 								"name": "Middleware",
-								"id": 35
+								"id": 40
 							}
 						},
 						{
-							"id": 84,
+							"id": 94,
 							"name": "server",
 							"kind": 1024,
 							"kindString": "Property",
@@ -103,14 +106,14 @@
 							"sources": [
 								{
 									"fileName": "interfaces/application.interface.ts",
-									"line": 8,
+									"line": 11,
 									"character": 10
 								}
 							],
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 85,
+									"id": 95,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -118,7 +121,7 @@
 									"sources": [
 										{
 											"fileName": "interfaces/application.interface.ts",
-											"line": 8,
+											"line": 11,
 											"character": 11
 										}
 									]
@@ -131,23 +134,23 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								87,
-								83,
-								86,
-								84
+								97,
+								93,
+								96,
+								94
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "interfaces/application.interface.ts",
-							"line": 6,
+							"line": 9,
 							"character": 34
 						}
 					]
 				},
 				{
-					"id": 89,
+					"id": 108,
 					"name": "ComponentConfig",
 					"kind": 256,
 					"kindString": "Interface",
@@ -156,7 +159,7 @@
 					},
 					"children": [
 						{
-							"id": 91,
+							"id": 110,
 							"name": "middleware",
 							"kind": 1024,
 							"kindString": "Property",
@@ -174,11 +177,11 @@
 							"type": {
 								"type": "reference",
 								"name": "Middleware",
-								"id": 35
+								"id": 40
 							}
 						},
 						{
-							"id": 90,
+							"id": 109,
 							"name": "route",
 							"kind": 1024,
 							"kindString": "Property",
@@ -204,8 +207,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								91,
-								90
+								110,
+								109
 							]
 						}
 					],
@@ -218,7 +221,7 @@
 					]
 				},
 				{
-					"id": 93,
+					"id": 112,
 					"name": "EndpointConfig",
 					"kind": 256,
 					"kindString": "Interface",
@@ -227,7 +230,7 @@
 					},
 					"children": [
 						{
-							"id": 95,
+							"id": 114,
 							"name": "middleware",
 							"kind": 1024,
 							"kindString": "Property",
@@ -245,11 +248,11 @@
 							"type": {
 								"type": "reference",
 								"name": "Middleware",
-								"id": 35
+								"id": 40
 							}
 						},
 						{
-							"id": 94,
+							"id": 113,
 							"name": "route",
 							"kind": 1024,
 							"kindString": "Property",
@@ -274,8 +277,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								95,
-								94
+								114,
+								113
 							]
 						}
 					],
@@ -286,6 +289,239 @@
 							"character": 31
 						}
 					]
+				},
+				{
+					"id": 98,
+					"name": "HttpsOptions",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 99,
+							"name": "allowHttp",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/application.interface.ts",
+									"line": 23,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 103,
+							"name": "ca",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/application.interface.ts",
+									"line": 27,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "reference",
+										"name": "Buffer"
+									}
+								]
+							}
+						},
+						{
+							"id": 102,
+							"name": "cert",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/application.interface.ts",
+									"line": 26,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "reference",
+										"name": "Buffer"
+									}
+								]
+							}
+						},
+						{
+							"id": 104,
+							"name": "crl",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/application.interface.ts",
+									"line": 28,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "reference",
+										"name": "Buffer"
+									}
+								]
+							}
+						},
+						{
+							"id": 100,
+							"name": "httpPort",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/application.interface.ts",
+									"line": 24,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 101,
+							"name": "key",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/application.interface.ts",
+									"line": 25,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "reference",
+										"name": "Buffer"
+									}
+								]
+							}
+						},
+						{
+							"id": 106,
+							"name": "rejectUnauthorized",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/application.interface.ts",
+									"line": 30,
+									"character": 22
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 105,
+							"name": "requestCert",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "interfaces/application.interface.ts",
+									"line": 29,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								99,
+								103,
+								102,
+								104,
+								100,
+								101,
+								106,
+								105
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "interfaces/application.interface.ts",
+							"line": 22,
+							"character": 29
+						}
+					]
 				}
 			],
 			"groups": [
@@ -293,9 +529,10 @@
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						82,
-						89,
-						93
+						92,
+						108,
+						112,
+						98
 					]
 				}
 			],
@@ -318,7 +555,7 @@
 			"originalName": "C:/PROGRAMMIERUNG/skeidjs/src/decorators/endpoint.decorator.ts",
 			"children": [
 				{
-					"id": 110,
+					"id": 129,
 					"name": "InjectionModes",
 					"kind": 4,
 					"kindString": "Enumeration",
@@ -327,7 +564,7 @@
 					},
 					"children": [
 						{
-							"id": 112,
+							"id": 131,
 							"name": "MULTI_INSTANCE",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -343,7 +580,7 @@
 							]
 						},
 						{
-							"id": 111,
+							"id": 130,
 							"name": "SINGLE_INSTANCE",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -364,8 +601,8 @@
 							"title": "Enumeration members",
 							"kind": 16,
 							"children": [
-								112,
-								111
+								131,
+								130
 							]
 						}
 					],
@@ -378,7 +615,7 @@
 					]
 				},
 				{
-					"id": 157,
+					"id": 176,
 					"name": "Application",
 					"kind": 64,
 					"kindString": "Function",
@@ -387,7 +624,7 @@
 					},
 					"signatures": [
 						{
-							"id": 158,
+							"id": 177,
 							"name": "Application",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -405,7 +642,7 @@
 							},
 							"parameters": [
 								{
-									"id": 159,
+									"id": 178,
 									"name": "config",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -413,7 +650,7 @@
 									"type": {
 										"type": "reference",
 										"name": "ApplicationConfig",
-										"id": 82
+										"id": 92
 									}
 								}
 							],
@@ -426,13 +663,13 @@
 					"sources": [
 						{
 							"fileName": "decorators/application.decorator.ts",
-							"line": 41,
+							"line": 42,
 							"character": 27
 						}
 					]
 				},
 				{
-					"id": 106,
+					"id": 125,
 					"name": "Component",
 					"kind": 64,
 					"kindString": "Function",
@@ -441,7 +678,7 @@
 					},
 					"signatures": [
 						{
-							"id": 107,
+							"id": 126,
 							"name": "Component",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -459,7 +696,7 @@
 							},
 							"parameters": [
 								{
-									"id": 108,
+									"id": 127,
 									"name": "conf",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -467,7 +704,7 @@
 									"type": {
 										"type": "reference",
 										"name": "ComponentConfig",
-										"id": 89
+										"id": 108
 									}
 								}
 							],
@@ -521,7 +758,7 @@
 									"type": {
 										"type": "reference",
 										"name": "EndpointConfig",
-										"id": 93
+										"id": 112
 									}
 								}
 							],
@@ -540,7 +777,7 @@
 					]
 				},
 				{
-					"id": 113,
+					"id": 132,
 					"name": "Injectable",
 					"kind": 64,
 					"kindString": "Function",
@@ -549,7 +786,7 @@
 					},
 					"signatures": [
 						{
-							"id": 114,
+							"id": 133,
 							"name": "Injectable",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -567,7 +804,7 @@
 							},
 							"parameters": [
 								{
-									"id": 115,
+									"id": 134,
 									"name": "mode",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -577,7 +814,7 @@
 									"type": {
 										"type": "reference",
 										"name": "InjectionModes",
-										"id": 110
+										"id": 129
 									}
 								}
 							],
@@ -613,17 +850,17 @@
 					"title": "Enumerations",
 					"kind": 4,
 					"children": [
-						110
+						129
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						157,
-						106,
+						176,
+						125,
 						7,
-						113
+						132
 					]
 				}
 			],
@@ -636,7 +873,7 @@
 			]
 		},
 		{
-			"id": 116,
+			"id": 135,
 			"name": "Http",
 			"kind": 1,
 			"kindString": "External module",
@@ -646,7 +883,7 @@
 			"originalName": "C:/PROGRAMMIERUNG/skeidjs/src/util/wrapper/request.wrapper.ts",
 			"children": [
 				{
-					"id": 117,
+					"id": 136,
 					"name": "Request",
 					"kind": 128,
 					"kindString": "Class",
@@ -655,7 +892,7 @@
 					},
 					"children": [
 						{
-							"id": 126,
+							"id": 145,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -664,14 +901,14 @@
 							},
 							"signatures": [
 								{
-									"id": 127,
+									"id": 146,
 									"name": "new Request",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 128,
+											"id": 147,
 											"name": "request",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -682,7 +919,7 @@
 											}
 										},
 										{
-											"id": 129,
+											"id": 148,
 											"name": "body",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -693,7 +930,7 @@
 											}
 										},
 										{
-											"id": 130,
+											"id": 149,
 											"name": "params",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -707,7 +944,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Request",
-										"id": 117
+										"id": 136
 									}
 								}
 							],
@@ -720,7 +957,7 @@
 							]
 						},
 						{
-							"id": 125,
+							"id": 144,
 							"name": "body",
 							"kind": 1024,
 							"kindString": "Property",
@@ -740,7 +977,7 @@
 							}
 						},
 						{
-							"id": 123,
+							"id": 142,
 							"name": "headers",
 							"kind": 1024,
 							"kindString": "Property",
@@ -760,7 +997,7 @@
 							}
 						},
 						{
-							"id": 124,
+							"id": 143,
 							"name": "method",
 							"kind": 1024,
 							"kindString": "Property",
@@ -780,7 +1017,7 @@
 							}
 						},
 						{
-							"id": 122,
+							"id": 141,
 							"name": "params",
 							"kind": 1024,
 							"kindString": "Property",
@@ -800,7 +1037,7 @@
 							}
 						},
 						{
-							"id": 121,
+							"id": 140,
 							"name": "url",
 							"kind": 1024,
 							"kindString": "Property",
@@ -820,7 +1057,7 @@
 							}
 						},
 						{
-							"id": 131,
+							"id": 150,
 							"name": "json",
 							"kind": 2048,
 							"kindString": "Method",
@@ -829,7 +1066,7 @@
 							},
 							"signatures": [
 								{
-									"id": 132,
+									"id": 151,
 									"name": "json",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -849,7 +1086,7 @@
 							]
 						},
 						{
-							"id": 118,
+							"id": 137,
 							"name": "readRequestBody",
 							"kind": 2048,
 							"kindString": "Method",
@@ -859,14 +1096,14 @@
 							},
 							"signatures": [
 								{
-									"id": 119,
+									"id": 138,
 									"name": "readRequestBody",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 120,
+											"id": 139,
 											"name": "request",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -903,26 +1140,26 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								126
+								145
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								125,
-								123,
-								124,
-								122,
-								121
+								144,
+								142,
+								143,
+								141,
+								140
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								131,
-								118
+								150,
+								137
 							]
 						}
 					],
@@ -935,7 +1172,7 @@
 					]
 				},
 				{
-					"id": 134,
+					"id": 153,
 					"name": "Response",
 					"kind": 128,
 					"kindString": "Class",
@@ -944,7 +1181,7 @@
 					},
 					"children": [
 						{
-							"id": 137,
+							"id": 156,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -953,14 +1190,14 @@
 							},
 							"signatures": [
 								{
-									"id": 138,
+									"id": 157,
 									"name": "new Response",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 139,
+											"id": 158,
 											"name": "response",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -974,7 +1211,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 134
+										"id": 153
 									}
 								}
 							],
@@ -987,7 +1224,7 @@
 							]
 						},
 						{
-							"id": 135,
+							"id": 154,
 							"name": "response",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1008,7 +1245,7 @@
 							}
 						},
 						{
-							"id": 136,
+							"id": 155,
 							"name": "statusCode",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1029,7 +1266,7 @@
 							}
 						},
 						{
-							"id": 151,
+							"id": 170,
 							"name": "json",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1038,14 +1275,14 @@
 							},
 							"signatures": [
 								{
-									"id": 152,
+									"id": 171,
 									"name": "json",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 153,
+											"id": 172,
 											"name": "payload",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1059,7 +1296,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 134
+										"id": 153
 									}
 								}
 							],
@@ -1072,7 +1309,7 @@
 							]
 						},
 						{
-							"id": 154,
+							"id": 173,
 							"name": "send",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1081,7 +1318,7 @@
 							},
 							"signatures": [
 								{
-									"id": 155,
+									"id": 174,
 									"name": "send",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1101,7 +1338,7 @@
 							]
 						},
 						{
-							"id": 140,
+							"id": 159,
 							"name": "setHeader",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1110,14 +1347,14 @@
 							},
 							"signatures": [
 								{
-									"id": 141,
+									"id": 160,
 									"name": "setHeader",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 142,
+											"id": 161,
 											"name": "name",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1128,7 +1365,7 @@
 											}
 										},
 										{
-											"id": 143,
+											"id": 162,
 											"name": "value",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1158,7 +1395,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 134
+										"id": 153
 									}
 								}
 							],
@@ -1171,7 +1408,7 @@
 							]
 						},
 						{
-							"id": 144,
+							"id": 163,
 							"name": "status",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1180,14 +1417,14 @@
 							},
 							"signatures": [
 								{
-									"id": 145,
+									"id": 164,
 									"name": "status",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 146,
+											"id": 165,
 											"name": "status",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1198,7 +1435,7 @@
 											}
 										},
 										{
-											"id": 147,
+											"id": 166,
 											"name": "message",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1214,7 +1451,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 134
+										"id": 153
 									}
 								}
 							],
@@ -1227,7 +1464,7 @@
 							]
 						},
 						{
-							"id": 148,
+							"id": 167,
 							"name": "text",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1236,14 +1473,14 @@
 							},
 							"signatures": [
 								{
-									"id": 149,
+									"id": 168,
 									"name": "text",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 150,
+											"id": 169,
 											"name": "payload",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1257,7 +1494,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 134
+										"id": 153
 									}
 								}
 							],
@@ -1275,26 +1512,26 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								137
+								156
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								135,
-								136
+								154,
+								155
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								151,
-								154,
-								140,
-								144,
-								148
+								170,
+								173,
+								159,
+								163,
+								167
 							]
 						}
 					],
@@ -1312,8 +1549,8 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						117,
-						134
+						136,
+						153
 					]
 				}
 			],
@@ -1326,7 +1563,7 @@
 			]
 		},
 		{
-			"id": 36,
+			"id": 41,
 			"name": "Non-exported",
 			"kind": 1,
 			"kindString": "External module",
@@ -1372,7 +1609,7 @@
 							"sources": [
 								{
 									"fileName": "interfaces/types.ts",
-									"line": 10,
+									"line": 16,
 									"character": 6
 								}
 							],
@@ -1392,7 +1629,7 @@
 							"sources": [
 								{
 									"fileName": "interfaces/types.ts",
-									"line": 9,
+									"line": 15,
 									"character": 27
 								}
 							],
@@ -1415,7 +1652,7 @@
 					"sources": [
 						{
 							"fileName": "interfaces/types.ts",
-							"line": 8,
+							"line": 14,
 							"character": 33
 						}
 					]
@@ -1431,7 +1668,7 @@
 					"sources": [
 						{
 							"fileName": "interfaces/types.ts",
-							"line": 6,
+							"line": 7,
 							"character": 21
 						}
 					],
@@ -1462,7 +1699,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Request",
-												"id": 117
+												"id": 136
 											}
 										},
 										{
@@ -1476,7 +1713,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Response",
-												"id": 134
+												"id": 153
 											}
 										},
 										{
@@ -1502,7 +1739,7 @@
 							"sources": [
 								{
 									"fileName": "interfaces/types.ts",
-									"line": 6,
+									"line": 7,
 									"character": 23
 								}
 							]
@@ -1510,7 +1747,7 @@
 					}
 				},
 				{
-					"id": 35,
+					"id": 40,
 					"name": "Middleware",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -1520,7 +1757,7 @@
 					"sources": [
 						{
 							"fileName": "interfaces/types.ts",
-							"line": 20,
+							"line": 26,
 							"character": 22
 						}
 					],
@@ -1531,13 +1768,13 @@
 							{
 								"type": "reference",
 								"name": "MiddlewareFunction",
-								"id": 34
+								"id": 39
 							}
 						]
 					}
 				},
 				{
-					"id": 34,
+					"id": 39,
 					"name": "MiddlewareFunction",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -1547,7 +1784,7 @@
 					"sources": [
 						{
 							"fileName": "interfaces/types.ts",
-							"line": 18,
+							"line": 24,
 							"character": 30
 						}
 					],
@@ -1581,8 +1818,8 @@
 					"kind": 4194304,
 					"children": [
 						23,
-						35,
-						34
+						40,
+						39
 					]
 				}
 			],
@@ -1600,10 +1837,10 @@
 			"title": "External modules",
 			"kind": 1,
 			"children": [
-				81,
+				91,
 				1,
-				116,
-				36,
+				135,
+				41,
 				14
 			]
 		}
