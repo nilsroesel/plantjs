@@ -16,7 +16,7 @@ export interface ApplicationConfig {
         https?: HttpsOptions;
     }
     middleware?: Middleware;
-    components?: Array<Function extends { new(...args: any[]): {} }>;
+    components?: Array<{ new(...args: any[]): {} }>;
 }
 
 export interface HttpsOptions {
