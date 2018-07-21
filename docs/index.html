@@ -91,8 +91,9 @@
 				<p>The evaluation of middleware function goes as it follows:</p>
 				<ul>
 					<li>First: the application scoped middleware</li>
-					<li>Second: the component scoped middleware</li>
-					<li>Third: the endpoint scoped middleware  </li>
+					<li>Second: the module scoped middleware</li>
+					<li>Third: the component scoped middleware</li>
+					<li>Fourth: the endpoint scoped middleware  </li>
 					<li>The middleware follows the order, given in the array.  </li>
 					<li>The last chain is the endpoint function </li>
 					<li>An endpoint/middleware function has three parameters (request, response, next?);</li>
@@ -101,10 +102,9 @@
 				<h3 id="routes">Routes</h3>
 				<ul>
 					<li>The basic route scheme is:
-					/$applicationRoute/$componentRoute/$endpointRoute</li>
+					/$applicationRoute/$moduleRoute/$componentRoute/$endpointRoute</li>
 					<li>you can define a param in a route like <code>/:foo</code><br>and access it via <code>request.params.foo</code><h4 id="route-typing">Route Typing</h4>
-						you can directly define a typed route param with the pattern <code>:param#type</code>
-						<code>/:id#number</code> an non digit route would return a 404.
+						you can directly define a typed route param with the pattern <code>:param#type</code><br><code>/:id#number</code> an non digit route would return a 404.
 					The available types are:</li>
 					<li>number  </li>
 					<li>hex</li>
@@ -114,7 +114,7 @@
 				<p>Everything is decorator driven. The framework is not supposed to run an application like
 					the &quot;express.use().listen(x)&quot;. You decorate the main component with @Application and execute
 					the driver without setting the app up manually. That also means its not supposed to be compatible
-				with vanilla node-js, as long as ecma script doesnt provide decorators.</p>
+				with vanilla node-js, as long as ecma script doesnt provide decorators.<br>You are also able to gather components into modules and import the modules into your app, to have a nice clean structural approach. </p>
 				<h4 id="note-">Note!</h4>
 				<p>Set in your tsconfig.json</p>
 				<pre><code class="lang-json">{
