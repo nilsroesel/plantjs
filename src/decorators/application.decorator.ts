@@ -6,11 +6,12 @@ import * as https from 'https';
 import * as colors from 'colors/safe';
 import { ApplicationConfig, Middleware} from '../index';
 import {
-    componentClassMap,
     ComponentStore,
     componentStore,
     EndpointHandler,
     Injector,
+    ModuleStore,
+    moduleStore,
     RequestListenerFactory,
     Router
 } from '../internal.index';
@@ -49,21 +50,19 @@ export function Application(config: ApplicationConfig) {
             store.componentRoute = '';
             store.componentMiddleware = [];
             componentStore.set(constructor.name, store);
-            componentClassMap.set(constructor.name, constructor.name);
-
         }
 
         const router: Router = new Router();
         config.components.concat(constructor).forEach(Component => {
             const componentName: string = (Component as Function).name;
-            if(componentStore.has(componentClassMap.get(componentName))) {
-                const store = componentStore.get(componentClassMap.get(componentName));
-                // Instantiate via singletone -> dependency injector
+            if (componentStore.has(componentName)) {
+                const storedComponent = componentStore.get(componentName);
+                // Instantiate via dependency injector
                 const component = Injector.resolve(Component);
-                if (store.endpoints) {
-                    store.endpoints.forEach(endpoint => {
+                if (storedComponent.endpoints) {
+                    storedComponent.endpoints.forEach(endpoint => {
                         const middleware: Middleware = applicationMiddleWare
-                            .concat(store.componentMiddleware)
+                            .concat(storedComponent.componentMiddleware)
                             .concat(endpoint.middleware);
                         const endpointWithInjectedDependencies: EndpointHandler = {
                             functionContextInstance: component,
@@ -71,13 +70,46 @@ export function Application(config: ApplicationConfig) {
                             route: endpoint.route,
                             middleware: middleware
                         };
-                        const route = (store.componentRoute || '').concat(endpoint.route).replace(/\/\//g, '/');
+                        const route = (storedComponent.componentRoute || '').concat(endpoint.route).replace(/\/\//g, '/');
                         if (router.has(route)) console.warn(colors.yellow(`[WARNING]\tFound duplicated route '${route}'. Route was overridden`));
                         router.set(route, endpointWithInjectedDependencies);
                     });
                 }
             }  else { throw new Error(`Component ${Component} has no mapped class`); }
         });
+
+        (config.modules || []).forEach(Module => {
+            const moduleName: string = (Module as Function).name;
+            if (moduleStore.has(moduleName)) {
+                const storedModule: ModuleStore = moduleStore.get(moduleName);
+                storedModule.components.forEach(Component => {
+                    const componentName: string = (Component as Function).name;
+                    if (componentStore.has(componentName)) {
+                        const storedComponent = componentStore.get(componentName);
+                        // Instantiate via dependency injector
+                        const component = Injector.resolveModuleInstance(Component);
+                        if (storedComponent.endpoints) {
+                            storedComponent.endpoints.forEach(endpoint => {
+                                const middleware: Middleware = applicationMiddleWare
+                                    .concat(storedModule.moduleMiddleWare)
+                                    .concat(storedComponent.componentMiddleware)
+                                    .concat(endpoint.middleware);
+                                const endpointWithInjectedDependencies: EndpointHandler = {
+                                    functionContextInstance: component,
+                                    fn: endpoint.fn,
+                                    route: endpoint.route,
+                                    middleware: middleware
+                                };
+                                const route = storedModule.moduleRoute.concat(storedComponent.componentRoute || '').concat(endpoint.route).replace(/\/\//g, '/');
+                                if (router.has(route)) console.warn(colors.yellow(`[WARNING]\tFound duplicated route '${route}'. Route was overridden`));
+                                router.set(route, endpointWithInjectedDependencies);
+                            });
+                        }
+                    } else { throw new Error(`Component ${Component} has no mapped class`); }
+                });
+            } else { throw new Error(`Module ${Module} has no mapped class`); }
+        });
+
         if (config.server.https) {
             https.createServer(config.server.https, RequestListenerFactory(config, router))
                 .listen(config.server.port || 443, () =>{

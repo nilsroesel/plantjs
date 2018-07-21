@@ -30,14 +30,28 @@ export const Injector = new class {
         return new instance(...injections);
     }
 
-    resolveAsync<T>(instance: Instantiable<T>): Promise<T> {
-        return new Promise((resolve, reject) => {
-            try {
-                // Tokens are required dependencies, while injections are resolved tokens from the Injector
-                let tokens = Reflect.getMetadata('design:paramtypes', instance) || [],
-                    injections = tokens.map(token => Injector.resolve<any>(token));
-                resolve(new instance(...injections));
-            } catch (e) { reject(e); }
-        });
+    resolveModuleInstance<T>(instance: Instantiable<T>, store?: Map<Instantiable<any>, Object>): T {
+        const moduleStore: Map<Instantiable<any>, Object> = store || new Map();
+        let tokens = Reflect.getMetadata('design:paramtypes', instance) || [],
+            injections = tokens.map(token => {
+                if (injectorStore.has(token)) {
+                    if (moduleStore.has(token)) {
+                        let storeVal = moduleStore.get(token);
+                        if (storeVal === null) {
+                            storeVal = Injector.resolveModuleInstance<any>(token, moduleStore);
+                            moduleStore.set(token, storeVal)
+                        }
+                        return storeVal;
+                    } else {
+                        return injectorStore || Injector.resolveModuleInstance<any>(token, moduleStore);
+                    }
+                } else {
+                    return Injector.resolveModuleInstance<any>(token, moduleStore);
+                }
+            });
+        return new instance(...injections);
     }
+
+
+
 };
