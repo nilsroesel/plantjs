@@ -2,7 +2,7 @@
  * @module Decorators
  */
 import { ComponentConfig, Request, Response } from '../index';
-import { componentStore, componentClassMap, ComponentStore } from '../internal.index';
+import { componentStore, ComponentStore } from '../internal.index';
 
 /**
  *
@@ -25,17 +25,12 @@ import { componentStore, componentClassMap, ComponentStore } from '../internal.i
  * **/
 export function Component(conf: ComponentConfig) {
     return <T extends { new(...args: any[]): {} }>(constructor: T) => {
-        const returnedClass = class extends constructor {};
-        if(componentStore.has(constructor.name)) {
-            const store: ComponentStore = componentStore.get(constructor.name);
-            store.componentRoute = conf.route;
-            store.componentMiddleware = conf.middleware || [];
+        const store: ComponentStore = componentStore.get(constructor.name) || {} as ComponentStore;
+        store.componentRoute = conf.route;
+        store.componentMiddleware = conf.middleware || [];
 
-            componentStore.set(returnedClass.name, store);
-            componentClassMap.set(returnedClass.name, constructor.name);
+        componentStore.set(constructor.name, store);
 
-        }
-
-        return returnedClass;
+        return constructor;
     }
 }
