@@ -18,8 +18,9 @@ decorators it could also work with plain js)
 ### Middleware evaluation
 The evaluation of middleware function goes as it follows:
 - First: the application scoped middleware
-- Second: the component scoped middleware
-- Third: the endpoint scoped middleware  
+- Second: the module scoped middleware
+- Third: the component scoped middleware
+- Fourth: the endpoint scoped middleware  
 - The middleware follows the order, given in the array.  
 - The last chain is the endpoint function 
 - An endpoint/middleware function has three parameters (request, response, next?);
@@ -27,11 +28,11 @@ The evaluation of middleware function goes as it follows:
 
 ### Routes
 - The basic route scheme is:
-/$applicationRoute/$componentRoute/$endpointRoute
+/$applicationRoute/$moduleRoute/$componentRoute/$endpointRoute
 - you can define a param in a route like `/:foo`  
 and access it via `request.params.foo`
 #### Route Typing
-you can directly define a typed route param with the pattern `:param#type`
+you can directly define a typed route param with the pattern `:param#type`  
 `/:id#number` an non digit route would return a 404. 
 The available types are:
 - number  
@@ -42,7 +43,8 @@ The available types are:
 Everything is decorator driven. The framework is not supposed to run an application like
 the "express.use().listen(x)". You decorate the main component with @Application and execute
 the driver without setting the app up manually. That also means its not supposed to be compatible 
-with vanilla node-js, as long as ecma script doesnt provide decorators.
+with vanilla node-js, as long as ecma script doesnt provide decorators.  
+You are also able to gather components into modules and import the modules into your app, to have a nice clean structural approach. 
 
 #### Note!
 Set in your tsconfig.json
