@@ -96,6 +96,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="decorators.html#component" class="tsd-kind-icon">Component</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="decorators.html#endpoint" class="tsd-kind-icon">Endpoint</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="decorators.html#injectable" class="tsd-kind-icon">Injectable</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="decorators.html#module" class="tsd-kind-icon">Module</a></li>
 							</ul>
 						</section>
 					</div>
@@ -113,7 +114,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/decorators/application.decorator.ts#L42">decorators/application.decorator.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/a51dc55/src/decorators/application.decorator.ts#L43">decorators/application.decorator.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -160,7 +161,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/decorators/component.decorator.ts#L26">decorators/component.decorator.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/a51dc55/src/decorators/component.decorator.ts#L26">decorators/component.decorator.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -202,7 +203,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/decorators/endpoint.decorator.ts#L38">decorators/endpoint.decorator.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/a51dc55/src/decorators/endpoint.decorator.ts#L38">decorators/endpoint.decorator.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -255,7 +256,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/10831d2/src/decorators/injectable.decorator.ts#L28">decorators/injectable.decorator.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/a51dc55/src/decorators/injectable.decorator.ts#L28">decorators/injectable.decorator.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -287,6 +288,46 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">GenericClassDecorator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Instantiable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="module" class="tsd-anchor"></a>
+					<h3>Module</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Module<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/decorator_configs.moduleconfig.html" class="tsd-signature-type">ModuleConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/a51dc55/src/decorators/module.decorator.ts#L25">decorators/module.decorator.ts:25</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Class Decorator Function</p>
+								</div>
+								<p>A module gathers components and uses an own store for shared instances dependency injection.
+								Every not provided dependency will be loaded from the application instance store</p>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="lang-typescript">
+  <span class="hljs-meta">@Module</span>({
+
+  })
+  <span class="hljs-keyword">class</span> Test {}
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>config: <a href="../interfaces/decorator_configs.moduleconfig.html" class="tsd-signature-type">ModuleConfig</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -331,6 +372,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="decorators.html#injectable" class="tsd-kind-icon">Injectable</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="decorators.html#module" class="tsd-kind-icon">Module</a>
 					</li>
 				</ul>
 			</nav>
