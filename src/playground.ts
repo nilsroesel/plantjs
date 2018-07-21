@@ -5,11 +5,11 @@ import {
     Application,
     Endpoint,
     Component,
-    Response,
-    Request,
     Injectable,
-    InjectionModes
-
+    InjectionModes,
+    Module,
+    Response,
+    Request
 } from './index'; // 'skeidjs'
 import * as fs from 'fs';
 
@@ -22,6 +22,22 @@ class TestInjectable {
     }
 
     doStuff(logger?: string) { console.log(logger || 'I am from an injectable')}
+}
+
+@Component({})
+class MicroComponent {
+    constructor(public foo: TestInjectable) {}
+
+    @Endpoint({
+        route: '/test'
+    })
+    test1(request: Request, response: Response) {
+        this.foo.bar = 'Hello World';
+        response
+            .status(200)
+            .json(this.foo)
+            .send();
+    }
 }
 
 @Component({
@@ -64,6 +80,12 @@ class TestComponent {
 
 }
 
+@Module({
+    route: '/module',
+    components: [MicroComponent]
+})
+class TestModule {}
+
 @Application({
     contentType: 'application/json',
     server: {
@@ -82,7 +104,8 @@ class TestComponent {
     components: [TestComponent],
     middleware: [
         (request: Request, response: Response) => { console.log('Iam a application Scope Middleware')}
-    ]
+    ],
+    modules: [TestModule]
 })
 class Test {
 
