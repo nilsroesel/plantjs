@@ -29,3 +29,8 @@ export type Middleware = Array<MiddlewareFunction>;
  * @hidden
  */
 export interface Instantiable<T> {new(...args: any[]): T;}
+
+export interface ErrorMessage {
+    status: number | string;
+    message: string;
+}
