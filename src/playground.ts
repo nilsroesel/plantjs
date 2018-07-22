@@ -119,4 +119,12 @@ class Test {
             .json({msg: 'iam an application endpoint'})
             .send();
     }
+
+    @Endpoint({
+        route: '/new'
+    })
+    test2(request: Request, response: Response) {
+        const promise = new Promise(((resolve, reject) => reject('you are dumb')));
+        response.respond(promise);
+    }
 }
