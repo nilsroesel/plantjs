@@ -15,8 +15,10 @@ export function RequestListenerFactory(config: ApplicationConfig, router: Router
             response.setHeader('Content-Type', config.contentType);
             Request.readRequestBody(request).then(body => {
                 route.call(new Request(request, body, route.params), new Response(response));
-                if (!response.finished) response.end();
-            }).catch(e => {});
+            }).catch(reason => {
+                response.writeHead(500, reason, {'Content-Type': config.contentType});
+                response.end();
+            });
         }).catch(reason => {
             if (reason === Router.NO_SUCH_ROUTE) {
                 response.writeHead(404, {'Content-Type': config.contentType});
