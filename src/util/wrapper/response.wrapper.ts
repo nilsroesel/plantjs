@@ -4,14 +4,23 @@
 import { ServerResponse } from 'http';
 import { ErrorMessage } from '../../index'
 
+/**
+ * A simple facade for the node http ServerResponse
+ */
 export class Response {
+    /**
+     * @hidden
+     */
     private response: ServerResponse;
+    /**
+     * @hidden
+     */
     private statusCode: number;
 
     constructor(response: ServerResponse) { this.response = response; }
 
     /**
-     * Sets a specific http response headers
+     * Sets a specific http response header
      * @param {string} name
      * @param {string | string[] | number} value
      * @returns {Response}
@@ -34,7 +43,7 @@ export class Response {
     }
 
     /**
-     * Sends back an json formatted string
+     * Writes json representation of the given object to the response, but don't closes the stream
      * @deprecated since 1.6. Use respond() instead
      * @param {Object} payload
      * @returns {Response}
@@ -45,7 +54,7 @@ export class Response {
     }
 
     /**
-     * Sends a string back
+     * Writes a string to the response, but don't closes the stream
      * @deprecated since 1.6. Use respond() instead
      * @param {string} payload
      * @returns {Response}
@@ -56,11 +65,10 @@ export class Response {
     }
 
     /**
+     * Ends the response
      * @deprecated since 1.6. Use respond() instead
      */
-    send(): void {
-        this.response.end();
-    }
+    send(): void { this.response.end(); }
 
     /**
      * Since version 1.6 you will use this to respond.
@@ -70,7 +78,6 @@ export class Response {
      * @param {string | Promise<Object> | Object} payload
      */
     respond(payload: string | Promise<Object> | Object): void {
-        this.response.on('error', (error) => {console.error(error)})
         if (typeof payload === 'string') {
             this.response.write(payload);
             this.response.end();
@@ -90,8 +97,6 @@ export class Response {
             this.response.write(JSON.stringify(payload));
             this.response.end();
         }
-
-
     }
 
 }
