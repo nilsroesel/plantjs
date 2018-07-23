@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Types | skeiðjs</title>
+	<title>ErrorMessage | skeiðjs</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -69,100 +69,60 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="types.html">Types</a>
+					<a href="../modules/types.html">Types</a>
+				</li>
+				<li>
+					<a href="types.errormessage.html">ErrorMessage</a>
 				</li>
 			</ul>
-			<h1>External module Types</h1>
+			<h1>Interface ErrorMessage</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ErrorMessage</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/types.contexthandlerfn.html" class="tsd-kind-icon">Context<wbr>Handler<wbr>Fn</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/types.errormessage.html" class="tsd-kind-icon">Error<wbr>Message</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Type aliases</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="types.html#handlerfn" class="tsd-kind-icon">Handler<wbr>Fn</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="types.html#middleware" class="tsd-kind-icon">Middleware</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="types.html#middlewarefunction" class="tsd-kind-icon">Middleware<wbr>Function</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="types.errormessage.html#message" class="tsd-kind-icon">message</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="types.errormessage.html#status" class="tsd-kind-icon">status</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
-					<a name="handlerfn" class="tsd-anchor"></a>
-					<h3>Handler<wbr>Fn</h3>
-					<div class="tsd-signature tsd-kind-icon">Handler<wbr>Fn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="message" class="tsd-anchor"></a>
+					<h3>message</h3>
+					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/d39ce8c/src/interfaces/types.ts#L11">interfaces/types.ts:11</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The function type for every endpoint and every middleware
-							The next function will break the current function processing completely and will prosed with the nex middleware function</p>
-						</div>
-					</div>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">?: </span><a href="../classes/http.request.html" class="tsd-signature-type">Request</a>, response<span class="tsd-signature-symbol">?: </span><a href="../classes/http.response.html" class="tsd-signature-type">Response</a>, next<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> request: <a href="../classes/http.request.html" class="tsd-signature-type">Request</a></h5>
-											</li>
-											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> response: <a href="../classes/http.response.html" class="tsd-signature-type">Response</a></h5>
-											</li>
-											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> next: <span class="tsd-signature-type">Function</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
-					<a name="middleware" class="tsd-anchor"></a>
-					<h3>Middleware</h3>
-					<div class="tsd-signature tsd-kind-icon">Middleware<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="types.html#middlewarefunction" class="tsd-signature-type">MiddlewareFunction</a><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/d39ce8c/src/interfaces/types.ts#L33">interfaces/types.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/d39ce8c/src/interfaces/types.ts#L42">interfaces/types.ts:42</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
-					<a name="middlewarefunction" class="tsd-anchor"></a>
-					<h3>Middleware<wbr>Function</h3>
-					<div class="tsd-signature tsd-kind-icon">Middleware<wbr>Function<span class="tsd-signature-symbol">:</span> <a href="types.html#handlerfn" class="tsd-signature-type">HandlerFn</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/types.contexthandlerfn.html" class="tsd-signature-type">ContextHandlerFn</a></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="status" class="tsd-anchor"></a>
+					<h3>status</h3>
+					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/d39ce8c/src/interfaces/types.ts#L31">interfaces/types.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/d39ce8c/src/interfaces/types.ts#L41">interfaces/types.ts:41</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -175,38 +135,50 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="decorator_configs.html">Decorator-<wbr><wbr>Configs</a>
+						<a href="../modules/decorator_configs.html">Decorator-<wbr><wbr>Configs</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="decorators.html">Decorators</a>
+						<a href="../modules/decorators.html">Decorators</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="http.html">Http</a>
+						<a href="../modules/http.html">Http</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="non_exported.html">Non-<wbr>exported</a>
+						<a href="../modules/non_exported.html">Non-<wbr>exported</a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="types.html">Types</a>
+						<a href="../modules/types.html">Types</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/types.contexthandlerfn.html" class="tsd-kind-icon">Context<wbr>Handler<wbr>Fn</a>
+						<a href="types.contexthandlerfn.html" class="tsd-kind-icon">Context<wbr>Handler<wbr>Fn</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/types.errormessage.html" class="tsd-kind-icon">Error<wbr>Message</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="types.errormessage.html" class="tsd-kind-icon">Error<wbr>Message</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="types.errormessage.html#message" class="tsd-kind-icon">message</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="types.errormessage.html#status" class="tsd-kind-icon">status</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/types.html#handlerfn" class="tsd-kind-icon">Handler<wbr>Fn</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="types.html#handlerfn" class="tsd-kind-icon">Handler<wbr>Fn</a>
+						<a href="../modules/types.html#middleware" class="tsd-kind-icon">Middleware</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="types.html#middleware" class="tsd-kind-icon">Middleware</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="types.html#middlewarefunction" class="tsd-kind-icon">Middleware<wbr>Function</a>
+						<a href="../modules/types.html#middlewarefunction" class="tsd-kind-icon">Middleware<wbr>Function</a>
 					</li>
 				</ul>
 			</nav>
