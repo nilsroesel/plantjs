@@ -4,6 +4,10 @@
 import { Request, Response } from '../index';
 import { IncomingMessage, ServerResponse } from 'http';
 
+/**
+ * The function type for every endpoint and every middleware
+ * The next function will break the current function processing completely and will prosed with the nex middleware function
+ */
 export type HandlerFn = (request?: Request, response?: Response, next?: Function) => void;
 
 /**
@@ -11,6 +15,9 @@ export type HandlerFn = (request?: Request, response?: Response, next?: Function
  */
 export type RequestListenerFn = (request: IncomingMessage, response: ServerResponse) => void;
 
+/**
+ * Add here the HandlerFn and the object to which the 'this' should be referred to
+ */
 export interface ContextHandlerFn {
     functionContextInstance: Object;
     fn: Function
