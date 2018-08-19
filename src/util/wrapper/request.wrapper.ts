@@ -9,17 +9,17 @@ const fs = require('fs');
  * A simple facade for the node http IncomingMessage
  */
 export class Request {
-    static readRequestBody(request: IncomingMessage): Promise<{ body: string, binary: any }> {
-        return new Promise<{ body: string, binary: any }>((resolve, reject) => {
+    static readRequestBody(request: IncomingMessage): Promise<Buffer> {
+        return new Promise<Buffer>((resolve, reject) => {
             let body = [];
             request.on('error', (err) => {
                 reject(err);
             }).on('data', (chunk) => {
                 body.push(chunk);
             }).on('end', () => {
-                resolve({body: Buffer.concat(body).toString(), binary: Buffer.concat(body)});
+                resolve(Buffer.concat(body));
             }).on('close', () => {
-                resolve({body: Buffer.concat(body).toString(), binary: Buffer.concat(body)});
+                resolve(Buffer.concat(body));
             });
         });
 
