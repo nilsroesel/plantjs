@@ -77,8 +77,9 @@ export class Response {
      * On error it will respond with an error object that put the promise rejection reason as message
      * @param {string | Promise<Object> | Object} payload
      */
-    respond(payload: string | Promise<Object> | Object): void {
-        if (typeof payload === 'string') {
+    respond(payload?: string | Promise<Object> | Object): void {
+        if (!payload) this.response.end();
+        else if (typeof payload === 'string') {
             this.response.write(payload);
             this.response.end();
         }
