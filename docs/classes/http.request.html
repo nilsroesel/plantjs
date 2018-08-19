@@ -110,16 +110,19 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="http.request.html#binary" class="tsd-kind-icon">binary</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="http.request.html#body" class="tsd-kind-icon">body</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="http.request.html#headers" class="tsd-kind-icon">headers</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="http.request.html#method" class="tsd-kind-icon">method</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="http.request.html#params" class="tsd-kind-icon">params</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="http.request.html#request" class="tsd-kind-icon">request</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="http.request.html#url" class="tsd-kind-icon">url</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="http.request.html#file" class="tsd-kind-icon">file</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="http.request.html#json" class="tsd-kind-icon">json</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="http.request.html#readrequestbody" class="tsd-kind-icon">read<wbr>Request<wbr>Body</a></li>
 							</ul>
@@ -133,13 +136,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Request<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span>, body<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="http.request.html" class="tsd-signature-type">Request</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Request<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span>, body<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, binary<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="http.request.html" class="tsd-signature-type">Request</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/d39ce8c/src/util/wrapper/request.wrapper.ts#L44">util/wrapper/request.wrapper.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/request.wrapper.ts#L51">util/wrapper/request.wrapper.ts:51</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -149,6 +152,9 @@
 								</li>
 								<li>
 									<h5>body: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>binary: <span class="tsd-signature-type">any</span></h5>
 								</li>
 								<li>
 									<h5>params: <span class="tsd-signature-type">Object</span></h5>
@@ -161,13 +167,23 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="binary" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> binary</h3>
+					<div class="tsd-signature tsd-kind-icon">binary<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/request.wrapper.ts#L51">util/wrapper/request.wrapper.ts:51</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="body" class="tsd-anchor"></a>
 					<h3>body</h3>
 					<div class="tsd-signature tsd-kind-icon">body<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/d39ce8c/src/util/wrapper/request.wrapper.ts#L44">util/wrapper/request.wrapper.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/request.wrapper.ts#L49">util/wrapper/request.wrapper.ts:49</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -182,7 +198,7 @@
 					<div class="tsd-signature tsd-kind-icon">headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IncomingHttpHeaders</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/d39ce8c/src/util/wrapper/request.wrapper.ts#L36">util/wrapper/request.wrapper.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/request.wrapper.ts#L41">util/wrapper/request.wrapper.ts:41</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -197,7 +213,7 @@
 					<div class="tsd-signature tsd-kind-icon">method<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/d39ce8c/src/util/wrapper/request.wrapper.ts#L40">util/wrapper/request.wrapper.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/request.wrapper.ts#L45">util/wrapper/request.wrapper.ts:45</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -212,7 +228,7 @@
 					<div class="tsd-signature tsd-kind-icon">params<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/d39ce8c/src/util/wrapper/request.wrapper.ts#L32">util/wrapper/request.wrapper.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/request.wrapper.ts#L37">util/wrapper/request.wrapper.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -222,13 +238,23 @@
 						</div>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="request" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> request</h3>
+					<div class="tsd-signature tsd-kind-icon">request<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IncomingMessage</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/request.wrapper.ts#L28">util/wrapper/request.wrapper.ts:28</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="url" class="tsd-anchor"></a>
 					<h3>url</h3>
 					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/d39ce8c/src/util/wrapper/request.wrapper.ts#L27">util/wrapper/request.wrapper.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/request.wrapper.ts#L32">util/wrapper/request.wrapper.ts:32</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -241,6 +267,37 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="file" class="tsd-anchor"></a>
+					<h3>file</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">file<span class="tsd-signature-symbol">(</span>targetPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/request.wrapper.ts#L78">util/wrapper/request.wrapper.ts:78</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Saves data to the given path</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>targetPath: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Path where the file should be saved</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="json" class="tsd-anchor"></a>
 					<h3>json</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -250,7 +307,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/d39ce8c/src/util/wrapper/request.wrapper.ts#L57">util/wrapper/request.wrapper.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/request.wrapper.ts#L66">util/wrapper/request.wrapper.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -266,13 +323,13 @@
 					<a name="readrequestbody" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> read<wbr>Request<wbr>Body</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">read<wbr>Request<wbr>Body<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">read<wbr>Request<wbr>Body<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/d39ce8c/src/util/wrapper/request.wrapper.ts#L10">util/wrapper/request.wrapper.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/request.wrapper.ts#L12">util/wrapper/request.wrapper.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -281,7 +338,7 @@
 									<h5>request: <span class="tsd-signature-type">IncomingMessage</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -320,6 +377,9 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="http.request.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="http.request.html#binary" class="tsd-kind-icon">binary</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="http.request.html#body" class="tsd-kind-icon">body</a>
 							</li>
@@ -332,8 +392,14 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="http.request.html#params" class="tsd-kind-icon">params</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="http.request.html#request" class="tsd-kind-icon">request</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="http.request.html#url" class="tsd-kind-icon">url</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="http.request.html#file" class="tsd-kind-icon">file</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="http.request.html#json" class="tsd-kind-icon">json</a>

@@ -12,7 +12,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/PROGRAMMIERUNG/skeidjs/src/interfaces/application.interface.ts",
+			"originalName": "G:/PROGRAMMIERUNG/skeidjs/src/interfaces/application.interface.ts",
 			"children": [
 				{
 					"id": 95,
@@ -753,7 +753,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/PROGRAMMIERUNG/skeidjs/src/decorators/endpoint.decorator.ts",
+			"originalName": "G:/PROGRAMMIERUNG/skeidjs/src/decorators/endpoint.decorator.ts",
 			"children": [
 				{
 					"id": 148,
@@ -816,7 +816,7 @@
 					]
 				},
 				{
-					"id": 202,
+					"id": 209,
 					"name": "Application",
 					"kind": 64,
 					"kindString": "Function",
@@ -825,7 +825,7 @@
 					},
 					"signatures": [
 						{
-							"id": 203,
+							"id": 210,
 							"name": "Application",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -843,7 +843,7 @@
 							},
 							"parameters": [
 								{
-									"id": 204,
+									"id": 211,
 									"name": "config",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1112,7 +1112,7 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						202,
+						209,
 						144,
 						7,
 						151,
@@ -1136,7 +1136,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/PROGRAMMIERUNG/skeidjs/src/util/wrapper/request.wrapper.ts",
+			"originalName": "G:/PROGRAMMIERUNG/skeidjs/src/util/wrapper/request.wrapper.ts",
 			"children": [
 				{
 					"id": 159,
@@ -1151,7 +1151,7 @@
 					},
 					"children": [
 						{
-							"id": 168,
+							"id": 171,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -1160,14 +1160,14 @@
 							},
 							"signatures": [
 								{
-									"id": 169,
+									"id": 172,
 									"name": "new Request",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 170,
+											"id": 173,
 											"name": "request",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1178,7 +1178,7 @@
 											}
 										},
 										{
-											"id": 171,
+											"id": 174,
 											"name": "body",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1189,7 +1189,18 @@
 											}
 										},
 										{
-											"id": 172,
+											"id": 175,
+											"name": "binary",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										},
+										{
+											"id": 176,
 											"name": "params",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1210,13 +1221,34 @@
 							"sources": [
 								{
 									"fileName": "util/wrapper/request.wrapper.ts",
-									"line": 44,
-									"character": 26
+									"line": 51,
+									"character": 28
 								}
 							]
 						},
 						{
-							"id": 167,
+							"id": 170,
+							"name": "binary",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "util/wrapper/request.wrapper.ts",
+									"line": 51,
+									"character": 27
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						},
+						{
+							"id": 169,
 							"name": "body",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1229,7 +1261,7 @@
 							"sources": [
 								{
 									"fileName": "util/wrapper/request.wrapper.ts",
-									"line": 44,
+									"line": 49,
 									"character": 17
 								}
 							],
@@ -1239,7 +1271,7 @@
 							}
 						},
 						{
-							"id": 165,
+							"id": 167,
 							"name": "headers",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1252,7 +1284,7 @@
 							"sources": [
 								{
 									"fileName": "util/wrapper/request.wrapper.ts",
-									"line": 36,
+									"line": 41,
 									"character": 20
 								}
 							],
@@ -1262,7 +1294,7 @@
 							}
 						},
 						{
-							"id": 166,
+							"id": 168,
 							"name": "method",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1275,7 +1307,7 @@
 							"sources": [
 								{
 									"fileName": "util/wrapper/request.wrapper.ts",
-									"line": 40,
+									"line": 45,
 									"character": 19
 								}
 							],
@@ -1285,7 +1317,7 @@
 							}
 						},
 						{
-							"id": 164,
+							"id": 166,
 							"name": "params",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1298,7 +1330,7 @@
 							"sources": [
 								{
 									"fileName": "util/wrapper/request.wrapper.ts",
-									"line": 32,
+									"line": 37,
 									"character": 19
 								}
 							],
@@ -1308,7 +1340,28 @@
 							}
 						},
 						{
-							"id": 163,
+							"id": 164,
+							"name": "request",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "util/wrapper/request.wrapper.ts",
+									"line": 28,
+									"character": 19
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "IncomingMessage"
+							}
+						},
+						{
+							"id": 165,
 							"name": "url",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1321,7 +1374,7 @@
 							"sources": [
 								{
 									"fileName": "util/wrapper/request.wrapper.ts",
-									"line": 27,
+									"line": 32,
 									"character": 16
 								}
 							],
@@ -1331,7 +1384,55 @@
 							}
 						},
 						{
-							"id": 173,
+							"id": 179,
+							"name": "file",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 180,
+									"name": "file",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Saves data to the given path"
+									},
+									"parameters": [
+										{
+											"id": 181,
+											"name": "targetPath",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"comment": {
+												"text": "Path where the file should be saved\n"
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "util/wrapper/request.wrapper.ts",
+									"line": 78,
+									"character": 8
+								}
+							]
+						},
+						{
+							"id": 177,
 							"name": "json",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1340,7 +1441,7 @@
 							},
 							"signatures": [
 								{
-									"id": 174,
+									"id": 178,
 									"name": "json",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1357,7 +1458,7 @@
 							"sources": [
 								{
 									"fileName": "util/wrapper/request.wrapper.ts",
-									"line": 57,
+									"line": 66,
 									"character": 8
 								}
 							]
@@ -1396,8 +1497,21 @@
 										"name": "Promise",
 										"typeArguments": [
 											{
-												"type": "intrinsic",
-												"name": "string"
+												"type": "reflection",
+												"declaration": {
+													"id": 163,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "util/wrapper/request.wrapper.ts",
+															"line": 12,
+															"character": 62
+														}
+													]
+												}
 											}
 										]
 									}
@@ -1406,7 +1520,7 @@
 							"sources": [
 								{
 									"fileName": "util/wrapper/request.wrapper.ts",
-									"line": 10,
+									"line": 12,
 									"character": 26
 								}
 							]
@@ -1417,25 +1531,28 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								168
+								171
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
+								170,
+								169,
 								167,
-								165,
+								168,
 								166,
 								164,
-								163
+								165
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								173,
+								179,
+								177,
 								160
 							]
 						}
@@ -1443,13 +1560,13 @@
 					"sources": [
 						{
 							"fileName": "util/wrapper/request.wrapper.ts",
-							"line": 9,
+							"line": 11,
 							"character": 20
 						}
 					]
 				},
 				{
-					"id": 176,
+					"id": 183,
 					"name": "Response",
 					"kind": 128,
 					"kindString": "Class",
@@ -1461,7 +1578,7 @@
 					},
 					"children": [
 						{
-							"id": 179,
+							"id": 186,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -1470,14 +1587,14 @@
 							},
 							"signatures": [
 								{
-									"id": 180,
+									"id": 187,
 									"name": "new Response",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 181,
+											"id": 188,
 											"name": "response",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1491,7 +1608,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 176
+										"id": 183
 									}
 								}
 							],
@@ -1504,7 +1621,7 @@
 							]
 						},
 						{
-							"id": 190,
+							"id": 197,
 							"name": "json",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1513,7 +1630,7 @@
 							},
 							"signatures": [
 								{
-									"id": 191,
+									"id": 198,
 									"name": "json",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1530,7 +1647,7 @@
 									},
 									"parameters": [
 										{
-											"id": 192,
+											"id": 199,
 											"name": "payload",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1545,7 +1662,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 176
+										"id": 183
 									}
 								}
 							],
@@ -1558,7 +1675,7 @@
 							]
 						},
 						{
-							"id": 198,
+							"id": 205,
 							"name": "respond",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1567,7 +1684,7 @@
 							},
 							"signatures": [
 								{
-									"id": 199,
+									"id": 206,
 									"name": "respond",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1577,11 +1694,13 @@
 									},
 									"parameters": [
 										{
-											"id": 200,
+											"id": 207,
 											"name": "payload",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isOptional": true
+											},
 											"comment": {
 												"text": "\n"
 											},
@@ -1625,7 +1744,7 @@
 							]
 						},
 						{
-							"id": 196,
+							"id": 203,
 							"name": "send",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1634,7 +1753,7 @@
 							},
 							"signatures": [
 								{
-									"id": 197,
+									"id": 204,
 									"name": "send",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1663,7 +1782,7 @@
 							]
 						},
 						{
-							"id": 182,
+							"id": 189,
 							"name": "setHeader",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1672,7 +1791,7 @@
 							},
 							"signatures": [
 								{
-									"id": 183,
+									"id": 190,
 									"name": "setHeader",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1683,7 +1802,7 @@
 									},
 									"parameters": [
 										{
-											"id": 184,
+											"id": 191,
 											"name": "name",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1695,7 +1814,7 @@
 											}
 										},
 										{
-											"id": 185,
+											"id": 192,
 											"name": "value",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1726,7 +1845,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 176
+										"id": 183
 									}
 								}
 							],
@@ -1739,7 +1858,7 @@
 							]
 						},
 						{
-							"id": 186,
+							"id": 193,
 							"name": "status",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1748,7 +1867,7 @@
 							},
 							"signatures": [
 								{
-									"id": 187,
+									"id": 194,
 									"name": "status",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1759,7 +1878,7 @@
 									},
 									"parameters": [
 										{
-											"id": 188,
+											"id": 195,
 											"name": "status",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1771,7 +1890,7 @@
 											}
 										},
 										{
-											"id": 189,
+											"id": 196,
 											"name": "message",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1788,7 +1907,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 176
+										"id": 183
 									}
 								}
 							],
@@ -1801,7 +1920,7 @@
 							]
 						},
 						{
-							"id": 193,
+							"id": 200,
 							"name": "text",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1810,7 +1929,7 @@
 							},
 							"signatures": [
 								{
-									"id": 194,
+									"id": 201,
 									"name": "text",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1827,7 +1946,7 @@
 									},
 									"parameters": [
 										{
-											"id": 195,
+											"id": 202,
 											"name": "payload",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1842,7 +1961,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Response",
-										"id": 176
+										"id": 183
 									}
 								}
 							],
@@ -1860,19 +1979,19 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								179
+								186
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								190,
-								198,
-								196,
-								182,
-								186,
-								193
+								197,
+								205,
+								203,
+								189,
+								193,
+								200
 							]
 						}
 					],
@@ -1891,7 +2010,7 @@
 					"kind": 128,
 					"children": [
 						159,
-						176
+						183
 					]
 				}
 			],
@@ -1911,7 +2030,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/PROGRAMMIERUNG/skeidjs/src/util/route.ts",
+			"originalName": "G:/PROGRAMMIERUNG/skeidjs/src/util/route.ts",
 			"sources": [
 				{
 					"fileName": "util/route.ts",
@@ -1928,7 +2047,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "C:/PROGRAMMIERUNG/skeidjs/src/interfaces/types.ts",
+			"originalName": "G:/PROGRAMMIERUNG/skeidjs/src/interfaces/types.ts",
 			"children": [
 				{
 					"id": 15,
@@ -2137,7 +2256,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Response",
-												"id": 176
+												"id": 183
 											}
 										},
 										{
