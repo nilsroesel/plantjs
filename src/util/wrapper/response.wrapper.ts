@@ -2,6 +2,7 @@
  * @module Http
  */
 import { ServerResponse } from 'http';
+import {Stream} from 'stream';
 import { ErrorMessage } from '../../index'
 
 /**
@@ -11,7 +12,7 @@ export class Response {
     /**
      * @hidden
      */
-    private response: ServerResponse;
+    private readonly response: ServerResponse;
     /**
      * @hidden
      */
@@ -31,6 +32,17 @@ export class Response {
     }
 
     /**
+     * Set the whole http header at once ( node.http.ServerResponse.writeHead()
+     * @param {number} status
+     * @param {...'header': value} headerObject
+     * @returns {Response}
+     */
+    writeHead(status: number, headerObject: { [key: string]: any }): Response {
+        this.response.writeHead(status, headerObject);
+        return this;
+    }
+
+    /**
      * Sets the http status code
      * @param {number} status
      * @param {string} message
@@ -44,7 +56,7 @@ export class Response {
 
     /**
      * Writes json representation of the given object to the response, but don't closes the stream
-     * @deprecated since 1.6. Use respond() instead
+     * @deprecated since 1.5.1 Use respond() instead
      * @param {Object} payload
      * @returns {Response}
      */
@@ -55,7 +67,7 @@ export class Response {
 
     /**
      * Writes a string to the response, but don't closes the stream
-     * @deprecated since 1.6. Use respond() instead
+     * @deprecated since 1.5.1 Use respond() instead
      * @param {string} payload
      * @returns {Response}
      */
@@ -66,18 +78,18 @@ export class Response {
 
     /**
      * Ends the response
-     * @deprecated since 1.6. Use respond() instead
+     * @deprecated since 1.5.1 Use respond() instead
      */
     send(): void { this.response.end(); }
 
     /**
-     * Since version 1.6 you will use this to respond.
+     * Since version 1.5.1 you will use this to respond.
      * You are now able to put in an promise (that you e.g. get from some database services)
      * and can respond with it.
      * On error it will respond with an error object that put the promise rejection reason as message
      * @param {string | Promise<Object> | Object} payload
      */
-    respond(payload?: string | Promise<Object> | Object): void {
+    respond(payload?: string | Promise<Object> | Stream | Object): void {
         if (!payload) this.response.end();
         else if (typeof payload === 'string') {
             this.response.write(payload);
@@ -99,5 +111,32 @@ export class Response {
             this.response.end();
         }
     }
+
+    /**
+     * Since version 1.6
+     * Sends binary payload to the client (would work for downloading)
+     * For displaying a video on a frontend use the stream() method
+     * @param payload
+     */
+    binary(payload): void {
+        this.response.write(payload, 'binary');
+        this.response.end();
+    }
+
+    /**
+     * Since version 1.6
+     * Takes a file stream and pipes the response
+     * Use this for serving things like music or videos e.g. for a web browser
+     * @param {Stream} payload
+     */
+    stream(payload: Stream): void {
+        payload.on('error', (err) => {
+            this.status(500, err);
+            this.response.write(JSON.stringify({status: 500, message: err} as ErrorMessage));
+            this.response.end();
+        });
+        payload.on('open', () => payload.pipe(this.response));
+    }
+
 
 }

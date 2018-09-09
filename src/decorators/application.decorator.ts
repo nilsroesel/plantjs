@@ -53,7 +53,7 @@ export function Application(config: ApplicationConfig) {
         }
 
         const router: Router = new Router();
-        config.components.concat(constructor).forEach(Component => {
+        (config.components || []).concat(constructor).forEach(Component => {
             const componentName: string = (Component as Function).name;
             if (componentStore.has(componentName)) {
                 const storedComponent = componentStore.get(componentName);

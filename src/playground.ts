@@ -12,6 +12,7 @@ import {
     Request
 } from './index'; // 'skeidjs'
 import * as fs from 'fs';
+import * as path from 'path';
 
 @Injectable(InjectionModes.SINGLE_INSTANCE)
 class TestInjectable {
@@ -22,6 +23,23 @@ class TestInjectable {
     }
 
     doStuff(logger?: string) { console.log(logger || 'I am from an injectable')}
+}
+
+@Injectable()
+class FileService {
+    getBinaryFile() {
+        let filePath = path.resolve('./playground-data/kav.png');
+        let file = fs.readFileSync(filePath, 'binary');
+        let size = fs.statSync(filePath).size;
+        return {file, size}
+    }
+
+    getFileStream() {
+        let filePath = path.resolve('./playground-data/auld-lang-syne.mp4');
+        let file = fs.createReadStream(filePath);
+        let size = fs.statSync(filePath).size;
+        return {file, size}
+    }
 }
 
 @Component({})
@@ -80,6 +98,38 @@ class TestComponent {
 
 }
 
+@Component({})
+class FileEndpoints {
+    constructor(private fileService: FileService) {
+    }
+
+    @Endpoint({
+        route: '/file'
+    })
+    getStaticFile(request: Request, response: Response) {
+        const file = this.fileService.getBinaryFile();
+        response.writeHead(200, {
+            'Content-Type': 'image/png',
+            'Content-Length': file.size,
+            'Accept-Ranges': 'bytes',
+            'Content-Disposition': 'attachment; filename=your_file_name.png'
+        });
+        response.binary(file.file);
+    }
+
+    @Endpoint({
+        route: '/video'
+    })
+    streamFile(request: Request, response: Response) {
+        const file = this.fileService.getFileStream();
+        response.writeHead(200, {
+            'Content-Type': 'video/mp4',
+            'Content-Length': file.size,
+            'Content-Disposition': 'attachment; filename=your_file_name.mp4'
+        });
+        response.stream(file.file);
+    }
+}
 @Module({
     route: '/module',
     components: [MicroComponent]
@@ -101,7 +151,7 @@ class TestModule {}
             requestCert: false
         }
     },
-    components: [TestComponent],
+    components: [TestComponent, FileEndpoints, MicroComponent],
     middleware: [
         (request: Request, response: Response) => { console.log('Iam a application Scope Middleware')}
     ],

@@ -15,6 +15,22 @@ decorators it could also work with plain js)
 ## Functionality notes
 [See full doc at](https://nilsroesel.github.io/skeidjs/)
 
+### File handling
+Because the endpoints are called later on from the router, handling the path directly in the endpoint
+can cause some problems (in general you would receive a HTTP 500 error code), because the path would'nt work.
+Use a static service class therefore to keep the file path clean.  
+You can use the binary method of the response to send the whole file binary at once or use the stream
+method for streaming data.
+Whatever: please keep in mind of setting the correct headers for the response
+```javascript 1.6
+response.writeHead(200, {
+    'Content-Type': 'audio/mpeg',
+    'Content-Length': fileSize,
+    'Content-Disposition': 'attachment; filename=your_file_name'
+});
+
+```
+
 ### Middleware evaluation
 The evaluation of middleware function goes as it follows:
 - First: the application scoped middleware
