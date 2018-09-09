@@ -110,12 +110,15 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="http.response.html#binary" class="tsd-kind-icon">binary</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="http.response.html#json" class="tsd-kind-icon">json</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="http.response.html#respond" class="tsd-kind-icon">respond</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="http.response.html#send" class="tsd-kind-icon">send</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="http.response.html#setheader" class="tsd-kind-icon">set<wbr>Header</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="http.response.html#status" class="tsd-kind-icon">status</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="http.response.html#stream" class="tsd-kind-icon">stream</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="http.response.html#text" class="tsd-kind-icon">text</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="http.response.html#writehead" class="tsd-kind-icon">write<wbr>Head</a></li>
 							</ul>
 						</section>
 					</div>
@@ -133,7 +136,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/response.wrapper.ts#L18">util/wrapper/response.wrapper.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/util/wrapper/response.wrapper.ts#L19">util/wrapper/response.wrapper.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -150,6 +153,38 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="binary" class="tsd-anchor"></a>
+					<h3>binary</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">binary<span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/util/wrapper/response.wrapper.ts#L121">util/wrapper/response.wrapper.ts:121</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Since version 1.6
+										Sends binary payload to the client (would work for downloading)
+									For displaying a video on a frontend use the stream() method</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>payload: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="json" class="tsd-anchor"></a>
 					<h3>json</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -159,7 +194,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/response.wrapper.ts#L51">util/wrapper/response.wrapper.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/util/wrapper/response.wrapper.ts#L63">util/wrapper/response.wrapper.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -168,7 +203,7 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>deprecated</dt>
-									<dd><p>since 1.6. Use respond() instead</p>
+									<dd><p>since 1.5.1 Use respond() instead</p>
 									</dd>
 								</dl>
 							</div>
@@ -186,18 +221,18 @@
 					<a name="respond" class="tsd-anchor"></a>
 					<h3>respond</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">respond<span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">respond<span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Stream</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/response.wrapper.ts#L80">util/wrapper/response.wrapper.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/util/wrapper/response.wrapper.ts#L92">util/wrapper/response.wrapper.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Since version 1.6 you will use this to respond.
+									<p>Since version 1.5.1 you will use this to respond.
 										You are now able to put in an promise (that you e.g. get from some database services)
 										and can respond with it.
 									On error it will respond with an error object that put the promise rejection reason as message</p>
@@ -206,7 +241,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> payload: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Object</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> payload: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Stream</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Object</span></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 								</li>
@@ -225,7 +260,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/response.wrapper.ts#L71">util/wrapper/response.wrapper.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/util/wrapper/response.wrapper.ts#L83">util/wrapper/response.wrapper.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -234,7 +269,7 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>deprecated</dt>
-									<dd><p>since 1.6. Use respond() instead</p>
+									<dd><p>since 1.5.1 Use respond() instead</p>
 									</dd>
 								</dl>
 							</div>
@@ -252,7 +287,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/response.wrapper.ts#L28">util/wrapper/response.wrapper.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/util/wrapper/response.wrapper.ts#L29">util/wrapper/response.wrapper.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -283,7 +318,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/response.wrapper.ts#L39">util/wrapper/response.wrapper.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/util/wrapper/response.wrapper.ts#L51">util/wrapper/response.wrapper.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -305,6 +340,38 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="stream" class="tsd-anchor"></a>
+					<h3>stream</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">stream<span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Stream</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/util/wrapper/response.wrapper.ts#L132">util/wrapper/response.wrapper.ts:132</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Since version 1.6
+										Takes a file stream and pipes the response
+									Use this for serving things like music or videos e.g. for a web browser</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>payload: <span class="tsd-signature-type">Stream</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="text" class="tsd-anchor"></a>
 					<h3>text</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -314,7 +381,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/5a35744/src/util/wrapper/response.wrapper.ts#L62">util/wrapper/response.wrapper.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/util/wrapper/response.wrapper.ts#L74">util/wrapper/response.wrapper.ts:74</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -323,7 +390,7 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>deprecated</dt>
-									<dd><p>since 1.6. Use respond() instead</p>
+									<dd><p>since 1.5.1 Use respond() instead</p>
 									</dd>
 								</dl>
 							</div>
@@ -331,6 +398,42 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>payload: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="http.response.html" class="tsd-signature-type">Response</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="writehead" class="tsd-anchor"></a>
+					<h3>write<wbr>Head</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">write<wbr>Head<span class="tsd-signature-symbol">(</span>status<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, headerObject<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="http.response.html" class="tsd-signature-type">Response</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/util/wrapper/response.wrapper.ts#L40">util/wrapper/response.wrapper.ts:40</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set the whole http header at once ( node.http.ServerResponse.writeHead()</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>status: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>headerObject: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-index-signature">
+											<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="http.response.html" class="tsd-signature-type">Response</a></h4>
@@ -376,6 +479,9 @@
 								<a href="http.response.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="http.response.html#binary" class="tsd-kind-icon">binary</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="http.response.html#json" class="tsd-kind-icon">json</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -391,7 +497,13 @@
 								<a href="http.response.html#status" class="tsd-kind-icon">status</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="http.response.html#stream" class="tsd-kind-icon">stream</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="http.response.html#text" class="tsd-kind-icon">text</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="http.response.html#writehead" class="tsd-kind-icon">write<wbr>Head</a>
 							</li>
 						</ul>
 					</li>

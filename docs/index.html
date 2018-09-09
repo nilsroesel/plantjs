@@ -87,43 +87,59 @@
 				decorators it could also work with plain js)</p>
 				<h2 id="functionality-notes">Functionality notes</h2>
 				<p><a href="https://nilsroesel.github.io/skeidjs/">See full doc at</a></p>
-				<h3 id="middleware-evaluation">Middleware evaluation</h3>
-				<p>The evaluation of middleware function goes as it follows:</p>
-				<ul>
-					<li>First: the application scoped middleware</li>
-					<li>Second: the module scoped middleware</li>
-					<li>Third: the component scoped middleware</li>
-					<li>Fourth: the endpoint scoped middleware  </li>
-					<li>The middleware follows the order, given in the array.  </li>
-					<li>The last chain is the endpoint function </li>
-					<li>An endpoint/middleware function has three parameters (request, response, next?);</li>
-					<li>The next() function will break the current execution of the current function and start the next one</li>
-				</ul>
-				<h3 id="routes">Routes</h3>
-				<ul>
-					<li>The basic route scheme is:
-					/$applicationRoute/$moduleRoute/$componentRoute/$endpointRoute</li>
-					<li>you can define a param in a route like <code>/:foo</code><br>and access it via <code>request.params.foo</code><h4 id="route-typing">Route Typing</h4>
-						you can directly define a typed route param with the pattern <code>:param#type</code><br><code>/:id#number</code> an non digit route would return a 404.
-					The available types are:</li>
-					<li>number  </li>
-					<li>hex</li>
-					<li>alpha (=&gt; [a-zA-Z])</li>
-				</ul>
-				<h3 id="decorator-driven">Decorator driven</h3>
-				<p>Everything is decorator driven. The framework is not supposed to run an application like
-					the &quot;express.use().listen(x)&quot;. You decorate the main component with @Application and execute
-					the driver without setting the app up manually. That also means its not supposed to be compatible
-				with vanilla node-js, as long as ecma script doesnt provide decorators.<br>You are also able to gather components into modules and import the modules into your app, to have a nice clean structural approach. </p>
-				<h4 id="note-">Note!</h4>
-				<p>Set in your tsconfig.json</p>
-				<pre><code class="lang-json">{
-    <span class="hljs-attr">"experimentalDecorators"</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">"emitDecoratorMetadata"</span>: <span class="hljs-literal">true</span>
+				<h3 id="file-handling">File handling</h3>
+				<p>Because the endpoints are called later on from the router, handling the path directly in the endpoint
+					can cause some problems (in general you would receive a HTTP 500 error code), because the path would&#39;nt work.
+					Use a static service class therefore to keep the file path clean.<br>You can use the binary method of the response to send the whole file binary at once or use the stream
+					method for streaming data.
+					Whatever: please keep in mind of setting the correct headers for the response
+					<code>`</code>javascript 1.6
+					response.writeHead(200, {
+					&#39;Content-Type&#39;: &#39;audio/mpeg&#39;,
+					&#39;Content-Length&#39;: fileSize,
+					&#39;Content-Disposition&#39;: &#39;attachment; filename=your_file_name&#39;
+				});</p>
+				<pre><code>
+<span class="hljs-comment">### Middleware evaluation</span>
+The evaluation of middleware function goes as it follows:
+- First: the application scoped middleware
+- Second: the module scoped middleware
+- Third: the component scoped middleware
+- Fourth: the endpoint scoped middleware  
+- The middleware follows the order, given <span class="hljs-keyword">in</span> the array.  
+- The last chain is the endpoint function 
+- An endpoint/middleware function has three parameters (request, response, next?);
+- The next() function will break the current execution of the current function <span class="hljs-keyword">and</span> start the next one
+
+<span class="hljs-comment">### Routes</span>
+- The basic<span class="hljs-built_in"> route </span>scheme is:
+/<span class="hljs-variable">$applicationRoute</span>/<span class="hljs-variable">$moduleRoute</span>/<span class="hljs-variable">$componentRoute</span>/<span class="hljs-variable">$endpointRoute</span>
+- you can define a param <span class="hljs-keyword">in</span> a<span class="hljs-built_in"> route </span>like `/:foo`  
+<span class="hljs-keyword">and</span> access it via `request.params.foo`
+<span class="hljs-comment">#### Route Typing</span>
+you can directly define a typed<span class="hljs-built_in"> route </span>param with the pattern `:param#type`  
+`/:id#number` an non digit<span class="hljs-built_in"> route </span>would return a 404. 
+The available types are:
+- number  
+- hex
+- alpha (=&gt; [a-zA-Z])
+
+<span class="hljs-comment">### Decorator driven</span>
+Everything is decorator driven. The framework is <span class="hljs-keyword">not</span> supposed <span class="hljs-keyword">to</span> <span class="hljs-builtin-name">run</span> an application like
+the <span class="hljs-string">"express.use().listen(x)"</span>. You decorate the main component with @Application <span class="hljs-keyword">and</span> execute
+the driver without setting the app up manually. That also means its <span class="hljs-keyword">not</span> supposed <span class="hljs-keyword">to</span> be compatible 
+with vanilla node-js, as long as ecma<span class="hljs-built_in"> script </span>doesnt provide decorators.  
+You are also able <span class="hljs-keyword">to</span> gather components into modules <span class="hljs-keyword">and</span> import the modules into your app, <span class="hljs-keyword">to</span> have a nice clean structural approach. 
+
+<span class="hljs-comment">#### Note!</span>
+<span class="hljs-builtin-name">Set</span> <span class="hljs-keyword">in</span> your tsconfig.json
+```json
+{  
+    <span class="hljs-string">"experimentalDecorators"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">"emitDecoratorMetadata"</span>: <span class="hljs-literal">true</span>
 
 }
-</code></pre>
-				<h3 id="visit-the-playground-ts-to-see-a-working-example">Visit the playground.ts to see a working example</h3>
+</code></pre><h3 id="visit-the-playground-ts-to-see-a-working-example">Visit the playground.ts to see a working example</h3>
 				<p><a href="https://github.com/nilsroesel/skeidjs/blob/master/src/playground.ts">playground.ts</a></p>
 			</div>
 		</div>
