@@ -2,8 +2,8 @@
  * @module Http
  */
 import { ServerResponse } from 'http';
-import {Stream} from 'stream';
-import { ErrorMessage } from '../../index'
+import { Stream } from 'stream';
+import { ErrorMessage, ServerEventDispatcher } from '../../index'
 
 /**
  * A simple facade for the node http ServerResponse
@@ -136,6 +136,27 @@ export class Response {
             this.response.end();
         });
         payload.on('open', () => payload.pipe(this.response));
+    }
+
+    /**
+     * Since version 1.7
+     * Acts as server sent event source
+     * Use this for serving things like music or videos e.g. for a web browser
+     * @param headers A headers object for additional headers
+     */
+    event(headers?: any): ServerEventDispatcher {
+        delete (headers || {})['Connection'];
+        delete (headers || {})['Content-Type'];
+        delete (headers || {})['Cache-Control'];
+        const header = Object.assign({}, {
+            Connection: 'keep-alive',
+            'Content-Type': 'text/event-stream',
+            'Cache-Control': 'no-cache'
+        }, headers);
+        this.writeHead(200, header);
+
+        return new ServerEventDispatcher(this.response);
+
     }
 
 
