@@ -32,7 +32,7 @@ export class Response {
     }
 
     /**
-     * Set the whole http header at once ( node.http.ServerResponse.writeHead()
+     * Set the whole http header at once ( node.http.ServerResponse.writeHead() )
      * @param {number} status
      * @param {...'header': value} headerObject
      * @returns {Response}

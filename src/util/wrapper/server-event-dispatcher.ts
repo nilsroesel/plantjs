@@ -11,9 +11,9 @@ export class ServerEventDispatcher {
 
     /**
      * Dispatch a sever-sent-event on the depending connection.
-     * Will throw an error if connenction is closed
+     * Will throw an error if connection is closed
      * @param name Name of the dispatched event
-     * @param payload Payload of the dispathed event
+     * @param payload Payload of the dispatched event
      * @param id Optional id of the dispatched event
      */
     dispatch<T>(name: string, payload: T, id?: number) {
