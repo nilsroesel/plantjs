@@ -3,7 +3,7 @@
  */
 import 'reflect-metadata';
 import { EndpointConfig, Middleware, Request, Response } from '../index';
-import { componentStore, ComponentStore } from '../internal.index';
+import { EndpointFactory } from '../util/endpoint.factory';
 
 /**
  *
@@ -11,7 +11,7 @@ import { componentStore, ComponentStore } from '../internal.index';
  *
  * Creates an endpoint of a function
  * The decorated function need the following index signature otherwise it will throw an error
- * (request: Request, response: Response, next?: Function) (also an indexsignature fore middlewares)
+ * (request: Request, response: Response, next?: Function) (also an index signature fore middlewares)
  * If you pass the next-function and call it, it will get the next function from the route middlewares
  * and abort the current execution
  * @returns
@@ -36,31 +36,7 @@ import { componentStore, ComponentStore } from '../internal.index';
  * ```
  * **/
 export function Endpoint(config: EndpointConfig) {
-    const middleware = config.middleware || [];
-    return (target: Object, key: string) => {
-        checkHandlerFunctionIndexSignature(target, key);
-        if (componentStore.has(target.constructor.name)) {
-            const store: ComponentStore = componentStore.get(target.constructor.name);
-            store.endpoints.push({
-                functionContextInstance: target,
-                fn: target[key] as Function,
-                route: config.route || '',
-                middleware: middleware
-            });
-            componentStore.set(target.constructor.name, store);
-        } else {
-            componentStore.set(target.constructor.name, {
-                componentMiddleware: [] as Middleware,
-                componentRoute: null,
-                endpoints: new Array<EndpointHandler>({
-                    functionContextInstance: target,
-                    fn: target[key] as Function,
-                    route: config.route || '',
-                    middleware: middleware
-                })
-            });
-        }
-    };
+    return EndpointFactory.generateEndpointLogic(config);
 }
 
 /**
