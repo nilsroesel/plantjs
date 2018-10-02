@@ -9,11 +9,12 @@ import {
     ComponentStore,
     componentStore,
     EndpointHandler,
+    EndpointFactory,
     Injector,
     ModuleStore,
     moduleStore,
     RequestListenerFactory,
-    Router
+    Router, Routers
 } from '../internal.index';
 
 /**
@@ -60,20 +61,58 @@ export function Application(config: ApplicationConfig) {
                 // Instantiate via dependency injector
                 const component = Injector.resolve(Component);
                 if (storedComponent.endpoints) {
-                    storedComponent.endpoints.forEach(endpoint => {
-                        const middleware: Middleware = applicationMiddleWare
-                            .concat(storedComponent.componentMiddleware)
-                            .concat(endpoint.middleware);
-                        const endpointWithInjectedDependencies: EndpointHandler = {
-                            functionContextInstance: component,
-                            fn: endpoint.fn,
-                            route: endpoint.route,
-                            middleware: middleware
-                        };
-                        const route = (storedComponent.componentRoute || '').concat(endpoint.route).replace(/\/\//g, '/');
-                        if (router.has(route)) console.warn(colors.yellow(`[WARNING]\tFound duplicated route '${route}'. Route was overridden`));
-                        router.set(route, endpointWithInjectedDependencies);
-                    });
+                    storedComponent.endpoints
+                        .forEach(EndpointFactory.pushEndpointToRoute(
+                            router,
+                            component,
+                            storedComponent,
+                            applicationMiddleWare,
+                            Routers.UNSPECIFIED));
+                }
+                if (storedComponent.get) {
+                    storedComponent.get
+                        .forEach(EndpointFactory.pushEndpointToRoute(
+                            router,
+                            component,
+                            storedComponent,
+                            applicationMiddleWare,
+                            Routers.GET));
+                }
+                if (storedComponent.post) {
+                    storedComponent.post
+                        .forEach(EndpointFactory.pushEndpointToRoute(
+                            router,
+                            component,
+                            storedComponent,
+                            applicationMiddleWare,
+                            Routers.POST));
+                }
+                if (storedComponent.delete) {
+                    storedComponent.delete
+                        .forEach(EndpointFactory.pushEndpointToRoute(
+                            router,
+                            component,
+                            storedComponent,
+                            applicationMiddleWare,
+                            Routers.DELETE));
+                }
+                if (storedComponent.patch) {
+                    storedComponent.patch
+                        .forEach(EndpointFactory.pushEndpointToRoute(
+                            router,
+                            component,
+                            storedComponent,
+                            applicationMiddleWare,
+                            Routers.PATCH));
+                }
+                if (storedComponent.put) {
+                    storedComponent.put
+                        .forEach(EndpointFactory.pushEndpointToRoute(
+                            router,
+                            component,
+                            storedComponent,
+                            applicationMiddleWare,
+                            Routers.PUT));
                 }
             }  else { throw new Error(`Component ${Component} has no mapped class`); }
         });
@@ -89,21 +128,64 @@ export function Application(config: ApplicationConfig) {
                         // Instantiate via dependency injector
                         const component = Injector.resolveModuleInstance(Component);
                         if (storedComponent.endpoints) {
-                            storedComponent.endpoints.forEach(endpoint => {
-                                const middleware: Middleware = applicationMiddleWare
-                                    .concat(storedModule.moduleMiddleWare)
-                                    .concat(storedComponent.componentMiddleware)
-                                    .concat(endpoint.middleware);
-                                const endpointWithInjectedDependencies: EndpointHandler = {
-                                    functionContextInstance: component,
-                                    fn: endpoint.fn,
-                                    route: endpoint.route,
-                                    middleware: middleware
-                                };
-                                const route = storedModule.moduleRoute.concat(storedComponent.componentRoute || '').concat(endpoint.route).replace(/\/\//g, '/');
-                                if (router.has(route)) console.warn(colors.yellow(`[WARNING]\tFound duplicated route '${route}'. Route was overridden`));
-                                router.set(route, endpointWithInjectedDependencies);
-                            });
+                            storedComponent.endpoints
+                                .forEach(EndpointFactory.pushModuleEndpointToRoute(
+                                    router,
+                                    component,
+                                    storedModule,
+                                    storedComponent,
+                                    applicationMiddleWare,
+                                    Routers.UNSPECIFIED));
+                        }
+                        if (storedComponent.get) {
+                            storedComponent.get
+                                .forEach(EndpointFactory.pushModuleEndpointToRoute(
+                                    router,
+                                    component,
+                                    storedModule,
+                                    storedComponent,
+                                    applicationMiddleWare,
+                                    Routers.GET));
+                        }
+                        if (storedComponent.post) {
+                            storedComponent.post
+                                .forEach(EndpointFactory.pushModuleEndpointToRoute(
+                                    router,
+                                    component,
+                                    storedModule,
+                                    storedComponent,
+                                    applicationMiddleWare,
+                                    Routers.POST));
+                        }
+                        if (storedComponent.delete) {
+                            storedComponent.delete
+                                .forEach(EndpointFactory.pushModuleEndpointToRoute(
+                                    router,
+                                    component,
+                                    storedModule,
+                                    storedComponent,
+                                    applicationMiddleWare,
+                                    Routers.DELETE));
+                        }
+                        if (storedComponent.patch) {
+                            storedComponent.patch
+                                .forEach(EndpointFactory.pushModuleEndpointToRoute(
+                                    router,
+                                    component,
+                                    storedModule,
+                                    storedComponent,
+                                    applicationMiddleWare,
+                                    Routers.PATCH));
+                        }
+                        if (storedComponent.put) {
+                            storedComponent.put
+                                .forEach(EndpointFactory.pushModuleEndpointToRoute(
+                                    router,
+                                    component,
+                                    storedModule,
+                                    storedComponent,
+                                    applicationMiddleWare,
+                                    Routers.PUT));
                         }
                     } else { throw new Error(`Component ${Component} has no mapped class`); }
                 });
