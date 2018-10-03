@@ -94,9 +94,14 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="decorators.html#application" class="tsd-kind-icon">Application</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="decorators.html#component" class="tsd-kind-icon">Component</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="decorators.html#delete" class="tsd-kind-icon">Delete</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="decorators.html#endpoint" class="tsd-kind-icon">Endpoint</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="decorators.html#get" class="tsd-kind-icon">Get</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="decorators.html#injectable" class="tsd-kind-icon">Injectable</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="decorators.html#module" class="tsd-kind-icon">Module</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="decorators.html#patch" class="tsd-kind-icon">Patch</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="decorators.html#post" class="tsd-kind-icon">Post</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="decorators.html#put" class="tsd-kind-icon">Put</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,7 +119,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/decorators/application.decorator.ts#L43">decorators/application.decorator.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/f550ab8/src/decorators/application.decorator.ts#L44">decorators/application.decorator.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -161,7 +166,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/decorators/component.decorator.ts#L26">decorators/component.decorator.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/f550ab8/src/decorators/component.decorator.ts#L26">decorators/component.decorator.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -194,16 +199,68 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="endpoint" class="tsd-anchor"></a>
-					<h3>Endpoint</h3>
+					<a name="delete" class="tsd-anchor"></a>
+					<h3>Delete</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">Endpoint<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/decorator_configs.endpointconfig.html" class="tsd-signature-type">EndpointConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+						<li class="tsd-signature tsd-kind-icon">Delete<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/decorator_configs.endpointconfig.html" class="tsd-signature-type">EndpointConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/decorators/endpoint.decorator.ts#L38">decorators/endpoint.decorator.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/f550ab8/src/decorators/http-methods/delete.decorator.ts#L14">decorators/http-methods/delete.decorator.ts:14</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Since 1.7
+										Property Decorator Function
+										Works basically like the @Endpoint decorator, but only DELETE requests will be mapped to it. this will
+									enable duplicate routes on different method types</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>config: <a href="../interfaces/decorator_configs.endpointconfig.html" class="tsd-signature-type">EndpointConfig</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>target: <span class="tsd-signature-type">Object</span></h5>
+												</li>
+												<li>
+													<h5>key: <span class="tsd-signature-type">string</span></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="endpoint" class="tsd-anchor"></a>
+					<h3>Endpoint</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Endpoint<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/decorator_configs.endpointconfig.html" class="tsd-signature-type">EndpointConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/f550ab8/src/decorators/endpoint.decorator.ts#L38">decorators/endpoint.decorator.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -212,7 +269,7 @@
 								</div>
 								<p>Creates an endpoint of a function
 									The decorated function need the following index signature otherwise it will throw an error
-									(request: Request, response: Response, next?: Function) (also an indexsignature fore middlewares)
+									(request: Request, response: Response, next?: Function) (also an index signature fore middlewares)
 									If you pass the next-function and call it, it will get the next function from the route middlewares
 								and abort the current execution</p>
 								<dl class="tsd-comment-tags">
@@ -242,7 +299,80 @@
 									<h5>config: <a href="../interfaces/decorator_configs.endpointconfig.html" class="tsd-signature-type">EndpointConfig</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>target: <span class="tsd-signature-type">Object</span></h5>
+												</li>
+												<li>
+													<h5>key: <span class="tsd-signature-type">string</span></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="get" class="tsd-anchor"></a>
+					<h3>Get</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/decorator_configs.endpointconfig.html" class="tsd-signature-type">EndpointConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/f550ab8/src/decorators/http-methods/get.decorator.ts#L14">decorators/http-methods/get.decorator.ts:14</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Since 1.7
+										Property Decorator Function
+										Works basically like the @Endpoint decorator, but only GET requests will be mapped to it. this will
+									enable duplicate routes on different method types</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>config: <a href="../interfaces/decorator_configs.endpointconfig.html" class="tsd-signature-type">EndpointConfig</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>target: <span class="tsd-signature-type">Object</span></h5>
+												</li>
+												<li>
+													<h5>key: <span class="tsd-signature-type">string</span></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -256,7 +386,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/decorators/injectable.decorator.ts#L28">decorators/injectable.decorator.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/f550ab8/src/decorators/injectable.decorator.ts#L28">decorators/injectable.decorator.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -301,7 +431,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/079f48f/src/decorators/module.decorator.ts#L25">decorators/module.decorator.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/f550ab8/src/decorators/module.decorator.ts#L25">decorators/module.decorator.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -328,6 +458,162 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="patch" class="tsd-anchor"></a>
+					<h3>Patch</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Patch<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/decorator_configs.endpointconfig.html" class="tsd-signature-type">EndpointConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/f550ab8/src/decorators/http-methods/patch.decorator.ts#L14">decorators/http-methods/patch.decorator.ts:14</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Since 1.7
+										Property Decorator Function
+										Works basically like the @Endpoint decorator, but only PATCH requests will be mapped to it. this will
+									enable duplicate routes on different method types</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>config: <a href="../interfaces/decorator_configs.endpointconfig.html" class="tsd-signature-type">EndpointConfig</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>target: <span class="tsd-signature-type">Object</span></h5>
+												</li>
+												<li>
+													<h5>key: <span class="tsd-signature-type">string</span></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="post" class="tsd-anchor"></a>
+					<h3>Post</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Post<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/decorator_configs.endpointconfig.html" class="tsd-signature-type">EndpointConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/f550ab8/src/decorators/http-methods/post.decorator.ts#L14">decorators/http-methods/post.decorator.ts:14</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Since 1.7
+										Property Decorator Function
+										Works basically like the @Endpoint decorator, but only POST requests will be mapped to it. this will
+									enable duplicate routes on different method types</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>config: <a href="../interfaces/decorator_configs.endpointconfig.html" class="tsd-signature-type">EndpointConfig</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>target: <span class="tsd-signature-type">Object</span></h5>
+												</li>
+												<li>
+													<h5>key: <span class="tsd-signature-type">string</span></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="put" class="tsd-anchor"></a>
+					<h3>Put</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Put<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/decorator_configs.endpointconfig.html" class="tsd-signature-type">EndpointConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/f550ab8/src/decorators/http-methods/put.decorator.ts#L14">decorators/http-methods/put.decorator.ts:14</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Since 1.7
+										Property Decorator Function
+										Works basically like the @Endpoint decorator, but only PUT requests will be mapped to it. this will
+									enable duplicate routes on different method types</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>config: <a href="../interfaces/decorator_configs.endpointconfig.html" class="tsd-signature-type">EndpointConfig</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>target: <span class="tsd-signature-type">Object</span></h5>
+												</li>
+												<li>
+													<h5>key: <span class="tsd-signature-type">string</span></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -368,13 +654,28 @@
 						<a href="decorators.html#component" class="tsd-kind-icon">Component</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="decorators.html#delete" class="tsd-kind-icon">Delete</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="decorators.html#endpoint" class="tsd-kind-icon">Endpoint</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="decorators.html#get" class="tsd-kind-icon">Get</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="decorators.html#injectable" class="tsd-kind-icon">Injectable</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="decorators.html#module" class="tsd-kind-icon">Module</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="decorators.html#patch" class="tsd-kind-icon">Patch</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="decorators.html#post" class="tsd-kind-icon">Post</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="decorators.html#put" class="tsd-kind-icon">Put</a>
 					</li>
 				</ul>
 			</nav>
