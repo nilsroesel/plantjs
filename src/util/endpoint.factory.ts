@@ -2,7 +2,7 @@
  * @module Non-exported
  */
 
-import { ComponentStore, componentStore, Router, Routers } from '../internal.index';
+import { ComponentStore, componentStore, Injector, ModuleStore, moduleStore, Router, Routers } from '../internal.index';
 import { EndpointConfig, Middleware } from '../interfaces';
 import { checkHandlerFunctionIndexSignature, EndpointHandler } from '../decorators/endpoint.decorator';
 import * as colors from 'colors/safe';
@@ -48,11 +48,10 @@ export class EndpointFactory {
         };
     }
 
-    static pushModuleEndpointToRoute(router: Router, component: any,
-                                     storedModule: any, storedComponent: any, applicationMiddleware: Middleware, routerMap: Routers) {
+    private static pushEndpointToRoute(router: Router, component: any,
+                                       storedComponent: any, routerMap: Routers, parentMiddleware: Middleware, parentRoute: string) {
         return endpoint => {
-            const middleware: Middleware = applicationMiddleware
-                .concat(storedModule.moduleMiddleWare)
+            const middleware: Middleware = parentMiddleware
                 .concat(storedComponent.componentMiddleware)
                 .concat(endpoint.middleware);
             const endpointWithInjectedDependencies: EndpointHandler = {
@@ -61,28 +60,88 @@ export class EndpointFactory {
                 route: endpoint.route,
                 middleware: middleware
             };
-            const route = storedModule.moduleRoute.concat(storedComponent.componentRoute || '').concat(endpoint.route).replace(/\/\//g, '/');
+            const route = parentRoute.concat(storedComponent.componentRoute || '').concat(endpoint.route).replace(/\/\//g, '/');
             if (router.has(route, routerMap)) console.warn(colors.yellow(`[WARNING]\tFound duplicated route '${route}'. Route was overridden`));
             router.set(route, endpointWithInjectedDependencies, routerMap);
         };
     }
 
-    static pushEndpointToRoute(router: Router, component: any,
-                               storedComponent: any, applicationMiddleware: Middleware, routerMap: Routers) {
-        return endpoint => {
-            const middleware: Middleware = applicationMiddleware
-                .concat(storedComponent.componentMiddleware)
-                .concat(endpoint.middleware);
-            const endpointWithInjectedDependencies: EndpointHandler = {
-                functionContextInstance: component,
-                fn: endpoint.fn,
-                route: endpoint.route,
-                middleware: middleware
-            };
-            const route = (storedComponent.componentRoute || '').concat(endpoint.route).replace(/\/\//g, '/');
-            if (router.has(route, routerMap)) console.warn(colors.yellow(`[WARNING]\tFound duplicated route '${route}'. Route was overridden`));
-            router.set(route, endpointWithInjectedDependencies, routerMap);
-        };
+    static resolveComponentEndpoints(Component: { new(...args: any[]): {} }, applicationMiddleware: Middleware, router: Router, parentRoute: string = '') {
+        const componentName: string = (Component as Function).name;
+        if (componentStore.has(componentName)) {
+            const storedComponent = componentStore.get(componentName);
+            // Instantiate via dependency injector
+            const component = Injector.resolve(Component);
+            (storedComponent.endpoints || [])
+                .forEach(EndpointFactory.pushEndpointToRoute(
+                    router,
+                    component,
+                    storedComponent,
+                    Routers.UNSPECIFIED,
+                    applicationMiddleware,
+                    parentRoute));
+
+            (storedComponent.get || [])
+                .forEach(EndpointFactory.pushEndpointToRoute(
+                    router,
+                    component,
+                    storedComponent,
+                    Routers.GET,
+                    applicationMiddleware,
+                    parentRoute));
+
+            (storedComponent.post || [])
+                .forEach(EndpointFactory.pushEndpointToRoute(
+                    router,
+                    component,
+                    storedComponent,
+                    Routers.POST,
+                    applicationMiddleware,
+                    parentRoute));
+
+            (storedComponent.delete || [])
+                .forEach(EndpointFactory.pushEndpointToRoute(
+                    router,
+                    component,
+                    storedComponent,
+                    Routers.DELETE,
+                    applicationMiddleware,
+                    parentRoute));
+
+            (storedComponent.patch || [])
+                .forEach(EndpointFactory.pushEndpointToRoute(
+                    router,
+                    component,
+                    storedComponent,
+                    Routers.PATCH,
+                    applicationMiddleware,
+                    parentRoute));
+
+
+            (storedComponent.put || [])
+                .forEach(EndpointFactory.pushEndpointToRoute(
+                    router,
+                    component,
+                    storedComponent,
+                    Routers.PUT,
+                    applicationMiddleware,
+                    parentRoute));
+        } else {
+            throw new Error(`Component ${Component} has no mapped class`);
+        }
+
+    }
+
+    static resolveModuleEndpoints(Module: { new(...args: any[]): {} }, applicationMiddleware: Middleware, router: Router) {
+        const moduleName: string = (Module as Function).name;
+        if (moduleStore.has(moduleName)) {
+            const storedModule: ModuleStore = moduleStore.get(moduleName);
+            const middleware: Middleware = applicationMiddleware.concat(storedModule.moduleMiddleWare);
+            storedModule.components.forEach(Component => EndpointFactory.resolveComponentEndpoints(Component, middleware, router, storedModule.moduleRoute));
+        }
+        else {
+            throw new Error(`Module ${Module} has no mapped class`);
+        }
     }
 }
 
