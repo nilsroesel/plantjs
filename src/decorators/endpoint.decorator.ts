@@ -3,7 +3,7 @@
  */
 import 'reflect-metadata';
 import { EndpointConfig, Middleware, Request, Response } from '../index';
-import { EndpointFactory } from '../util/endpoint.factory';
+import { EndpointFactory } from '../internal.index';
 
 /**
  *

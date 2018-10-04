@@ -1,7 +1,7 @@
 /**
  * @module Decorators
  */
-import { ComponentConfig, Request, Response } from '../index';
+import { ComponentConfig } from '../index';
 import { componentStore, ComponentStore } from '../internal.index';
 
 /**
