@@ -1,8 +1,8 @@
 /**
  * @module Non-exported
  */
-import { ApplicationConfig, Request, Response } from '../index';
-import { RequestListenerFn, Route, Router, Routers } from '../internal.index';
+import { ApplicationConfig, Request, Response } from '../../index';
+import { RequestListenerFn, Route, Router, Routers } from '../../internal.index';
 import { IncomingMessage, ServerResponse } from 'http';
 
 /**

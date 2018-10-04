@@ -2,9 +2,18 @@
  * @module Non-exported
  */
 
-import { ComponentStore, componentStore, Injector, ModuleStore, moduleStore, Router, Routers } from '../internal.index';
-import { EndpointConfig, Middleware } from '../interfaces';
-import { checkHandlerFunctionIndexSignature, EndpointHandler } from '../decorators/endpoint.decorator';
+import {
+    checkHandlerFunctionIndexSignature,
+    ComponentStore,
+    componentStore,
+    EndpointHandler,
+    Injector,
+    ModuleStore,
+    moduleStore,
+    Router,
+    Routers
+} from '../../internal.index';
+import { EndpointConfig, Middleware } from '../../index';
 import * as colors from 'colors/safe';
 
 /**
@@ -117,7 +126,6 @@ export class EndpointFactory {
                     applicationMiddleware,
                     parentRoute));
 
-
             (storedComponent.put || [])
                 .forEach(EndpointFactory.pushEndpointToRoute(
                     router,
@@ -126,6 +134,7 @@ export class EndpointFactory {
                     Routers.PUT,
                     applicationMiddleware,
                     parentRoute));
+
         } else {
             throw new Error(`Component ${Component} has no mapped class`);
         }
