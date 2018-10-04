@@ -4,17 +4,13 @@
 import * as http from 'http';
 import * as https from 'https';
 import * as colors from 'colors/safe';
-import { ApplicationConfig, Middleware} from '../index';
+import { ApplicationConfig, Middleware } from '../index';
 import {
     ComponentStore,
     componentStore,
-    EndpointHandler,
     EndpointFactory,
-    Injector,
-    ModuleStore,
-    moduleStore,
     RequestListenerFactory,
-    Router, Routers
+    Router
 } from '../internal.index';
 
 /**
@@ -54,143 +50,11 @@ export function Application(config: ApplicationConfig) {
         }
 
         const router: Router = new Router();
-        (config.components || []).concat(constructor).forEach(Component => {
-            const componentName: string = (Component as Function).name;
-            if (componentStore.has(componentName)) {
-                const storedComponent = componentStore.get(componentName);
-                // Instantiate via dependency injector
-                const component = Injector.resolve(Component);
-                if (storedComponent.endpoints) {
-                    storedComponent.endpoints
-                        .forEach(EndpointFactory.pushEndpointToRoute(
-                            router,
-                            component,
-                            storedComponent,
-                            applicationMiddleWare,
-                            Routers.UNSPECIFIED));
-                }
-                if (storedComponent.get) {
-                    storedComponent.get
-                        .forEach(EndpointFactory.pushEndpointToRoute(
-                            router,
-                            component,
-                            storedComponent,
-                            applicationMiddleWare,
-                            Routers.GET));
-                }
-                if (storedComponent.post) {
-                    storedComponent.post
-                        .forEach(EndpointFactory.pushEndpointToRoute(
-                            router,
-                            component,
-                            storedComponent,
-                            applicationMiddleWare,
-                            Routers.POST));
-                }
-                if (storedComponent.delete) {
-                    storedComponent.delete
-                        .forEach(EndpointFactory.pushEndpointToRoute(
-                            router,
-                            component,
-                            storedComponent,
-                            applicationMiddleWare,
-                            Routers.DELETE));
-                }
-                if (storedComponent.patch) {
-                    storedComponent.patch
-                        .forEach(EndpointFactory.pushEndpointToRoute(
-                            router,
-                            component,
-                            storedComponent,
-                            applicationMiddleWare,
-                            Routers.PATCH));
-                }
-                if (storedComponent.put) {
-                    storedComponent.put
-                        .forEach(EndpointFactory.pushEndpointToRoute(
-                            router,
-                            component,
-                            storedComponent,
-                            applicationMiddleWare,
-                            Routers.PUT));
-                }
-            }  else { throw new Error(`Component ${Component} has no mapped class`); }
-        });
+        (config.components || [])
+            .concat(constructor)
+            .forEach(Component => EndpointFactory.resolveComponentEndpoints(Component, applicationMiddleWare, router));
 
-        (config.modules || []).forEach(Module => {
-            const moduleName: string = (Module as Function).name;
-            if (moduleStore.has(moduleName)) {
-                const storedModule: ModuleStore = moduleStore.get(moduleName);
-                storedModule.components.forEach(Component => {
-                    const componentName: string = (Component as Function).name;
-                    if (componentStore.has(componentName)) {
-                        const storedComponent = componentStore.get(componentName);
-                        // Instantiate via dependency injector
-                        const component = Injector.resolveModuleInstance(Component);
-                        if (storedComponent.endpoints) {
-                            storedComponent.endpoints
-                                .forEach(EndpointFactory.pushModuleEndpointToRoute(
-                                    router,
-                                    component,
-                                    storedModule,
-                                    storedComponent,
-                                    applicationMiddleWare,
-                                    Routers.UNSPECIFIED));
-                        }
-                        if (storedComponent.get) {
-                            storedComponent.get
-                                .forEach(EndpointFactory.pushModuleEndpointToRoute(
-                                    router,
-                                    component,
-                                    storedModule,
-                                    storedComponent,
-                                    applicationMiddleWare,
-                                    Routers.GET));
-                        }
-                        if (storedComponent.post) {
-                            storedComponent.post
-                                .forEach(EndpointFactory.pushModuleEndpointToRoute(
-                                    router,
-                                    component,
-                                    storedModule,
-                                    storedComponent,
-                                    applicationMiddleWare,
-                                    Routers.POST));
-                        }
-                        if (storedComponent.delete) {
-                            storedComponent.delete
-                                .forEach(EndpointFactory.pushModuleEndpointToRoute(
-                                    router,
-                                    component,
-                                    storedModule,
-                                    storedComponent,
-                                    applicationMiddleWare,
-                                    Routers.DELETE));
-                        }
-                        if (storedComponent.patch) {
-                            storedComponent.patch
-                                .forEach(EndpointFactory.pushModuleEndpointToRoute(
-                                    router,
-                                    component,
-                                    storedModule,
-                                    storedComponent,
-                                    applicationMiddleWare,
-                                    Routers.PATCH));
-                        }
-                        if (storedComponent.put) {
-                            storedComponent.put
-                                .forEach(EndpointFactory.pushModuleEndpointToRoute(
-                                    router,
-                                    component,
-                                    storedModule,
-                                    storedComponent,
-                                    applicationMiddleWare,
-                                    Routers.PUT));
-                        }
-                    } else { throw new Error(`Component ${Component} has no mapped class`); }
-                });
-            } else { throw new Error(`Module ${Module} has no mapped class`); }
-        });
+        (config.modules || []).forEach(Module => EndpointFactory.resolveModuleEndpoints(Module, applicationMiddleWare, router));
 
         if (config.server.https) {
             https.createServer(config.server.https, RequestListenerFactory(config, router))
