@@ -9,4 +9,5 @@ export interface ModuleConfig {
     components?: Array<Instantiable<any>>;
     middleware?: Middleware;
     providers?: Array<Instantiable<any>>;
+    modules?: Array<Instantiable<any>>;
 }

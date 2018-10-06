@@ -3,7 +3,7 @@
  */
 
 import { ModuleConfig } from '../index';
-import { moduleStore, ModuleStore } from '../internal.index';
+import { ComponentStore, componentStore, emptyComponent, moduleStore, ModuleStore } from '../internal.index';
 
 /**
  *
@@ -29,8 +29,18 @@ export function Module(config: ModuleConfig) {
         store.moduleMiddleWare = config.middleware || [];
         store.moduleRoute = config.route || '';
         store.providers = config.providers || [];
-
+        store.modules = config.modules || [];
         moduleStore.set(constructor.name, store);
+
+        if (componentStore.has(constructor.name)) {
+            const store: ComponentStore = componentStore.get(constructor.name);
+            store.componentRoute = '';
+            store.componentMiddleware = [];
+            componentStore.set(constructor.name, store);
+        } else {
+            const store: ComponentStore = emptyComponent();
+            componentStore.set(constructor.name, store);
+        }
 
         return constructor;
     }
