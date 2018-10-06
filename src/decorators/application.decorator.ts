@@ -8,7 +8,7 @@ import { ApplicationConfig, Middleware } from '../index';
 import {
     ComponentStore,
     componentStore,
-    EndpointFactory,
+    EndpointFactory, EndpointHandler,
     RequestListenerFactory,
     Router
 } from '../internal.index';
@@ -47,6 +47,17 @@ export function Application(config: ApplicationConfig) {
             store.componentRoute = '';
             store.componentMiddleware = [];
             componentStore.set(constructor.name, store);
+        } else {
+            componentStore.set(constructor.name, <ComponentStore>{
+                componentMiddleware: [] as Middleware,
+                componentRoute: null,
+                endpoints: [] as Array<EndpointHandler>,
+                get: [] as Array<EndpointHandler>,
+                post: [] as Array<EndpointHandler>,
+                patch: [] as Array<EndpointHandler>,
+                put: [] as Array<EndpointHandler>,
+                delete: [] as Array<EndpointHandler>
+            });
         }
 
         const router: Router = new Router();
