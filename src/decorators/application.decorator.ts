@@ -8,6 +8,7 @@ import { ApplicationConfig, Middleware } from '../index';
 import {
     ComponentStore,
     componentStore,
+    emptyComponent,
     EndpointFactory,
     RequestListenerFactory,
     Router
@@ -47,6 +48,9 @@ export function Application(config: ApplicationConfig) {
             store.componentRoute = '';
             store.componentMiddleware = [];
             componentStore.set(constructor.name, store);
+        } else {
+            const store: ComponentStore = emptyComponent();
+            componentStore.set(constructor.name, store);
         }
 
         const router: Router = new Router();
@@ -58,7 +62,7 @@ export function Application(config: ApplicationConfig) {
 
         if (config.server.https) {
             https.createServer(config.server.https, RequestListenerFactory(config, router))
-                .listen(config.server.port || 443, () =>{
+                .listen(config.server.port || 443, () => {
                     console.log(colors.green(`[SUCCESS]\tApi is up and listening on port ${config.server.port || 443}`));
                     console.log('[INFO]\t\tUsing schema https');
                 });

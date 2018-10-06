@@ -22,3 +22,16 @@ export interface ComponentStore {
  * @hidden
  */
 export const componentStore: Map<string, ComponentStore> = new Map();
+
+export function emptyComponent(): ComponentStore {
+    return <ComponentStore>{
+        componentMiddleware: [] as Middleware,
+        componentRoute: null,
+        endpoints: [] as Array<EndpointHandler>,
+        get: [] as Array<EndpointHandler>,
+        post: [] as Array<EndpointHandler>,
+        patch: [] as Array<EndpointHandler>,
+        put: [] as Array<EndpointHandler>,
+        delete: [] as Array<EndpointHandler>
+    };
+}
