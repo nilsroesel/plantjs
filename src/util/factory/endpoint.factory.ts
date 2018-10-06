@@ -6,6 +6,7 @@ import {
     checkHandlerFunctionIndexSignature,
     ComponentStore,
     componentStore,
+    emptyComponent,
     EndpointHandler,
     Injector,
     ModuleStore,
@@ -36,16 +37,7 @@ export class EndpointFactory {
                 });
                 componentStore.set(target.constructor.name, store);
             } else {
-                const stored: ComponentStore = {
-                    componentMiddleware: [] as Middleware,
-                    componentRoute: null,
-                    endpoints: [] as Array<EndpointHandler>,
-                    get: [] as Array<EndpointHandler>,
-                    post: [] as Array<EndpointHandler>,
-                    patch: [] as Array<EndpointHandler>,
-                    put: [] as Array<EndpointHandler>,
-                    delete: [] as Array<EndpointHandler>
-                };
+                const stored: ComponentStore = emptyComponent;
                 stored[selectedEndpointArray] = new Array<EndpointHandler>({
                     functionContextInstance: target,
                     fn: target[key] as Function,

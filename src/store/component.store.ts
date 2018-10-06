@@ -18,6 +18,17 @@ export interface ComponentStore {
     patch: Array<EndpointHandler>;
 }
 
+export const emptyComponent: ComponentStore = {
+    componentMiddleware: [] as Middleware,
+    componentRoute: null,
+    endpoints: [] as Array<EndpointHandler>,
+    get: [] as Array<EndpointHandler>,
+    post: [] as Array<EndpointHandler>,
+    patch: [] as Array<EndpointHandler>,
+    put: [] as Array<EndpointHandler>,
+    delete: [] as Array<EndpointHandler>
+};
+
 /**
  * @hidden
  */
