@@ -11,6 +11,7 @@ export interface ModuleStore {
     moduleRoute: string;
     moduleMiddleWare: Middleware;
     components: Array<Instantiable<any>>;
+    modules: Array<Instantiable<any>>;
     providers: Array<Instantiable<any>>;
 }
 

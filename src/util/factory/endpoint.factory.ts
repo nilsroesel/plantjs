@@ -133,12 +133,14 @@ export class EndpointFactory {
 
     }
 
-    static resolveModuleEndpoints(Module: { new(...args: any[]): {} }, applicationMiddleware: Middleware, router: Router) {
+    static resolveModuleEndpoints(Module: { new(...args: any[]): {} }, applicationMiddleware: Middleware, router: Router, parentRoute: string = '') {
         const moduleName: string = (Module as Function).name;
         if (moduleStore.has(moduleName)) {
             const storedModule: ModuleStore = moduleStore.get(moduleName);
             const middleware: Middleware = applicationMiddleware.concat(storedModule.moduleMiddleWare);
-            storedModule.components.forEach(Component => EndpointFactory.resolveComponentEndpoints(Component, middleware, router, storedModule.moduleRoute));
+            const route = parentRoute.concat(storedModule.moduleRoute);
+            storedModule.components.concat([Module]).forEach(Component => EndpointFactory.resolveComponentEndpoints(Component, middleware, router, route));
+            storedModule.modules.forEach(ChildModule => EndpointFactory.resolveModuleEndpoints(ChildModule, middleware, router, route));
         }
         else {
             throw new Error(`Module ${Module} has no mapped class`);
