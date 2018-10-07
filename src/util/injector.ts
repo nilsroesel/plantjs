@@ -2,8 +2,8 @@
  * @module Non-exported
  */
 import 'reflect-metadata'
-import { Instantiable } from '../internal.index';
-import { injectorStore } from '../../target/store/injector.store';
+import { Instantiable, injectorStore } from '../internal.index';
+import { OnInit, implementsOnInit } from '../index';
 
 /**
  * @hidden
@@ -11,7 +11,6 @@ import { injectorStore } from '../../target/store/injector.store';
 export const Injector = new class {
 
     resolve<T>(instance: Instantiable<T>): T {
-
         // Tokens are required dependencies, while injections are resolved tokens from the Injector
         let tokens = Reflect.getMetadata('design:paramtypes', instance) || [],
             injections = tokens.map(token => {
@@ -27,7 +26,9 @@ export const Injector = new class {
                     return Injector.resolve<any>(token);
                 }
             });
-        return new instance(...injections);
+        const instantiated: T = new instance(...injections);
+        if (implementsOnInit(instantiated)) (instantiated as OnInit).onInit();
+        return instantiated;
     }
 
     resolveModuleInstance<T>(instance: Instantiable<T>, store?: Map<Instantiable<any>, Object>): T {
@@ -49,9 +50,9 @@ export const Injector = new class {
                     return Injector.resolveModuleInstance<any>(token, moduleStore);
                 }
             });
-        return new instance(...injections);
+        const instantiated: T = new instance(...injections);
+        if (implementsOnInit(instantiated)) (instantiated as OnInit).onInit();
+        return instantiated;
     }
-
-
 
 };
