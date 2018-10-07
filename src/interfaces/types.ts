@@ -20,7 +20,7 @@ export type RequestListenerFn = (request: IncomingMessage, response: ServerRespo
  */
 export interface ContextHandlerFn {
     functionContextInstance: Object;
-    fn: Function
+    fn: HandlerFn
 }
 
 /**
@@ -33,7 +33,7 @@ export type MiddlewareFunction = HandlerFn | ContextHandlerFn;
 export type Middleware = Array<MiddlewareFunction>;
 
 /**
- * @hidden
+ * Any class, or expression on which the new-keyword would work
  */
 export interface Instantiable<T> {new(...args: any[]): T;}
 
