@@ -156,7 +156,24 @@ export class Response {
         this.writeHead(200, header);
 
         return new ServerEventDispatcher(this.response);
+    }
 
+    /**
+     * Since 1.8
+     * If the response was ended this will return true
+     * @return {boolean}
+     */
+    finished(): boolean {
+        return this.response.finished
+    }
+
+    /**
+     * Since 1.8
+     * Ends the response
+     * @param {(...args) => any} callback
+     */
+    end(callback?: (...args) => any) {
+        this.response.end(callback);
     }
 
 
