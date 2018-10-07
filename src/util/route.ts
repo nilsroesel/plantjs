@@ -23,11 +23,11 @@ export class Route {
             try {
                 MiddlewareIterator.exec(this.functionChain, request, response);
             } catch (error) {
-                const errorPayload: Array<ErrorHandlerResult> = this.errorHandler.handle(error);
-                const status: number = errorPayload
-                    .map(val => val.status)
-                    .reduce((prev, curr) => curr || prev || 500) || 500;
-                if (!response.finished()) response.status(status).respond(errorPayload);
+                const errorHandlerResult: ErrorHandlerResult = this.errorHandler.handle(error) || {
+                    status: 500,
+                    payload: error.stack
+                };
+                if (!response.finished()) response.status(errorHandlerResult.status).respond(errorHandlerResult.payload);
             }
         } else {
             MiddlewareIterator.exec(this.functionChain, request, response);

@@ -8,6 +8,7 @@ import {
     Injectable,
     InjectionModes,
     Module,
+    OnError,
     Response,
     Request
 } from './index'; // 'skeidjs'
@@ -43,18 +44,21 @@ class FileService {
 }
 
 @Component({})
-class MicroComponent {
+class MicroComponent implements OnError {
     constructor(public foo: TestInjectable) {}
+
+    onError(err) {
+        console.log(this.foo.bar)
+        console.log(222, err)
+    }
 
     @Endpoint({
         route: '/test'
     })
     test1(request: Request, response: Response) {
-        this.foo.bar = 'Hello World';
-        response
-            .status(200)
-            .json(this.foo)
-            .send();
+        //const promise = new Promise(((resolve, reject) => reject('you are dumb')));
+        if (!request.body) throw new Error('Test')
+        response.respond({ message: 'foo' });
     }
 }
 
@@ -134,7 +138,11 @@ class FileEndpoints {
     route: '/module',
     components: [MicroComponent]
 })
-class TestModule {}
+class TestModule implements OnError {
+    onError(err) {
+        console.log(111, err)
+    }
+}
 
 @Application({
     contentType: 'application/json',

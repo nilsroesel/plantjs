@@ -60,7 +60,7 @@ export function Application(config: ApplicationConfig) {
         (config.components || [])
             .forEach(Component => EndpointFactory.resolveComponentEndpoints(Component, applicationMiddleWare, router, undefined, errorHandler));
 
-        (config.modules || []).forEach(Module => EndpointFactory.resolveModuleEndpoints(Module, applicationMiddleWare, router));
+        (config.modules || []).forEach(Module => EndpointFactory.resolveModuleEndpoints(Module, applicationMiddleWare, router, undefined, errorHandler));
 
         if (config.server.https) {
             https.createServer(config.server.https, RequestListenerFactory(config, router))

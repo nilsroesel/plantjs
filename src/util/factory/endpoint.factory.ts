@@ -75,8 +75,8 @@ export class EndpointFactory {
             const storedComponent = componentStore.get(componentName);
             // Instantiate via dependency injector
             const component = Injector.resolve(Component);
-
-            let componentErrorHandler = ErrorHandler.empty().combine(errorHandler).registerErrorHandlerFromObject(component);
+            errorHandler.registerErrorHandlerFromObject(component);
+            const componentErrorHandler = ErrorHandler.empty().combine(errorHandler);
             (storedComponent.endpoints || [])
                 .forEach(EndpointFactory.pushEndpointToRoute(
                     router,
@@ -149,7 +149,7 @@ export class EndpointFactory {
             const storedModule: ModuleStore = moduleStore.get(moduleName);
             // Instantiate via dependency injector
             const component = Injector.resolve(Module);
-            let moduleErrorHandler = ErrorHandler.empty().registerErrorHandlerFromObject(component)
+            let moduleErrorHandler = ErrorHandler.empty().registerErrorHandlerFromObject(component);
             if (errorHandler) moduleErrorHandler = errorHandler.combine(moduleErrorHandler);
             const middleware: Middleware = applicationMiddleware.concat(storedModule.moduleMiddleWare);
             const route = parentRoute.concat(storedModule.moduleRoute);
