@@ -8,6 +8,7 @@ import {
     componentStore,
     emptyComponent,
     EndpointHandler,
+    ErrorHandler,
     Injector,
     ModuleStore,
     moduleStore,
@@ -50,7 +51,7 @@ export class EndpointFactory {
     }
 
     private static pushEndpointToRoute(router: Router, component: any,
-                                       storedComponent: any, routerMap: Routers, parentMiddleware: Middleware, parentRoute: string) {
+                                       storedComponent: any, routerMap: Routers, parentMiddleware: Middleware, parentRoute: string, errorHandler: ErrorHandler) {
         return endpoint => {
             const middleware: Middleware = parentMiddleware
                 .concat(storedComponent.componentMiddleware)
@@ -59,7 +60,8 @@ export class EndpointFactory {
                 functionContextInstance: component,
                 fn: endpoint.fn,
                 route: endpoint.route,
-                middleware: middleware
+                middleware: middleware,
+                errorHandler: errorHandler
             };
             const route = parentRoute.concat(storedComponent.componentRoute || '').concat(endpoint.route).replace(/\/\//g, '/');
             if (router.has(route, routerMap)) console.warn(colors.yellow(`[WARNING]\tFound duplicated route '${route}'. Route was overridden`));
@@ -67,12 +69,14 @@ export class EndpointFactory {
         };
     }
 
-    static resolveComponentEndpoints(Component: { new(...args: any[]): {} }, applicationMiddleware: Middleware, router: Router, parentRoute: string = '') {
+    static resolveComponentEndpoints(Component: { new(...args: any[]): {} }, applicationMiddleware: Middleware, router: Router, parentRoute: string = '', errorHandler: ErrorHandler = ErrorHandler.empty()) {
         const componentName: string = (Component as Function).name;
         if (componentStore.has(componentName)) {
             const storedComponent = componentStore.get(componentName);
             // Instantiate via dependency injector
             const component = Injector.resolve(Component);
+
+            let componentErrorHandler = ErrorHandler.empty().combine(errorHandler).registerErrorHandlerFromObject(component);
             (storedComponent.endpoints || [])
                 .forEach(EndpointFactory.pushEndpointToRoute(
                     router,
@@ -80,7 +84,8 @@ export class EndpointFactory {
                     storedComponent,
                     Routers.UNSPECIFIED,
                     applicationMiddleware,
-                    parentRoute));
+                    parentRoute,
+                    componentErrorHandler));
 
             (storedComponent.get || [])
                 .forEach(EndpointFactory.pushEndpointToRoute(
@@ -89,7 +94,8 @@ export class EndpointFactory {
                     storedComponent,
                     Routers.GET,
                     applicationMiddleware,
-                    parentRoute));
+                    parentRoute,
+                    componentErrorHandler));
 
             (storedComponent.post || [])
                 .forEach(EndpointFactory.pushEndpointToRoute(
@@ -98,7 +104,8 @@ export class EndpointFactory {
                     storedComponent,
                     Routers.POST,
                     applicationMiddleware,
-                    parentRoute));
+                    parentRoute,
+                    componentErrorHandler));
 
             (storedComponent.delete || [])
                 .forEach(EndpointFactory.pushEndpointToRoute(
@@ -107,7 +114,8 @@ export class EndpointFactory {
                     storedComponent,
                     Routers.DELETE,
                     applicationMiddleware,
-                    parentRoute));
+                    parentRoute,
+                    componentErrorHandler));
 
             (storedComponent.patch || [])
                 .forEach(EndpointFactory.pushEndpointToRoute(
@@ -116,7 +124,8 @@ export class EndpointFactory {
                     storedComponent,
                     Routers.PATCH,
                     applicationMiddleware,
-                    parentRoute));
+                    parentRoute,
+                    componentErrorHandler));
 
             (storedComponent.put || [])
                 .forEach(EndpointFactory.pushEndpointToRoute(
@@ -125,7 +134,8 @@ export class EndpointFactory {
                     storedComponent,
                     Routers.PUT,
                     applicationMiddleware,
-                    parentRoute));
+                    parentRoute,
+                    componentErrorHandler));
 
         } else {
             throw new Error(`Component ${Component} has no mapped class`);
@@ -133,14 +143,19 @@ export class EndpointFactory {
 
     }
 
-    static resolveModuleEndpoints(Module: { new(...args: any[]): {} }, applicationMiddleware: Middleware, router: Router, parentRoute: string = '') {
+    static resolveModuleEndpoints(Module: { new(...args: any[]): {} }, applicationMiddleware: Middleware, router: Router, parentRoute: string = '', errorHandler?: ErrorHandler) {
         const moduleName: string = (Module as Function).name;
         if (moduleStore.has(moduleName)) {
             const storedModule: ModuleStore = moduleStore.get(moduleName);
+            // Instantiate via dependency injector
+            const component = Injector.resolve(Module);
+            let moduleErrorHandler = ErrorHandler.empty().registerErrorHandlerFromObject(component)
+            if (errorHandler) moduleErrorHandler = errorHandler.combine(moduleErrorHandler);
             const middleware: Middleware = applicationMiddleware.concat(storedModule.moduleMiddleWare);
             const route = parentRoute.concat(storedModule.moduleRoute);
-            storedModule.components.concat([Module]).forEach(Component => EndpointFactory.resolveComponentEndpoints(Component, middleware, router, route));
-            storedModule.modules.forEach(ChildModule => EndpointFactory.resolveModuleEndpoints(ChildModule, middleware, router, route));
+            EndpointFactory.resolveComponentEndpoints(Module, middleware, router, route, moduleErrorHandler);
+            storedModule.components.forEach(Component => EndpointFactory.resolveComponentEndpoints(Component, middleware, router, route, moduleErrorHandler));
+            storedModule.modules.forEach(ChildModule => EndpointFactory.resolveModuleEndpoints(ChildModule, middleware, router, route, moduleErrorHandler));
         }
         else {
             throw new Error(`Module ${Module} has no mapped class`);

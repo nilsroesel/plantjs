@@ -9,7 +9,7 @@ import {
     ComponentStore,
     componentStore,
     emptyComponent,
-    EndpointFactory,
+    EndpointFactory, ErrorHandler,
     RequestListenerFactory,
     Router
 } from '../internal.index';
@@ -54,9 +54,11 @@ export function Application(config: ApplicationConfig) {
         }
 
         const router: Router = new Router();
+        const errorHandler: ErrorHandler = ErrorHandler.empty();
+        EndpointFactory.resolveComponentEndpoints(constructor, applicationMiddleWare, router, undefined, errorHandler);
+
         (config.components || [])
-            .concat(constructor)
-            .forEach(Component => EndpointFactory.resolveComponentEndpoints(Component, applicationMiddleWare, router));
+            .forEach(Component => EndpointFactory.resolveComponentEndpoints(Component, applicationMiddleWare, router, undefined, errorHandler));
 
         (config.modules || []).forEach(Module => EndpointFactory.resolveModuleEndpoints(Module, applicationMiddleWare, router));
 
