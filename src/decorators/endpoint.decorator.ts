@@ -3,7 +3,7 @@
  */
 import 'reflect-metadata';
 import { EndpointConfig, Middleware, Request, Response } from '../index';
-import { EndpointFactory } from '../internal.index';
+import { EndpointFactory, ErrorHandler } from '../internal.index';
 
 /**
  *
@@ -47,6 +47,7 @@ export interface EndpointHandler {
     fn: Function;
     route: string;
     middleware?: Middleware;
+    errorHandler?: ErrorHandler;
 }
 
 /**

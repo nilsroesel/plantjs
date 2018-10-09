@@ -1,7 +1,7 @@
 /**
  * @module Non-exported
  */
-import { Middleware } from '../index';
+import { Middleware, MiddlewareFunction } from '../index';
 import { EndpointHandler, Route } from '../internal.index';
 
 /**
@@ -79,11 +79,11 @@ export class Router {
             const routerFunction = (val: EndpointHandler, key: string) => {
                 // Transform route into a regex to match url ->^route-with-params-$
                 const regExString = Router.transformRouteToRegEx(key);
-                const functionChain: Middleware = val.middleware.concat({
+                const functionChain: Middleware = val.middleware.concat(<MiddlewareFunction>{
                     functionContextInstance: val.functionContextInstance,
                     fn: val.fn
                 });
-                if (new RegExp(regExString).test(url)) resolve(new Route(functionChain, Router.readParamsFromUrl(url, key, regExString)));
+                if (new RegExp(regExString).test(url)) resolve(new Route(functionChain, Router.readParamsFromUrl(url, key, regExString), val.errorHandler));
             };
             if(map !== Routers.UNSPECIFIED && map) (this[map] as Map<string, EndpointHandler>).forEach(routerFunction);
             this.unspecifiedRoutes.forEach(routerFunction);

@@ -9,7 +9,7 @@ import {
     ComponentStore,
     componentStore,
     emptyComponent,
-    EndpointFactory,
+    EndpointFactory, ErrorHandler,
     RequestListenerFactory,
     Router
 } from '../internal.index';
@@ -54,11 +54,13 @@ export function Application(config: ApplicationConfig) {
         }
 
         const router: Router = new Router();
-        (config.components || [])
-            .concat(constructor)
-            .forEach(Component => EndpointFactory.resolveComponentEndpoints(Component, applicationMiddleWare, router));
+        const errorHandler: ErrorHandler = ErrorHandler.empty();
+        EndpointFactory.resolveComponentEndpoints(constructor, applicationMiddleWare, router, undefined, errorHandler);
 
-        (config.modules || []).forEach(Module => EndpointFactory.resolveModuleEndpoints(Module, applicationMiddleWare, router));
+        (config.components || [])
+            .forEach(Component => EndpointFactory.resolveComponentEndpoints(Component, applicationMiddleWare, router, undefined, errorHandler));
+
+        (config.modules || []).forEach(Module => EndpointFactory.resolveModuleEndpoints(Module, applicationMiddleWare, router, undefined, errorHandler));
 
         if (config.server.https) {
             https.createServer(config.server.https, RequestListenerFactory(config, router))
