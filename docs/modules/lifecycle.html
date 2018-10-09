@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Types | skeiðjs</title>
+	<title>Lifecycle | skeiðjs</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -69,16 +69,20 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="types.html">Types</a>
+					<a href="lifecycle.html">Lifecycle</a>
 				</li>
 			</ul>
-			<h1>External module Types</h1>
+			<h1>External module Lifecycle</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -86,86 +90,78 @@
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/types.contexthandlerfn.html" class="tsd-kind-icon">Context<wbr>Handler<wbr>Fn</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/types.errormessage.html" class="tsd-kind-icon">Error<wbr>Message</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter"><a href="../interfaces/types.instantiable.html" class="tsd-kind-icon">Instantiable</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/lifecycle.errorhandlerresult.html" class="tsd-kind-icon">Error<wbr>Handler<wbr>Result</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/lifecycle.onerror.html" class="tsd-kind-icon">On<wbr>Error</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/lifecycle.oninit.html" class="tsd-kind-icon">On<wbr>Init</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Type aliases</h3>
+							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="types.html#handlerfn" class="tsd-kind-icon">Handler<wbr>Fn</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="types.html#middleware" class="tsd-kind-icon">Middleware</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="types.html#middlewarefunction" class="tsd-kind-icon">Middleware<wbr>Function</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="lifecycle.html#implementsonerror" class="tsd-kind-icon">implements<wbr>OnError</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="lifecycle.html#implementsoninit" class="tsd-kind-icon">implements<wbr>OnInit</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
-					<a name="handlerfn" class="tsd-anchor"></a>
-					<h3>Handler<wbr>Fn</h3>
-					<div class="tsd-signature tsd-kind-icon">Handler<wbr>Fn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/4dd3d1d/src/interfaces/types.ts#L11">interfaces/types.ts:11</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The function type for every endpoint and every middleware
-							The next function will break the current function processing completely and will prosed with the nex middleware function</p>
-						</div>
-					</div>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">?: </span><a href="../classes/http.request.html" class="tsd-signature-type">Request</a>, response<span class="tsd-signature-symbol">?: </span><a href="../classes/http.response.html" class="tsd-signature-type">Response</a>, next<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="implementsonerror" class="tsd-anchor"></a>
+					<h3>implements<wbr>OnError</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">implements<wbr>OnError<span class="tsd-signature-symbol">(</span>arg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/4dd3d1d/src/interfaces/life-cycle.interface.ts#L38">interfaces/life-cycle.interface.ts:38</a></li>
 								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> request: <a href="../classes/http.request.html" class="tsd-signature-type">Request</a></h5>
-											</li>
-											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> response: <a href="../classes/http.response.html" class="tsd-signature-type">Response</a></h5>
-											</li>
-											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> next: <span class="tsd-signature-type">Function</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-									</li>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Type guard for OnError interface</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>arg: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="implementsoninit" class="tsd-anchor"></a>
+					<h3>implements<wbr>OnInit</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">implements<wbr>OnInit<span class="tsd-signature-symbol">(</span>arg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/4dd3d1d/src/interfaces/life-cycle.interface.ts#L16">interfaces/life-cycle.interface.ts:16</a></li>
 								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
-					<a name="middleware" class="tsd-anchor"></a>
-					<h3>Middleware</h3>
-					<div class="tsd-signature tsd-kind-icon">Middleware<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="types.html#middlewarefunction" class="tsd-signature-type">MiddlewareFunction</a><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/4dd3d1d/src/interfaces/types.ts#L33">interfaces/types.ts:33</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
-					<a name="middlewarefunction" class="tsd-anchor"></a>
-					<h3>Middleware<wbr>Function</h3>
-					<div class="tsd-signature tsd-kind-icon">Middleware<wbr>Function<span class="tsd-signature-symbol">:</span> <a href="types.html#handlerfn" class="tsd-signature-type">HandlerFn</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/types.contexthandlerfn.html" class="tsd-signature-type">ContextHandlerFn</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/nilsroesel/plants/blob/4dd3d1d/src/interfaces/types.ts#L31">interfaces/types.ts:31</a></li>
-						</ul>
-					</aside>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Type guard for OnInit interface</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>arg: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -184,13 +180,13 @@
 					<li class=" tsd-kind-external-module">
 						<a href="http.html">Http</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="lifecycle.html">Lifecycle</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="non_exported.html">Non-<wbr>exported</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="types.html">Types</a>
 					</li>
 				</ul>
@@ -198,22 +194,19 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/types.contexthandlerfn.html" class="tsd-kind-icon">Context<wbr>Handler<wbr>Fn</a>
+						<a href="../interfaces/lifecycle.errorhandlerresult.html" class="tsd-kind-icon">Error<wbr>Handler<wbr>Result</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/types.errormessage.html" class="tsd-kind-icon">Error<wbr>Message</a>
+						<a href="../interfaces/lifecycle.onerror.html" class="tsd-kind-icon">On<wbr>Error</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../interfaces/types.instantiable.html" class="tsd-kind-icon">Instantiable</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/lifecycle.oninit.html" class="tsd-kind-icon">On<wbr>Init</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="types.html#handlerfn" class="tsd-kind-icon">Handler<wbr>Fn</a>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="lifecycle.html#implementsonerror" class="tsd-kind-icon">implements<wbr>OnError</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="types.html#middleware" class="tsd-kind-icon">Middleware</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="types.html#middlewarefunction" class="tsd-kind-icon">Middleware<wbr>Function</a>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="lifecycle.html#implementsoninit" class="tsd-kind-icon">implements<wbr>OnInit</a>
 					</li>
 				</ul>
 			</nav>
