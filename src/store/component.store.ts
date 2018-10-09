@@ -23,6 +23,9 @@ export interface ComponentStore {
  */
 export const componentStore: Map<string, ComponentStore> = new Map();
 
+/**
+ * @hidden
+ */
 export function emptyComponent(): ComponentStore {
     return <ComponentStore>{
         componentMiddleware: [] as Middleware,
