@@ -1,4 +1,7 @@
 /src/
-tsconfig.json
 /docs/
 /playground-data/
+/test/
+jasmine.json
+tsconfig.json
+gulpfile.js
