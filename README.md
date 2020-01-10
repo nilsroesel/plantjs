@@ -1,5 +1,7 @@
 # skeiðjs
 
+## NOTE! This is an experimental project.
+
 ## About
 skeidjs is a lightweight typescript based framework for creating restful apis.  
 The objective is to have a small driverless and expressive application that can run.  
